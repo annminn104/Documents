@@ -11,11 +11,13 @@ netsh interface portproxy add v4tov4 listenport=$port listenaddress=$windows_ip 
 ```
   
 **Windows:**
+
 ```shell
 netsh interface portproxy show all
 ```
 
 **WSL:**
+
 ```shell
 ip addr show eth0
 sudo ss -tuln
@@ -23,11 +25,15 @@ ip addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}'
 sudo nano /etc/ssh/sshd_config
 ```
 PermitRootLogin no
+
 PasswordAuthentication yes
+
 AllowUsers username
+
 ListenAddress 0.0.0.0
 
 **Windows bride to WSL**
+
 ```shell
 netsh interface portproxy add v4tov4 listenaddress=<ip_windows> listenport=2222 connectaddress=<ip_wsl> connectport=22
 ```
