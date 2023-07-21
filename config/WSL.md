@@ -1,4 +1,4 @@
-<details><summary>Setup bride Windows to WSL</summary>
+<details><summary><h3>Setup bride Windows to WSL</h3></summary>
   
 **Windows:**
   
