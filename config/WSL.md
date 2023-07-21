@@ -1,5 +1,5 @@
-<details><summary>report - click this</summary>
-<div>
+<details><summary>**Setup bride Windows to WSL**</summary>
+<code>
 $wsl2_ip = wsl hostname -I | % { $_.Trim() }
 $windows_ip = (Test-Connection -ComputerName (hostname) -Count 1).IPV4Address.IPAddressToString
 $port = 8080
