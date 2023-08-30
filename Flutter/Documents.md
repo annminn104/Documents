@@ -13,3 +13,5 @@
 **Gallery Flutter:** https://gallery.flutter.dev/#/
 
 **Flutter Samples Project:** https://flutter.github.io/samples/#
+
+**Setup SDK:** Install Android Studio => Setup Android SDK & Android Simulator Device => VSCode add extension Flutter & Dart => Sync Simulator Device in Android Studio with VSCode => Flutter run
