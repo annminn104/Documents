@@ -19,3 +19,7 @@
 **Flutter Samples Project:** https://flutter.github.io/samples/#
 
 **Setup SDK:** Install Android Studio => Setup Android SDK & Android Simulator Device => VSCode add extension Flutter & Dart => Sync Simulator Device in Android Studio with VSCode => Flutter run
+
+**Sample Source UniPal-BE:** https://github.com/cyntaria/UniPal-Backend
+
+**Sample Source UniPal-FE:** https://github.com/cyntaria/UniPal-Frontend
