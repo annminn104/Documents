@@ -12,3 +12,6 @@
 - `Icons:` https://iconbuddy.app
 - `Loading-spiner:` https://10015.io/tools/css-loader-generator
 - `Animation`: https://animista.net/
+
+**Libs**
+-`Slides:` https://splidejs.com
