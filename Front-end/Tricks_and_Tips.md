@@ -10,7 +10,8 @@
 - `Button, loading, input..:` https://uiverse.io
 - `Border-radius Blob:` https://app.haikei.app
 - `Loading-spiner:` https://10015.io/tools/css-loader-generator
-- `Animation`: https://animista.net/
+- `Animations:` https://animista.net/
+- `CSS Grid:` https://cssgrid-generator.netlify.app
 
 ### Libs
 - `Slides:` https://splidejs.com
