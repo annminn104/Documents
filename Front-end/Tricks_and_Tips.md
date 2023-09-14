@@ -2,6 +2,7 @@
 
 **AI Tools:**
 - `Design:` https://ideogram.ai/login
+- `Design:` https://www.recraft.ai
 
 **Useful**
 - `Web-code:` https://webcode.tools
