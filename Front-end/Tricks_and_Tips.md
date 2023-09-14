@@ -14,7 +14,7 @@
 - `CSS Grid:` https://cssgrid-generator.netlify.app
 
 ### Libs
-- `Slides:` https://splidejs.com
+- `Carousel (Slides):` https://splidejs.com - https://swiperjs.com
 
 ### Assests
 - `Illustration:` https://storyset.com
