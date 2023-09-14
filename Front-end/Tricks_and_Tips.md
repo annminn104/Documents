@@ -17,6 +17,6 @@
 - `Carousel (Slides):` https://splidejs.com - https://swiperjs.com
 
 ### Assests
-- `Illustration:` https://storyset.com
+- `Illustration:` https://storyset.com 
 - `Icons:` https://iconbuddy.app - https://unicornicons.com
-- `Design UI:` https://hype4.academy
+- `Design UI:` https://hype4.academy - https://pixcap.com
