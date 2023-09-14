@@ -14,4 +14,4 @@
 - `Animation`: https://animista.net/
 
 **Libs**
--`Slides:` https://splidejs.com
+- `Slides:` https://splidejs.com
