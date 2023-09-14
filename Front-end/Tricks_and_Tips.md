@@ -7,6 +7,6 @@
 **Useful**
 - `Web-code:` https://webcode.tools
 - `Layout:` https://layout.bradwoods.io
-- `Button, loading,..:` https://uiverse.io
+- `Button, loading, input..:` https://uiverse.io
 - `Border-radius Blob:` https://app.haikei.app
 - `Icons:` https://iconbuddy.app
