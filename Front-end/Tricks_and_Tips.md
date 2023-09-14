@@ -9,7 +9,7 @@
 - `Button, loading, input..:` https://uiverse.io
 - `Border-radius Blob:` https://app.haikei.app
 - `Loading-spiner:` https://10015.io/tools/css-loader-generator
-- `Animations:` https://animista.net/
+- `Animations:` https://animista.net - https://www.transition.style
 - `CSS Grid:` https://cssgrid-generator.netlify.app
 - `Glassmorphism:` https://hype4.academy/tools/glassmorphism-generator
 
