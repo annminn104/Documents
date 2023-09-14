@@ -4,7 +4,7 @@
 - `Design:` https://ideogram.ai/login
 - `Design:` https://www.recraft.ai
 
-### Usefu
+### Useful
 - `Web-code:` https://webcode.tools
 - `Layout:` https://layout.bradwoods.io
 - `Button, loading, input..:` https://uiverse.io
