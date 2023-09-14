@@ -17,4 +17,4 @@
 
 ### Assests
 - `Illustration:` https://storyset.com
-- `Icons:` https://iconbuddy.app
+- `Icons:` https://iconbuddy.app - https://unicornicons.com
