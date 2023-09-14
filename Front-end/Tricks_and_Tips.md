@@ -9,3 +9,4 @@
 - `Layout:` https://layout.bradwoods.io
 - `Button, loading,..:` https://uiverse.io
 - `Border-radius Blob:` https://app.haikei.app
+- `Icons:` https://iconbuddy.app
