@@ -11,6 +11,7 @@
 - `Loading-spiner:` https://10015.io/tools/css-loader-generator
 - `Animations:` https://animista.net/
 - `CSS Grid:` https://cssgrid-generator.netlify.app
+- `Glassmorphism:` https://hype4.academy/tools/glassmorphism-generator
 
 ### Libs
 - `Carousel (Slides):` https://splidejs.com - https://swiperjs.com
