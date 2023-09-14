@@ -10,3 +10,4 @@
 - `Button, loading, input..:` https://uiverse.io
 - `Border-radius Blob:` https://app.haikei.app
 - `Icons:` https://iconbuddy.app
+- `Loading-spiner:` https://10015.io/tools/css-loader-generator
