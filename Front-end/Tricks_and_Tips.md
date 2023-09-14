@@ -7,4 +7,4 @@
 - `Web-code:` https://webcode.tools
 - `Layout:` https://layout.bradwoods.io
 - `Button, loading,..:` https://uiverse.io
-- `Border Blob:` https://app.haikei.app
+- `Border-radius Blob:` https://app.haikei.app
