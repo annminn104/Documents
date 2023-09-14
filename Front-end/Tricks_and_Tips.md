@@ -1,8 +1,7 @@
 # TRICKS & TIPS
 
 ### AI Tools:
-- `Design:` https://ideogram.ai/login
-- `Design:` https://www.recraft.ai
+- `Design:` https://ideogram.ai/login - https://www.recraft.ai
 
 ### Useful
 - `Web-code:` https://webcode.tools
@@ -19,3 +18,4 @@
 ### Assests
 - `Illustration:` https://storyset.com
 - `Icons:` https://iconbuddy.app - https://unicornicons.com
+- `Design UI:` https://hype4.academy
