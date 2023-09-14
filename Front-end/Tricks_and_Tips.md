@@ -9,7 +9,6 @@
 - `Layout:` https://layout.bradwoods.io
 - `Button, loading, input..:` https://uiverse.io
 - `Border-radius Blob:` https://app.haikei.app
-- `Icons:` https://iconbuddy.app
 - `Loading-spiner:` https://10015.io/tools/css-loader-generator
 - `Animation`: https://animista.net/
 
@@ -18,3 +17,4 @@
 
 ### Assests
 - `Illustration:` https://storyset.com
+- `Icons:` https://iconbuddy.app
