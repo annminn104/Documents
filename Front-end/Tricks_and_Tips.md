@@ -15,3 +15,6 @@
 
 ### Libs
 - `Slides:` https://splidejs.com
+
+### Assests
+- `Illustration:` https://storyset.com
