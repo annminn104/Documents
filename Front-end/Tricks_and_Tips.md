@@ -12,6 +12,7 @@
 - `Animations:` https://animista.net - https://www.transition.style
 - `CSS Grid:` https://cssgrid-generator.netlify.app
 - `Glassmorphism:` https://hype4.academy/tools/glassmorphism-generator
+- `Generate CORS:` https://cors.sh
 
 ### Libs
 - `Carousel (Slides):` https://splidejs.com - https://swiperjs.com
