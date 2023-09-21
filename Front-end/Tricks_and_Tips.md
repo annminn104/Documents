@@ -21,3 +21,6 @@
 - `Illustration:` https://storyset.com 
 - `Icons:` https://iconbuddy.app - https://unicornicons.com
 - `Design UI:` https://hype4.academy - https://pixcap.com
+
+### Styled-component
+- `selector`: https://viblo.asia/p/huong-dan-styled-components-co-ban-V3m5WRgwlO7
