@@ -142,6 +142,7 @@ $ pm2 stop next # for stopping app
 Now you have next.js app up and running on nginx reverse proxy with ssl!
 
 
+```shell
 server {
   server_name   <domain_name>;
 
@@ -165,3 +166,4 @@ server {
   }
 
 }
+```
