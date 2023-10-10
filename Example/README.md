@@ -1,5 +1,5 @@
-#Example profile
+# Example profile
 
-###Flutter
+### Flutter
 
 - https://github.com/cyntaria/UniPal-Frontend
