@@ -27,3 +27,6 @@
 
 ### FCM firebase
 - FCM: https://viblo.asia/p/reactjs-push-notification-su-dung-firebase-cloud-messaging-yZjJYE9XJOE
+
+## Trick lỏ tiếng ba tư RTL
+- https://codepen.io/2undercover/pen/jOYRgM
