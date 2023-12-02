@@ -1,5 +1,8 @@
 # TRICKS & TIPS
 
+### Atomic design
+- `Pattern:` https://demo.patternlab.io/?p=all
+
 ### AI Tools:
 - `Design:` https://ideogram.ai/login - https://www.recraft.ai
 
