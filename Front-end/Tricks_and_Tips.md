@@ -5,6 +5,8 @@
 
 - `BEM cheat-sheet:` https://bem-cheat-sheet.9elements.com
 
+- `Front-end Resources:` https://dev.to/aycanogut/front-end-resources-1jk2
+
 ### AI Tools:
 - `Design:` https://ideogram.ai/login - https://www.recraft.ai
 
