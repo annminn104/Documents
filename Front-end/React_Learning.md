@@ -7,3 +7,5 @@
 **Next React Table + Chakra**: https://codesandbox.io/s/chakra-ui-react-table-nextjs-lxvru
 
 **Theme**: https://github.com/creativetimofficial/material-dashboard-react
+
+- https://medium.com/bitsrc/clean-frontend-architecture-2995c68702fb
