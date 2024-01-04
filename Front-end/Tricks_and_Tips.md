@@ -3,6 +3,8 @@
 ### Atomic design
 - `Pattern:` https://demo.patternlab.io/?p=all
 
+- `BEM cheat-sheet:` https://bem-cheat-sheet.9elements.com
+
 ### AI Tools:
 - `Design:` https://ideogram.ai/login - https://www.recraft.ai
 
