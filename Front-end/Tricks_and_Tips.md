@@ -1,6 +1,6 @@
 # TRICKS & TIPS
 
-### Atomic design
+### Front-end
 - `Pattern:` https://demo.patternlab.io/?p=all
 
 - `BEM cheat-sheet:` https://bem-cheat-sheet.9elements.com
