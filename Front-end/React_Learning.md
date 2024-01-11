@@ -9,3 +9,6 @@
 **Theme**: https://github.com/creativetimofficial/material-dashboard-react
 
 - https://medium.com/bitsrc/clean-frontend-architecture-2995c68702fb
+
+- https://dev.to/react-admin/documentation-the-key-enabler-for-open-source-success-3d4bn
+- 
