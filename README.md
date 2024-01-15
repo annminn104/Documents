@@ -4,4 +4,4 @@
 
 **Real World!:** https://codebase.show/projects/realworld?category=frontend
 
-**More:** https://drive.google.com/file/d/1rcHTssLpntLjQ_dBuKgD_eJWaAc97XhK/view
+**Template HTML CSS:** https://dev.to/templatesjungle/100-free-html-css-website-templates-5d6h
