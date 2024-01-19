@@ -38,5 +38,5 @@
 ### Trick lỏ tiếng ba tư RTL
 - https://codepen.io/2undercover/pen/jOYRgM
 
-### Front end 
+### Front-end community 
 - https://github.com/webuild-community/advent-of-sharing
