@@ -207,6 +207,10 @@ Contributions to this project are welcomed. Please ensure to follow the guidelin
 
 **React-Query for Nextjs:** https://codevoweb.com/setup-react-query-in-nextjs-13-app-directory/#google_vignette
 
+## Payments
+
+**Stripe:** https://github.com/stripe-samples/accept-a-payment/tree/main/custom-payment-flow
+
 ## Deploy
 <details>
   <summary>Nextjs + nginx</summary>
