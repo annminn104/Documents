@@ -1,1 +1,0 @@
-- **Payments**: https://github.com/stripe-samples/accept-a-payment/tree/main/custom-payment-flow 
