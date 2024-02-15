@@ -3,7 +3,8 @@
 **Roadmap 2024:** 
 - https://dev.to/dragosnedelcu/senior-frontend-developer-roadmap-2024-5-clear-steps-to-next-level-2m5c
 
-**Angular: **
+**Angular:**
+
 <details>
   <summary>Document template</summary>
 
@@ -194,4 +195,4 @@ Contributions to this project are welcomed. Please ensure to follow the guidelin
 
 **See-more:** <https://docs.docker.com/get-started/overview/>
 
-</details>details>
+</details>
