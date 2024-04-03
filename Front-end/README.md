@@ -1077,3 +1077,92 @@ server {
 - https://github.com/webuild-community/advent-of-sharing
 
 </details>
+
+
+### Axios
+
+```tsx
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { ContentTypeEnum, HttpStatusCodeEnum } from '@/common/enums';
+import envConfig from '@/common/env';
+import { IApiService, IHttpResponse, IToken } from '@/common/interfaces';
+import { AxiosUtils } from '@/common/utils';
+import axios, { AxiosError, AxiosInstance } from 'axios';
+import { AuthEndpointEnum, authService } from '../auth';
+import { RequestInterceptorReject, RequestInterceptorResolve } from './request.interceptor';
+import { ResponseInterceptorFulfilled } from './response.interceptor';
+
+export class ApiService extends IApiService {
+  instance: AxiosInstance;
+  private refreshTokenRequest: Promise<IToken> | null;
+
+  private baseHeader = {
+    baseURL: envConfig.base.backend,
+    headers: { 'Content-Type': ContentTypeEnum.Json }
+  };
+
+  constructor() {
+    super();
+    this.refreshTokenRequest = null;
+    this.instance = axios.create({ ...this.baseHeader });
+
+    this.instance.interceptors.request.use(RequestInterceptorResolve, RequestInterceptorReject);
+    this.instance.interceptors.response.use(ResponseInterceptorFulfilled, (error: AxiosError) => {
+      if (![HttpStatusCodeEnum.UnprocessableEntity, HttpStatusCodeEnum.Unauthorized].includes(error.response?.status as number)) {
+        const data: any | undefined = error.response?.data;
+        const message = data?.message || error.message;
+        console.info(message);
+      } else if (AxiosUtils.isAxiosUnauthorizedError<IHttpResponse<{ name: string; message: string }>>(error)) {
+        const config = error.response?.config || { headers: {}, url: '' };
+        const { url } = config;
+        if (AxiosUtils.isAxiosExpiredTokenError(error) && url !== AuthEndpointEnum.RefreshToken) {
+          this.refreshTokenRequest = this.refreshTokenRequest
+            ? this.refreshTokenRequest
+            : authService.refreshToken().finally(() => {
+                setTimeout(() => {
+                  this.refreshTokenRequest = null;
+                }, 10000);
+              });
+          return this.refreshTokenRequest.then(() => {
+            return this.instance({
+              ...config,
+              headers: {
+                ...config.headers,
+                Authorization: authService.getAccessToken()
+              }
+            });
+          });
+        }
+      }
+    });
+  }
+
+  async get<T>(endpoint: string, params: unknown = {}): Promise<IHttpResponse<T>> {
+    //NOTE: this is axios bug, generic not work so we need to use trick
+    const res: IHttpResponse<T> = await this.instance.get(endpoint, { params: params });
+    return res;
+  }
+
+  async post<T>(endpoint: string, params: unknown = {}): Promise<IHttpResponse<T>> {
+    const res: IHttpResponse<T> = await this.instance.post(endpoint, { params: params });
+    return res;
+  }
+
+  async put<T>(endpoint: string, params: unknown = {}): Promise<IHttpResponse<T>> {
+    const res: IHttpResponse<T> = await this.instance.put(endpoint, { params: params });
+    return res;
+  }
+
+  async delete<T>(endpoint: string, params: unknown = {}): Promise<IHttpResponse<T>> {
+    const res: IHttpResponse<T> = await this.instance.delete(endpoint, { params: params });
+    return res;
+  }
+
+  async patch<T>(endpoint: string, params: unknown = {}): Promise<IHttpResponse<T>> {
+    const res: IHttpResponse<T> = await this.instance.patch(endpoint, { params: params });
+    return res;
+  }
+}
+
+export const apiService = new ApiService();
+```
