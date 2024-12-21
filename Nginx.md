@@ -1,0 +1,1 @@
+- Nginx: https://www.digitalocean.com/community/developer-center/deploying-a-next-js-application-on-a-digitalocean-droplet
