@@ -1,0 +1,1853 @@
+<!DOCTYPE html>
+<html lang="en" class="relative min-h-full">
+<head>
+  <!-- Required Meta Tags Always Come First -->
+  <meta charset="utf-8">
+  <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://preline.co/">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Dashboard for engaging timesheets and graphs that show user's progress and stats.">
+
+  <meta name="twitter:site" content="@preline">
+  <meta name="twitter:creator" content="@preline">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Talent Details | Preline Pro | Preline UI, crafted with Tailwind CSS">
+  <meta name="twitter:description" content="Dashboard for engaging timesheets and graphs that show user's progress and stats.">
+  <meta name="twitter:image" content="https://preline.co/assets/img/og-image.png">
+
+  <meta property="og:url" content="https://preline.co/">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Preline">
+  <meta property="og:title" content="Talent Details | Preline Pro | Preline UI, crafted with Tailwind CSS">
+  <meta property="og:description" content="Dashboard for engaging timesheets and graphs that show user's progress and stats.">
+  <meta property="og:image" content="https://preline.co/assets/img/og-image.png">
+
+  <!-- Title -->
+  <title>Talent Details | Preline Pro | Preline UI, crafted with Tailwind CSS</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="../favicon.ico">
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS HS -->
+  <link rel="stylesheet" href="../assets/css/main.min.css?v=3.0.0">
+
+  <!-- Theme Check and Update -->
+  <script>
+    const html = document.querySelector('html');
+    const isLightOrAuto = localStorage.getItem('hs_theme') === 'light' || (localStorage.getItem('hs_theme') === 'auto' && !window.matchMedia('(prefers-color-scheme: dark)').matches);
+    const isDarkOrAuto = localStorage.getItem('hs_theme') === 'dark' || (localStorage.getItem('hs_theme') === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+    if (isLightOrAuto && html.classList.contains('dark')) html.classList.remove('dark');
+    else if (isDarkOrAuto && html.classList.contains('light')) html.classList.remove('light');
+    else if (isDarkOrAuto && !html.classList.contains('dark')) html.classList.add('dark');
+    else if (isLightOrAuto && !html.classList.contains('light')) html.classList.add('light');
+  </script>
+</head>
+
+<body class="dark:bg-neutral-900">
+  <!-- ========== HEADER ========== -->
+  <header class="relative flex flex-wrap md:justify-start md:flex-nowrap z-10 bg-gray-800 dark:bg-neutral-950">
+    <div class="max-w-5xl mx-auto py-2.5 px-2 sm:px-5 xl:px-0  flex flex-wrap basis-full items-center w-full">
+      <div class="lg:order-1 flex items-center">
+        <!-- Logo -->
+        <a class="flex-none rounded-md text-xl inline-block font-semibold focus:outline-hidden focus:opacity-80" href="../../pro/workspace/index.html" aria-label="Preline">
+          <svg class="w-28 h-auto" width="116" height="32" viewBox="0 0 116 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M33.5696 30.8182V11.3182H37.4474V13.7003H37.6229C37.7952 13.3187 38.0445 12.9309 38.3707 12.5369C38.7031 12.1368 39.134 11.8045 39.6634 11.5398C40.1989 11.2689 40.8636 11.1335 41.6577 11.1335C42.6918 11.1335 43.6458 11.4044 44.5199 11.946C45.3939 12.4815 46.0926 13.291 46.6158 14.3743C47.139 15.4515 47.4006 16.8026 47.4006 18.4276C47.4006 20.0095 47.1451 21.3452 46.6342 22.4347C46.1295 23.518 45.4401 24.3397 44.5661 24.8999C43.6982 25.4538 42.7256 25.7308 41.6484 25.7308C40.8852 25.7308 40.2358 25.6046 39.7003 25.3523C39.1709 25.0999 38.737 24.7829 38.3984 24.4013C38.0599 24.0135 37.8014 23.6226 37.6229 23.2287H37.5028V30.8182H33.5696ZM37.4197 18.4091C37.4197 19.2524 37.5367 19.9879 37.7706 20.6158C38.0045 21.2436 38.343 21.733 38.7862 22.0838C39.2294 22.4285 39.768 22.6009 40.402 22.6009C41.0421 22.6009 41.5838 22.4254 42.027 22.0746C42.4702 21.7176 42.8056 21.2251 43.0334 20.5973C43.2673 19.9633 43.3842 19.2339 43.3842 18.4091C43.3842 17.5904 43.2704 16.8703 43.0426 16.2486C42.8149 15.6269 42.4794 15.1406 42.0362 14.7898C41.593 14.4389 41.0483 14.2635 40.402 14.2635C39.7618 14.2635 39.2202 14.4328 38.777 14.7713C38.34 15.1098 38.0045 15.59 37.7706 16.2116C37.5367 16.8333 37.4197 17.5658 37.4197 18.4091ZM49.2427 25.5V11.3182H53.0559V13.7926H53.2037C53.4622 12.9124 53.8961 12.2476 54.5055 11.7983C55.1149 11.3428 55.8166 11.1151 56.6106 11.1151C56.8076 11.1151 57.02 11.1274 57.2477 11.152C57.4754 11.1766 57.6755 11.2105 57.8478 11.2536V14.7436C57.6632 14.6882 57.4077 14.639 57.0815 14.5959C56.7553 14.5528 56.4567 14.5312 56.1859 14.5312C55.6073 14.5312 55.0903 14.6574 54.6348 14.9098C54.1854 15.156 53.8284 15.5007 53.5638 15.9439C53.3052 16.3871 53.176 16.898 53.176 17.4766V25.5H49.2427ZM64.9043 25.777C63.4455 25.777 62.1898 25.4815 61.1373 24.8906C60.0909 24.2936 59.2845 23.4503 58.7182 22.3608C58.1519 21.2652 57.8688 19.9695 57.8688 18.4737C57.8688 17.0149 58.1519 15.7346 58.7182 14.6328C59.2845 13.531 60.0816 12.6723 61.1096 12.0568C62.1437 11.4413 63.3563 11.1335 64.7474 11.1335C65.683 11.1335 66.5539 11.2843 67.3603 11.5859C68.1728 11.8814 68.8806 12.3277 69.4839 12.9247C70.0932 13.5218 70.5672 14.2727 70.9057 15.1776C71.2443 16.0762 71.4135 17.1288 71.4135 18.3352V19.4155H59.4384V16.978H67.7111C67.7111 16.4117 67.588 15.91 67.3418 15.473C67.0956 15.036 66.754 14.6944 66.317 14.4482C65.8861 14.1958 65.3844 14.0696 64.812 14.0696C64.2149 14.0696 63.6856 14.2081 63.2239 14.4851C62.7684 14.7559 62.4114 15.1222 62.1529 15.5838C61.8944 16.0393 61.762 16.5471 61.7559 17.1072V19.4247C61.7559 20.1264 61.8851 20.7327 62.1437 21.2436C62.4083 21.7545 62.7807 22.1484 63.2608 22.4254C63.741 22.7024 64.3103 22.8409 64.9689 22.8409C65.406 22.8409 65.8061 22.7794 66.1692 22.6562C66.5324 22.5331 66.8432 22.3485 67.1018 22.1023C67.3603 21.8561 67.5572 21.5545 67.6927 21.1974L71.3304 21.4375C71.1458 22.3116 70.7672 23.0748 70.1948 23.7273C69.6285 24.3736 68.896 24.8783 67.9974 25.2415C67.1048 25.5985 66.0738 25.777 64.9043 25.777ZM77.1335 6.59091V25.5H73.2003V6.59091H77.1335ZM79.5043 25.5V11.3182H83.4375V25.5H79.5043ZM81.4801 9.49006C80.8954 9.49006 80.3937 9.29616 79.9752 8.90838C79.5628 8.51444 79.3566 8.04356 79.3566 7.49574C79.3566 6.95407 79.5628 6.48935 79.9752 6.10156C80.3937 5.70762 80.8954 5.51065 81.4801 5.51065C82.0649 5.51065 82.5635 5.70762 82.9759 6.10156C83.3944 6.48935 83.6037 6.95407 83.6037 7.49574C83.6037 8.04356 83.3944 8.51444 82.9759 8.90838C82.5635 9.29616 82.0649 9.49006 81.4801 9.49006ZM89.7415 17.3011V25.5H85.8083V11.3182H89.5569V13.8203H89.723C90.037 12.9955 90.5632 12.343 91.3019 11.8629C92.0405 11.3767 92.9361 11.1335 93.9887 11.1335C94.9735 11.1335 95.8322 11.349 96.5647 11.7798C97.2971 12.2107 97.8665 12.8262 98.2728 13.6264C98.679 14.4205 98.8821 15.3684 98.8821 16.4702V25.5H94.9489V17.1719C94.9551 16.304 94.7335 15.6269 94.2841 15.1406C93.8348 14.6482 93.2162 14.402 92.4283 14.402C91.8989 14.402 91.4311 14.5159 91.0249 14.7436C90.6248 14.9714 90.3109 15.3037 90.0831 15.7408C89.8615 16.1716 89.7477 16.6918 89.7415 17.3011ZM107.665 25.777C106.206 25.777 104.951 25.4815 103.898 24.8906C102.852 24.2936 102.045 23.4503 101.479 22.3608C100.913 21.2652 100.63 19.9695 100.63 18.4737C100.63 17.0149 100.913 15.7346 101.479 14.6328C102.045 13.531 102.842 12.6723 103.87 12.0568C104.905 11.4413 106.117 11.1335 107.508 11.1335C108.444 11.1335 109.315 11.2843 110.121 11.5859C110.934 11.8814 111.641 12.3277 112.245 12.9247C112.854 13.5218 113.328 14.2727 113.667 15.1776C114.005 16.0762 114.174 17.1288 114.174 18.3352V19.4155H102.199V16.978H110.472C110.472 16.4117 110.349 15.91 110.103 15.473C109.856 15.036 109.515 14.6944 109.078 14.4482C108.647 14.1958 108.145 14.0696 107.573 14.0696C106.976 14.0696 106.446 14.2081 105.985 14.4851C105.529 14.7559 105.172 15.1222 104.914 15.5838C104.655 16.0393 104.523 16.5471 104.517 17.1072V19.4247C104.517 20.1264 104.646 20.7327 104.905 21.2436C105.169 21.7545 105.542 22.1484 106.022 22.4254C106.502 22.7024 107.071 22.8409 107.73 22.8409C108.167 22.8409 108.567 22.7794 108.93 22.6562C109.293 22.5331 109.604 22.3485 109.863 22.1023C110.121 21.8561 110.318 21.5545 110.454 21.1974L114.091 21.4375C113.907 22.3116 113.528 23.0748 112.956 23.7273C112.389 24.3736 111.657 24.8783 110.758 25.2415C109.866 25.5985 108.835 25.777 107.665 25.777Z" class="fill-white" fill="currentColor" />
+            <path d="M1 29.5V16.5C1 9.87258 6.37258 4.5 13 4.5C19.6274 4.5 25 9.87258 25 16.5C25 23.1274 19.6274 28.5 13 28.5H12" class="stroke-white" stroke="currentColor" stroke-width="2" />
+            <path d="M5 29.5V16.66C5 12.1534 8.58172 8.5 13 8.5C17.4183 8.5 21 12.1534 21 16.66C21 21.1666 17.4183 24.82 13 24.82H12" class="stroke-white" stroke="currentColor" stroke-width="2" />
+            <circle cx="13" cy="16.5214" r="5" class="fill-white" fill="currentColor" />
+          </svg>
+        </a>
+        <!-- End Logo -->
+      </div>
+
+      <div class="lg:order-4 flex justify-end items-center gap-x-1 sm:gap-x-1 ms-auto lg:ms-0">
+        <!-- Notifications Button Icon -->
+        <div class="hs-dropdown [--auto-close:inside] [--placement:bottom-right] relative inline-flex">
+          <button id="hs-pro-dnnd" type="button" class="relative inline-flex shrink-0 justify-center items-center gap-x-2 size-9.5 rounded-lg text-white hover:bg-gray-700 focus:bg-gray-700 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 focus:outline-hidden" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
+            <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
+              <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
+            </svg>
+            <span class="flex absolute top-0 end-0 z-10 -mt-1.5 -me-1.5">
+              <span class="animate-ping absolute inline-flex size-full rounded-full bg-red-400 opacity-75 dark:bg-red-600"></span>
+              <span class="relative min-w-4.5 min-h-4.5 inline-flex justify-center items-center text-[10px] bg-red-500 text-white rounded-full px-1">
+                2
+              </span>
+            </span>
+          </button>
+          <!-- End Notifications Button Icon -->
+
+          <!-- Notifications Dropdown -->
+          <div class="hs-dropdown-menu hs-dropdown-open:opacity-100 w-full sm:w-96 transition-[opacity,margin] duration opacity-0 hidden z-10 bg-white border-t border-gray-200 sm:border-t-0 sm:rounded-lg shadow-md sm:shadow-xl dark:bg-neutral-900 dark:border-neutral-700" role="menu" aria-orientation="vertical" aria-labelledby="hs-pro-dnnd">
+            <!-- Header -->
+            <div class="px-5 pt-3 flex justify-between items-center border-b border-gray-200 dark:border-neutral-800">
+              <!-- Nav Tab -->
+              <nav class="flex gap-1" aria-label="Tabs" role="tablist" aria-orientation="horizontal">
+                <button type="button" class="hs-tab-active:after:bg-gray-800 hs-tab-active:text-gray-800 px-2 py-1.5 mb-2 relative inline-flex justify-center items-center gap-x-2 hover:bg-gray-100 text-gray-500 hover:text-gray-800 text-sm rounded-lg disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 after:absolute after:-bottom-2 after:inset-x-2 after:z-10 after:h-0.5 after:pointer-events-none dark:hs-tab-active:text-neutral-200 dark:hs-tab-active:after:bg-neutral-400 dark:text-neutral-500 dark:hover:text-neutral-300 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden active" id="hs-pro-tabs-dnn-item-all" aria-selected="true" data-hs-tab="#hs-pro-tabs-dnn-all" aria-controls="hs-pro-tabs-dnn-all" role="tab">
+                  All
+                </button>
+                <button type="button" class="hs-tab-active:after:bg-gray-800 hs-tab-active:text-gray-800 px-2 py-1.5 mb-2 relative inline-flex justify-center items-center gap-x-2 hover:bg-gray-100 text-gray-500 hover:text-gray-800 text-sm rounded-lg disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 after:absolute after:-bottom-2 after:inset-x-2 after:z-10 after:h-0.5 after:pointer-events-none dark:hs-tab-active:text-neutral-200 dark:hs-tab-active:after:bg-neutral-400 dark:text-neutral-500 dark:hover:text-neutral-300 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden " id="hs-pro-tabs-dnn-item-archived" aria-selected="false" data-hs-tab="#hs-pro-tabs-dnn-archived" aria-controls="hs-pro-tabs-dnn-archived" role="tab">
+                  Archived
+                </button>
+              </nav>
+              <!-- End Nav Tab -->
+
+              <!-- Notifications Button Icon -->
+              <div class="hs-tooltip relative inline-block mb-3">
+                <a class="hs-tooltip-toggle size-7 inline-flex justify-center items-center gap-x-2 rounded-md border border-transparent text-gray-500 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+                  <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                </a>
+                <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 inline-block absolute invisible z-20 py-1.5 px-2.5 bg-gray-900 text-xs text-white rounded-lg dark:bg-neutral-700" role="tooltip">
+                  Preferences
+                </span>
+              </div>
+              <!-- End Notifications Button Icon -->
+            </div>
+            <!-- End Header -->
+
+            <!-- Tab Content -->
+            <div id="hs-pro-tabs-dnn-all" role="tabpanel" aria-labelledby="hs-pro-tabs-dnn-item-all">
+              <div class="h-120 overflow-y-auto overflow-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-md [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
+                <ul class="divide-y divide-gray-200 dark:divide-neutral-800">
+                  <!-- List Item -->
+                  <li class="relative group w-full flex gap-x-5 text-start bg-gray-100 dark:bg-neutral-800 p-5">
+                    <div class="relative shrink-0">
+                      <img class="shrink-0 size-9.5 rounded-xl" src="https://images.unsplash.com/photo-1659482634023-2c4fda99ac0c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=3&w=320&h=320&q=80" alt="Avatar">
+                      <span class="absolute top-4 -start-3 size-2 bg-teal-600 rounded-xl dark:bg-teal-500"></span>
+                    </div>
+                    <div class="grow">
+                      <p class="text-xs text-gray-500 dark:text-neutral-500">
+                        2 hours ago
+                      </p>
+
+                      <span class="block text-sm font-medium text-gray-800 dark:text-neutral-300">
+                        Eilis Warner
+                      </span>
+                      <p class="text-sm text-gray-500 dark:text-neutral-500">
+                        changed an issue from 'in Progress' to 'Review'
+                      </p>
+                    </div>
+
+                    <div>
+                      <div class="sm:group-hover:opacity-100 sm:opacity-0 sm:absolute sm:top-5 sm:end-5">
+                        <!-- Segment Button Group -->
+                        <div class="inline-block p-0.5 bg-white border border-gray-200 rounded-lg shadow-2xs transition ease-out dark:bg-neutral-800 dark:border-neutral-700">
+                          <div class="flex items-center">
+                            <div class="hs-tooltip relative inline-block">
+                              <button type="button" class="hs-tooltip-toggle size-7 flex shrink-0 justify-center items-center text-gray-500 hover:bg-gray-100 hover:text-gray-800 rounded-sm disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:hover:bg-neutral-700 dark:text-neutral-400 dark:focus:bg-neutral-700">
+                                <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                  <polyline points="9 11 12 14 22 4" />
+                                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                                </svg>
+                                <svg class="shrink-0 size-4 hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                  <rect width="18" height="18" x="3" y="3" rx="2" />
+                                  <path d="M8 12h8" />
+                                </svg>
+                              </button>
+                              <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 inline-block absolute invisible z-20 py-1.5 px-2.5 bg-gray-900 text-xs text-white rounded-lg dark:bg-neutral-700" role="tooltip">
+                                Mark this notification as read
+                              </span>
+                            </div>
+                            <div class="hs-tooltip relative inline-block">
+                              <button type="button" class="hs-tooltip-toggle size-7 flex shrink-0 justify-center items-center text-gray-500 hover:bg-gray-100 hover:text-gray-800 rounded-sm disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:hover:bg-neutral-700 dark:text-neutral-400 dark:focus:bg-neutral-700">
+                                <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                  <rect width="20" height="5" x="2" y="4" rx="2" />
+                                  <path d="M4 9v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9" />
+                                  <path d="M10 13h4" />
+                                </svg>
+                              </button>
+                              <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 inline-block absolute invisible z-20 py-1.5 px-2.5 bg-gray-900 text-xs text-white rounded-lg dark:bg-neutral-700" role="tooltip">
+                                Archive this notification
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- End Segment Button Group -->
+                      </div>
+                    </div>
+                  </li>
+                  <!-- End List Item -->
+
+                  <!-- List Item -->
+                  <li class="relative group w-full flex gap-x-5 text-start  p-5">
+                    <div class="relative shrink-0">
+                      <span class="flex shrink-0 justify-center items-center size-9.5 bg-white border border-gray-200 text-gray-500 text-sm font-semibold rounded-xl shadow-2xs dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400">
+                        C
+                      </span>
+                    </div>
+                    <div class="grow">
+                      <p class="text-xs text-gray-500 dark:text-neutral-500">
+                        3 days ago
+                      </p>
+
+                      <span class="block text-sm font-medium text-gray-800 dark:text-neutral-300">
+                        Clara Becker
+                      </span>
+                      <p class="text-sm text-gray-500 dark:text-neutral-500">
+                        mentioned you in a comment
+                      </p>
+                      <div class="mt-2">
+                        <blockquote class="ps-3 border-s-4 border-gray-200 text-sm text-gray-500 dark:border-neutral-700 dark:text-neutral-400">
+                          Nice work, love! You really nailed it. Keep it up!
+                        </blockquote>
+                      </div>
+                    </div>
+
+                    <div>
+                      <div class="sm:group-hover:opacity-100 sm:opacity-0 sm:absolute sm:top-5 sm:end-5">
+                        <!-- Segment Button Group -->
+                        <div class="inline-block p-0.5 bg-white border border-gray-200 rounded-lg shadow-2xs transition ease-out dark:bg-neutral-800 dark:border-neutral-700">
+                          <div class="flex items-center">
+                            <div class="hs-tooltip relative inline-block">
+                              <button type="button" class="hs-tooltip-toggle size-7 flex shrink-0 justify-center items-center text-gray-500 hover:bg-gray-100 hover:text-gray-800 rounded-sm disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:hover:bg-neutral-700 dark:text-neutral-400 dark:focus:bg-neutral-700">
+                                <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                  <polyline points="9 11 12 14 22 4" />
+                                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                                </svg>
+                                <svg class="shrink-0 size-4 hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                  <rect width="18" height="18" x="3" y="3" rx="2" />
+                                  <path d="M8 12h8" />
+                                </svg>
+                              </button>
+                              <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 inline-block absolute invisible z-20 py-1.5 px-2.5 bg-gray-900 text-xs text-white rounded-lg dark:bg-neutral-700" role="tooltip">
+                                Mark this notification as read
+                              </span>
+                            </div>
+                            <div class="hs-tooltip relative inline-block">
+                              <button type="button" class="hs-tooltip-toggle size-7 flex shrink-0 justify-center items-center text-gray-500 hover:bg-gray-100 hover:text-gray-800 rounded-sm disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:hover:bg-neutral-700 dark:text-neutral-400 dark:focus:bg-neutral-700">
+                                <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                  <rect width="20" height="5" x="2" y="4" rx="2" />
+                                  <path d="M4 9v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9" />
+                                  <path d="M10 13h4" />
+                                </svg>
+                              </button>
+                              <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 inline-block absolute invisible z-20 py-1.5 px-2.5 bg-gray-900 text-xs text-white rounded-lg dark:bg-neutral-700" role="tooltip">
+                                Archive this notification
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- End Segment Button Group -->
+                      </div>
+                    </div>
+                  </li>
+                  <!-- End List Item -->
+
+                  <!-- List Item -->
+                  <li class="relative group w-full flex gap-x-5 text-start  p-5">
+                    <div class="relative shrink-0">
+                      <span class="flex shrink-0 justify-center items-center size-9.5 bg-white border border-gray-200 text-gray-500 text-sm font-semibold rounded-xl shadow-2xs dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400">
+                        P
+                      </span>
+                    </div>
+                    <div class="grow">
+                      <p class="text-xs text-gray-500 dark:text-neutral-500">
+                        5 Jan 2023
+                      </p>
+
+                      <span class="block text-sm font-medium text-gray-800 dark:text-neutral-300">
+                        New Update on Preline
+                      </span>
+                      <p class="text-sm text-gray-500 dark:text-neutral-500">
+                        Add yourself to our new “Hire Page”. Let visitors know you’re open to freelance or full-time work.
+                      </p>
+                      <a class="mt-2 p-1.5 inline-flex items-center border border-gray-200 rounded-xl hover:bg-gray-50 hover:shadow-2xs focus:outline-hidden focus:bg-gray-100 dark:border-neutral-700 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+                        <img class="w-17.5 h-15.5 object-cover rounded-lg" src="https://images.unsplash.com/photo-1670272505340-d906d8d77d03?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="Avatar">
+                        <div class="grow py-2.5 px-4">
+                          <p class="text-sm font-medium text-gray-800 dark:text-neutral-300">
+                            Get hired!
+                          </p>
+                          <p class="inline-flex items-center gap-x-1 text-sm text-gray-500 dark:text-neutral-500">
+                            Get started
+                            <svg class="shrink-0 size-4 transition ease-in-out group-hover:translate-x-1 group-focus:translate-x-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                              <path d="m9 18 6-6-6-6" />
+                            </svg>
+                          </p>
+                        </div>
+                      </a>
+                    </div>
+
+                    <div>
+                      <div class="sm:group-hover:opacity-100 sm:opacity-0 sm:absolute sm:top-5 sm:end-5">
+                        <!-- Segment Button Group -->
+                        <div class="inline-block p-0.5 bg-white border border-gray-200 rounded-lg shadow-2xs transition ease-out dark:bg-neutral-800 dark:border-neutral-700">
+                          <div class="flex items-center">
+                            <div class="hs-tooltip relative inline-block">
+                              <button type="button" class="hs-tooltip-toggle size-7 flex shrink-0 justify-center items-center text-gray-500 hover:bg-gray-100 hover:text-gray-800 rounded-sm disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:hover:bg-neutral-700 dark:text-neutral-400 dark:focus:bg-neutral-700">
+                                <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                  <polyline points="9 11 12 14 22 4" />
+                                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                                </svg>
+                                <svg class="shrink-0 size-4 hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                  <rect width="18" height="18" x="3" y="3" rx="2" />
+                                  <path d="M8 12h8" />
+                                </svg>
+                              </button>
+                              <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 inline-block absolute invisible z-20 py-1.5 px-2.5 bg-gray-900 text-xs text-white rounded-lg dark:bg-neutral-700" role="tooltip">
+                                Mark this notification as read
+                              </span>
+                            </div>
+                            <div class="hs-tooltip relative inline-block">
+                              <button type="button" class="hs-tooltip-toggle size-7 flex shrink-0 justify-center items-center text-gray-500 hover:bg-gray-100 hover:text-gray-800 rounded-sm disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:hover:bg-neutral-700 dark:text-neutral-400 dark:focus:bg-neutral-700">
+                                <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                  <rect width="20" height="5" x="2" y="4" rx="2" />
+                                  <path d="M4 9v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9" />
+                                  <path d="M10 13h4" />
+                                </svg>
+                              </button>
+                              <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 inline-block absolute invisible z-20 py-1.5 px-2.5 bg-gray-900 text-xs text-white rounded-lg dark:bg-neutral-700" role="tooltip">
+                                Archive this notification
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- End Segment Button Group -->
+                      </div>
+                    </div>
+                  </li>
+                  <!-- End List Item -->
+
+                  <!-- List Item -->
+                  <li class="relative group w-full flex gap-x-5 text-start  p-5">
+                    <div class="relative shrink-0">
+                      <span class="flex shrink-0 justify-center items-center size-9.5 bg-white border border-gray-200 text-gray-500 text-sm font-semibold rounded-xl shadow-2xs dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400">
+                        P
+                      </span>
+                    </div>
+                    <div class="grow">
+                      <p class="text-xs text-gray-500 dark:text-neutral-500">
+                        5 Jan 2023
+                      </p>
+
+                      <span class="block text-sm font-medium text-gray-800 dark:text-neutral-300">
+                        We’re updating our Privacy Policy as of 10th January 2023.content
+                      </span>
+                      <p>
+                        <a class="inline-flex items-center gap-x-1 text-sm text-teal-600 decoration-2 hover:underline font-medium focus:outline-hidden focus:underline dark:text-teal-400 dark:hover:text-teal-500" href="#">
+                          Learn more
+                          <svg class="shrink-0 size-4 transition ease-in-out group-hover:translate-x-1 group-focus:translate-x-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m9 18 6-6-6-6" />
+                          </svg>
+                        </a>
+                      </p>
+                    </div>
+
+                    <div>
+                      <div class="sm:group-hover:opacity-100 sm:opacity-0 sm:absolute sm:top-5 sm:end-5">
+                        <!-- Segment Button Group -->
+                        <div class="inline-block p-0.5 bg-white border border-gray-200 rounded-lg shadow-2xs transition ease-out dark:bg-neutral-800 dark:border-neutral-700">
+                          <div class="flex items-center">
+                            <div class="hs-tooltip relative inline-block">
+                              <button type="button" class="hs-tooltip-toggle size-7 flex shrink-0 justify-center items-center text-gray-500 hover:bg-gray-100 hover:text-gray-800 rounded-sm disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:hover:bg-neutral-700 dark:text-neutral-400 dark:focus:bg-neutral-700">
+                                <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                  <polyline points="9 11 12 14 22 4" />
+                                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                                </svg>
+                                <svg class="shrink-0 size-4 hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                  <rect width="18" height="18" x="3" y="3" rx="2" />
+                                  <path d="M8 12h8" />
+                                </svg>
+                              </button>
+                              <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 inline-block absolute invisible z-20 py-1.5 px-2.5 bg-gray-900 text-xs text-white rounded-lg dark:bg-neutral-700" role="tooltip">
+                                Mark this notification as read
+                              </span>
+                            </div>
+                            <div class="hs-tooltip relative inline-block">
+                              <button type="button" class="hs-tooltip-toggle size-7 flex shrink-0 justify-center items-center text-gray-500 hover:bg-gray-100 hover:text-gray-800 rounded-sm disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:hover:bg-neutral-700 dark:text-neutral-400 dark:focus:bg-neutral-700">
+                                <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                  <rect width="20" height="5" x="2" y="4" rx="2" />
+                                  <path d="M4 9v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9" />
+                                  <path d="M10 13h4" />
+                                </svg>
+                              </button>
+                              <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 inline-block absolute invisible z-20 py-1.5 px-2.5 bg-gray-900 text-xs text-white rounded-lg dark:bg-neutral-700" role="tooltip">
+                                Archive this notification
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- End Segment Button Group -->
+                      </div>
+                    </div>
+                  </li>
+                  <!-- End List Item -->
+
+                  <!-- List Item -->
+                  <li class="relative group w-full flex gap-x-5 text-start bg-gray-100 dark:bg-neutral-800 p-5">
+                    <div class="relative shrink-0">
+                      <img class="shrink-0 size-9.5 rounded-xl" src="https://images.unsplash.com/photo-1614880353165-e56fac2ea9a8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=3&w=320&h=320&q=80" alt="Avatar">
+                      <span class="absolute top-4 -start-3 size-2 bg-teal-600 rounded-xl dark:bg-teal-500"></span>
+                    </div>
+                    <div class="grow">
+                      <p class="text-xs text-gray-500 dark:text-neutral-500">
+                        31 Dec 2022
+                      </p>
+
+                      <span class="block text-sm font-medium text-gray-800 dark:text-neutral-300">
+                        Rubia Walter
+                      </span>
+                      <p class="text-sm text-gray-500 dark:text-neutral-500">
+                        Joined the Slack group HS Team
+                      </p>
+                    </div>
+
+                    <div>
+                      <div class="sm:group-hover:opacity-100 sm:opacity-0 sm:absolute sm:top-5 sm:end-5">
+                        <!-- Segment Button Group -->
+                        <div class="inline-block p-0.5 bg-white border border-gray-200 rounded-lg shadow-2xs transition ease-out dark:bg-neutral-800 dark:border-neutral-700">
+                          <div class="flex items-center">
+                            <div class="hs-tooltip relative inline-block">
+                              <button type="button" class="hs-tooltip-toggle size-7 flex shrink-0 justify-center items-center text-gray-500 hover:bg-gray-100 hover:text-gray-800 rounded-sm disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:hover:bg-neutral-700 dark:text-neutral-400 dark:focus:bg-neutral-700">
+                                <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                  <polyline points="9 11 12 14 22 4" />
+                                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                                </svg>
+                                <svg class="shrink-0 size-4 hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                  <rect width="18" height="18" x="3" y="3" rx="2" />
+                                  <path d="M8 12h8" />
+                                </svg>
+                              </button>
+                              <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 inline-block absolute invisible z-20 py-1.5 px-2.5 bg-gray-900 text-xs text-white rounded-lg dark:bg-neutral-700" role="tooltip">
+                                Mark this notification as read
+                              </span>
+                            </div>
+                            <div class="hs-tooltip relative inline-block">
+                              <button type="button" class="hs-tooltip-toggle size-7 flex shrink-0 justify-center items-center text-gray-500 hover:bg-gray-100 hover:text-gray-800 rounded-sm disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:hover:bg-neutral-700 dark:text-neutral-400 dark:focus:bg-neutral-700">
+                                <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                  <rect width="20" height="5" x="2" y="4" rx="2" />
+                                  <path d="M4 9v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9" />
+                                  <path d="M10 13h4" />
+                                </svg>
+                              </button>
+                              <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 inline-block absolute invisible z-20 py-1.5 px-2.5 bg-gray-900 text-xs text-white rounded-lg dark:bg-neutral-700" role="tooltip">
+                                Archive this notification
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- End Segment Button Group -->
+                      </div>
+                    </div>
+                  </li>
+                  <!-- End List Item -->
+                </ul>
+                <!-- End List Group -->
+              </div>
+
+              <!-- Footer -->
+              <div class="text-center border-t border-gray-200 dark:border-neutral-800">
+                <a class="p-4 flex justify-center items-center gap-x-2 text-sm text-gray-500 font-medium sm:rounded-b-lg hover:text-teal-600 focus:outline-hidden focus:text-teal-600 dark:text-neutral-400 dark:hover:text-neutral-300 dark:focus:text-neutral-300" href="../../docs/index.html">
+                  Mark all as read
+                </a>
+              </div>
+              <!-- End Footer -->
+            </div>
+            <!-- End Tab Content -->
+
+            <!-- Tab Content -->
+            <div id="hs-pro-tabs-dnn-archived" class="hidden" role="tabpanel" aria-labelledby="hs-pro-tabs-dnn-item-archived">
+              <!-- Empty State -->
+              <div class="p-5 min-h-[533px] flex flex-col justify-center items-center text-center">
+                <svg class="w-48 mx-auto mb-4" width="178" height="90" viewBox="0 0 178 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="27" y="50.5" width="124" height="39" rx="7.5" fill="currentColor" class="fill-white dark:fill-neutral-800" />
+                  <rect x="27" y="50.5" width="124" height="39" rx="7.5" stroke="currentColor" class="stroke-gray-50 dark:stroke-neutral-700/10" />
+                  <rect x="34.5" y="58" width="24" height="24" rx="4" fill="currentColor" class="fill-gray-50 dark:fill-neutral-700/30" />
+                  <rect x="66.5" y="61" width="60" height="6" rx="3" fill="currentColor" class="fill-gray-50 dark:fill-neutral-700/30" />
+                  <rect x="66.5" y="73" width="77" height="6" rx="3" fill="currentColor" class="fill-gray-50 dark:fill-neutral-700/30" />
+                  <rect x="19.5" y="28.5" width="139" height="39" rx="7.5" fill="currentColor" class="fill-white dark:fill-neutral-800" />
+                  <rect x="19.5" y="28.5" width="139" height="39" rx="7.5" stroke="currentColor" class="stroke-gray-100 dark:stroke-neutral-700/30" />
+                  <rect x="27" y="36" width="24" height="24" rx="4" fill="currentColor" class="fill-gray-100 dark:fill-neutral-700/70" />
+                  <rect x="59" y="39" width="60" height="6" rx="3" fill="currentColor" class="fill-gray-100 dark:fill-neutral-700/70" />
+                  <rect x="59" y="51" width="92" height="6" rx="3" fill="currentColor" class="fill-gray-100 dark:fill-neutral-700/70" />
+                  <g filter="url(#filter1)">
+                    <rect x="12" y="6" width="154" height="40" rx="8" fill="currentColor" class="fill-white dark:fill-neutral-800" shape-rendering="crispEdges" />
+                    <rect x="12.5" y="6.5" width="153" height="39" rx="7.5" stroke="currentColor" class="stroke-gray-100 dark:stroke-neutral-700/60" shape-rendering="crispEdges" />
+                    <rect x="20" y="14" width="24" height="24" rx="4" fill="currentColor" class="fill-gray-200 dark:fill-neutral-700 " />
+                    <rect x="52" y="17" width="60" height="6" rx="3" fill="currentColor" class="fill-gray-200 dark:fill-neutral-700" />
+                    <rect x="52" y="29" width="106" height="6" rx="3" fill="currentColor" class="fill-gray-200 dark:fill-neutral-700" />
+                  </g>
+                  <defs>
+                    <filter id="filter1" x="0" y="0" width="178" height="64" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                      <feOffset dy="6" />
+                      <feGaussianBlur stdDeviation="6" />
+                      <feComposite in2="hardAlpha" operator="out" />
+                      <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.03 0" />
+                      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1187_14810" />
+                      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1187_14810" result="shape" />
+                    </filter>
+                  </defs>
+                </svg>
+
+                <div class="max-w-sm mx-auto">
+                  <p class="mt-2 font-medium text-gray-800 dark:text-neutral-200">
+                    No archived notifications
+                  </p>
+                  <p class="mb-5 text-sm text-gray-500 dark:text-neutral-500">
+                    No data here yet. We will notify you when there's an update.
+                  </p>
+                </div>
+
+                <a class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-50 dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" href="#">
+                  Notifications settings
+                </a>
+              </div>
+              <!-- End Empty State -->
+            </div>
+            <!-- End Tab Content -->
+          </div>
+        </div>
+        <!-- End Notifications Dropdown -->
+
+        <div class="hidden sm:block border-e border-white/20 w-px h-5"></div>
+
+        <!-- Account Dropdown -->
+        <div class="hs-dropdown [--strategy:absolute] [--auto-close:inside] [--placement:bottom-right] relative inline-flex">
+          <button id="hs-pro-dnad" type="button" class="p-1.5 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent text-white hover:bg-gray-700 focus:bg-gray-700 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 focus:outline-hidden" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
+            <img class="shrink-0 size-6 rounded-md" src="https://images.unsplash.com/photo-1659482633369-9fe69af50bfb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=3&w=320&h=320&q=80" alt="Avatar">
+            <svg class="shrink-0  size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </button>
+
+          <!-- Account Dropdown -->
+          <div class="hs-dropdown-menu hs-dropdown-open:opacity-100 w-60 transition-[opacity,margin] duration opacity-0 hidden z-20 bg-white rounded-xl shadow-xl dark:bg-neutral-900" role="menu" aria-orientation="vertical" aria-labelledby="hs-pro-dnad">
+            <div class="p-1">
+              <a class="flex items-center gap-x-3 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+                <svg class="shrink-0 mt-0.5 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="20" height="14" x="2" y="5" rx="2" />
+                  <line x1="2" x2="22" y1="10" y2="10" />
+                </svg>
+                Billing
+              </a>
+              <a class="flex items-center gap-x-3 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+                <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+                Settings
+              </a>
+              <a class="flex items-center gap-x-3 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+                <svg class="shrink-0 mt-0.5 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+                My account
+              </a>
+              <a class="flex items-center gap-x-3 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+                <svg class="shrink-0 mt-0.5 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+                Manage team
+              </a>
+            </div>
+            <div class="px-4 py-3.5 border-y border-gray-200 dark:border-neutral-800">
+              <!-- Switch/Toggle -->
+              <div class="flex flex-wrap justify-between items-center gap-2">
+                <label for="hs-pro-dnads" class="flex-1 cursor-pointer text-sm text-gray-800 dark:text-neutral-300">Dark mode</label>
+                <label for="hs-pro-dnads" class="relative inline-block w-11 h-6 cursor-pointer">
+                  <input data-hs-theme-switch type="checkbox" id="hs-pro-dnads" class="peer sr-only">
+                  <span class="absolute inset-0 bg-gray-200 rounded-full transition-colors duration-200 ease-in-out peer-checked:bg-teal-600 dark:bg-neutral-700 dark:peer-checked:bg-teal-500 peer-disabled:opacity-50 peer-disabled:pointer-events-none"></span>
+                  <span class="absolute top-1/2 start-0.5 -translate-y-1/2 size-5 bg-white rounded-full shadow-sm !transition-transform duration-200 ease-in-out peer-checked:translate-x-full dark:bg-neutral-400 dark:peer-checked:bg-white"></span>
+                </label>
+              </div>
+              <!-- End Switch/Toggle -->
+            </div>
+            <div class="p-1">
+              <span class="pt-2 pb-1 px-3 block text-xs text-gray-500 dark:text-neutral-500">Teams</span>
+
+              <a class="flex items-center gap-x-3 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+                <svg class="shrink-0 size-4" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_2632_801)">
+                    <path d="M32 0H0V32H32V0Z" fill="black" />
+                    <path d="M0 0H32V32H0V0Z" fill="#FFE01B" />
+                    <path d="M11.7199 19.2803C11.7399 19.3003 11.7399 19.3403 11.7199 19.3803C11.6399 19.5203 11.4799 19.6003 11.3199 19.5803C11.0199 19.5403 10.7999 19.3003 10.8199 19.0003C10.8199 18.8003 10.8599 18.6203 10.9199 18.4203C11.0199 18.1803 10.9199 17.9203 10.7199 17.7803C10.5999 17.7003 10.4399 17.6803 10.2999 17.7003C10.1599 17.7203 10.0399 17.8203 9.95995 17.9403C9.89995 18.0403 9.85995 18.1403 9.83995 18.2403C9.83995 18.2603 9.81995 18.2803 9.81995 18.2803C9.77995 18.4003 9.69995 18.4403 9.63995 18.4403C9.61995 18.4403 9.57995 18.4203 9.55995 18.3603C9.49995 18.0203 9.61995 17.6803 9.83995 17.4203C10.0399 17.2003 10.3199 17.1003 10.6199 17.1403C10.9199 17.1803 11.1999 17.3803 11.3199 17.6603C11.4599 18.0003 11.4199 18.3803 11.2399 18.7003C11.2199 18.7203 11.2199 18.7603 11.1999 18.7803C11.1399 18.9003 11.1199 19.0603 11.1999 19.1803C11.2599 19.2603 11.3399 19.3003 11.4399 19.3003C11.4799 19.3003 11.5199 19.3003 11.5599 19.2803C11.6399 19.2403 11.6999 19.2403 11.7199 19.2803ZM24.9399 19.6003C24.9199 20.2203 24.7799 20.8203 24.5599 21.4003C23.4399 24.1003 20.7599 25.6003 17.5599 25.5003C14.5799 25.4203 12.0399 23.8403 10.9399 21.2603C10.2399 21.2403 9.55995 20.9603 9.05995 20.5003C8.51995 20.0403 8.17995 19.4003 8.09995 18.7003C8.03995 18.2203 8.09995 17.7403 8.27995 17.2803L7.65995 16.7603C4.77995 14.3603 13.7199 4.40033 16.5599 6.90033C16.5799 6.92033 17.5399 7.86033 17.5399 7.86033C17.5399 7.86033 18.0599 7.64033 18.0799 7.64033C20.5799 6.60033 22.6199 7.10033 22.6199 8.76033C22.6199 9.62033 22.0799 10.6203 21.1999 11.5403C21.5599 11.9003 21.7999 12.3403 21.9199 12.8203C22.0199 13.1603 22.0599 13.5003 22.0799 13.8603C22.0999 14.2203 22.1199 15.0403 22.1199 15.0403C22.1399 15.0403 22.3999 15.1203 22.4799 15.1403C22.9999 15.2603 23.4599 15.4803 23.8599 15.8203C24.0799 16.0203 24.1999 16.3003 24.2599 16.5803C24.3199 16.9603 24.2199 17.3403 23.9999 17.6403C24.0599 17.7803 24.0999 17.9003 24.1599 18.0403C24.2399 18.2803 24.2799 18.4803 24.2999 18.5003C24.5199 18.5403 24.9399 18.8603 24.9399 19.6003ZM12.3399 18.1203C12.1399 16.8603 11.2999 16.4203 10.7199 16.3803C10.5799 16.3803 10.4399 16.3803 10.2799 16.4203C9.25995 16.6203 8.65995 17.5003 8.77995 18.6403C8.95995 19.7003 9.81995 20.5003 10.8799 20.5603C10.9799 20.5603 11.0799 20.5603 11.1799 20.5403C12.2399 20.3803 12.4999 19.2403 12.3399 18.1203ZM14.0999 10.1203C14.9799 9.40033 15.8999 8.76033 16.8799 8.20033C16.8799 8.20033 16.0999 7.30032 15.8599 7.22032C14.4199 6.82032 11.2999 8.98033 9.29995 11.8403C8.49995 13.0003 7.33995 15.0403 7.89995 16.0803C8.09995 16.3203 8.31995 16.5203 8.55995 16.7203C8.91995 16.2003 9.47995 15.8403 10.1199 15.7203C10.8999 13.5403 12.2799 11.6003 14.0999 10.1203ZM17.2199 20.1003C17.2999 20.4403 17.5599 20.7203 17.8999 20.8003C18.0799 20.8603 18.2399 20.9203 18.4399 20.9403C20.7199 21.3403 22.8599 20.0203 23.3399 19.7003C23.3799 19.6803 23.3999 19.7003 23.3799 19.7403C23.3599 19.7603 23.3399 19.7803 23.3399 19.8003C22.7599 20.5603 21.1799 21.4403 19.1199 21.4403C18.2199 21.4403 17.3199 21.1203 16.9999 20.6403C16.4799 19.8803 16.9799 18.7803 17.8199 18.9003C17.8199 18.9003 18.1199 18.9403 18.1999 18.9403C19.5199 19.0603 20.8599 18.8603 22.0799 18.3203C23.2399 17.7803 23.6799 17.1803 23.6199 16.7003C23.5999 16.5603 23.5199 16.4203 23.4199 16.3003C23.0999 16.0403 22.7199 15.8603 22.3199 15.7803C22.1399 15.7203 22.0199 15.7003 21.8799 15.6603C21.6399 15.5803 21.5199 15.5203 21.4999 15.0603C21.4799 14.8603 21.4599 14.1803 21.4399 13.8803C21.4199 13.3803 21.3599 12.7003 20.9399 12.4203C20.8399 12.3403 20.6999 12.3003 20.5799 12.3003C20.4999 12.3003 20.4399 12.3003 20.3599 12.3203C20.1399 12.3603 19.9599 12.4803 19.7999 12.6403C19.3999 13.0003 18.8799 13.1803 18.3399 13.1403C18.0399 13.1203 17.7399 13.0803 17.3799 13.0603C17.3199 13.0603 17.2399 13.0603 17.1799 13.0403C16.2199 13.0603 15.4399 13.7803 15.3199 14.7403C15.1199 16.1603 16.1399 16.8803 16.4399 17.3203C16.4799 17.3803 16.5199 17.4403 16.5199 17.5203C16.5199 17.6003 16.4799 17.6803 16.4199 17.7203C15.5999 18.6403 15.2999 19.9203 15.6199 21.1203C15.6599 21.2603 15.6999 21.4003 15.7599 21.5403C16.4999 23.2803 18.8199 24.1003 21.0799 23.3603C21.3799 23.2603 21.6599 23.1403 21.9399 23.0003C22.4399 22.7603 22.8799 22.4203 23.2599 22.0203C23.8399 21.4403 24.2199 20.6803 24.3599 19.8603C24.4199 19.4003 24.3199 19.2403 24.1999 19.1603C24.0999 19.1003 23.9999 19.0803 23.8799 19.1003C23.8199 18.7403 23.7199 18.4003 23.5799 18.0803C22.9399 18.5603 22.1999 18.9403 21.4199 19.1603C20.4799 19.4203 19.5199 19.5203 18.5399 19.4803C17.9199 19.4203 17.4999 19.2403 17.3399 19.7603C18.2799 20.0803 19.2799 20.1803 20.2799 20.0603C20.2999 20.0603 20.3399 20.0803 20.3399 20.1003C20.3399 20.1203 20.3199 20.1403 20.2999 20.1603C20.2199 20.1403 19.0599 20.6803 17.2199 20.1003ZM13.8399 11.8803C14.5999 11.3403 15.4799 10.9603 16.3799 10.7603C17.4199 10.5203 18.4799 10.5203 19.5199 10.7603C19.5599 10.7603 19.5799 10.7003 19.5399 10.6803C18.9999 10.4003 18.4199 10.2403 17.7999 10.2203C17.7799 10.2203 17.7599 10.2003 17.7599 10.1803V10.1603C17.8599 10.0403 17.9599 9.92033 18.0799 9.84033C18.0999 9.82033 18.0999 9.80033 18.0799 9.80033L18.0599 9.78032C17.3199 9.86032 16.6199 10.1003 15.9799 10.5203C15.9599 10.5203 15.9399 10.5203 15.9399 10.5203V10.5003C15.9799 10.3203 16.0599 10.1403 16.1599 9.96033C16.1599 9.94033 16.1599 9.92033 16.1399 9.92033H16.1199C15.2199 10.4203 14.4199 11.0803 13.7599 11.8603C13.7399 11.8803 13.7399 11.9003 13.7599 11.9003C13.7999 11.9003 13.8199 11.9003 13.8399 11.8803ZM19.8399 16.7003C19.9599 16.7803 20.1399 16.7603 20.2399 16.6403C20.2999 16.5203 20.2199 16.3803 20.0599 16.3003C19.9399 16.2203 19.7599 16.2403 19.6599 16.3603C19.5999 16.4603 19.6799 16.6203 19.8399 16.7003ZM20.3399 14.8803C20.3799 15.0803 20.4599 15.2803 20.5799 15.4403C20.6999 15.4203 20.8399 15.4203 20.9599 15.4403C21.0399 15.2203 21.0399 14.9803 20.9799 14.7603C20.8799 14.3403 20.7599 14.1003 20.5199 14.1403C20.2599 14.1803 20.2399 14.4803 20.3399 14.8803ZM20.8799 15.8403C20.7199 15.8003 20.5399 15.8803 20.4799 16.0603C20.4399 16.2203 20.5199 16.4003 20.6999 16.4603C20.8799 16.5203 21.0399 16.4203 21.0999 16.2403C21.0999 16.2203 21.1199 16.1803 21.1199 16.1603C21.1199 16.0003 21.0199 15.8603 20.8799 15.8403Z" fill="black" />
+                    <path d="M16.6601 15.7999C16.6201 15.7999 16.6001 15.7799 16.6001 15.7599C16.5801 15.6799 16.7001 15.5799 16.8001 15.4799C17.1401 15.2199 17.6001 15.1799 17.9801 15.3399C18.1601 15.4199 18.3201 15.5399 18.4201 15.6999C18.4601 15.7599 18.4601 15.8199 18.4401 15.8399C18.4001 15.8799 18.3001 15.8399 18.1201 15.7599C17.9201 15.6599 17.6801 15.5999 17.4601 15.6199C17.2001 15.6599 16.9201 15.7199 16.6601 15.7999ZM18.3801 16.1599C18.2201 15.9999 18.0001 15.9199 17.8001 15.9599C17.6401 15.9799 17.5001 16.0399 17.3801 16.1399C17.3201 16.1799 17.2801 16.2399 17.2801 16.3199C17.2801 16.3399 17.2801 16.3599 17.3001 16.3599C17.3201 16.3599 17.3201 16.3799 17.3401 16.3799C17.4001 16.3799 17.4601 16.3599 17.5001 16.3399C17.7401 16.2599 17.9801 16.2199 18.2201 16.2599C18.3401 16.2799 18.3801 16.2799 18.4201 16.2399C18.4001 16.1999 18.4001 16.1799 18.3801 16.1599Z" fill="black" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_2632_801">
+                      <rect width="32" height="32" rx="10" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+                Mailchimp
+
+                <div class="ms-auto self-center">
+                  <svg class="shrink-0 size-4 text-gray-800 dark:text-neutral-200" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+              </a>
+              <a class="flex items-center gap-x-3 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+                <svg class="shrink-0 size-4" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M11.7438 0.940745C6.84695 1.30308 2.6841 1.63631 2.48837 1.67533C1.9396 1.77319 1.44038 2.14544 1.20563 2.63537L1 3.06646L1.01982 13.3407L1.04893 23.615L1.36234 24.2517C1.53886 24.6042 2.73365 26.2499 4.0362 27.9439C6.61221 31.2836 6.79802 31.47 7.77726 31.5679C8.06156 31.597 10.1966 31.4991 12.5081 31.3622C14.8295 31.2154 18.5508 30.99 20.7842 30.863C30.3233 30.2839 29.8334 30.3328 30.3815 29.8627C31.0672 29.2947 31.0183 30.2251 31.0474 17.7377C31.0672 7.15003 31.0573 6.45509 30.9006 6.13177C30.7148 5.76943 30.3815 5.51487 26.0329 2.45885C23.1243 0.421704 22.9186 0.313932 21.6155 0.294111C21.0772 0.274911 16.6307 0.568497 11.7438 0.940745ZM22.752 2.28232C23.1633 2.46814 26.1704 4.56412 26.6108 4.9661C26.7284 5.08378 26.7675 5.18164 26.7086 5.24048C26.5717 5.35817 7.96245 6.465 7.42421 6.38634C7.17956 6.34732 6.81722 6.20052 6.61159 6.06302C5.75932 5.48514 3.64413 3.75149 3.64413 3.62452C3.64413 3.29129 3.57538 3.29129 11.8714 2.69421C13.4582 2.58644 16.0633 2.39071 17.6502 2.26312C21.0871 1.98874 22.1159 1.99865 22.752 2.28232ZM28.6677 7.63996C28.8046 7.77685 28.9223 8.04132 28.9613 8.29589C28.9904 8.53125 29.0102 12.9189 28.9904 18.0313C28.9613 26.8067 28.9514 27.3555 28.7848 27.61C28.6869 27.7667 28.4912 27.9333 28.3438 27.9823C27.9331 28.1489 8.43318 29.2557 8.03183 29.138C7.84601 29.0891 7.59083 28.9324 7.45394 28.7955L7.21858 28.541L7.18947 19.0799C7.16965 12.4395 7.18947 9.5012 7.26813 9.23672C7.32697 9.041 7.47376 8.80564 7.60136 8.72759C7.77788 8.60991 8.93364 8.51205 12.9101 8.2773C15.7016 8.1206 20.0206 7.85613 22.4987 7.70933C28.3933 7.34638 28.3741 7.34638 28.6677 7.63996Z" class="fill-black dark:fill-neutral-200" fill="currentColor" />
+                  <path d="M23.4277 10.8818C22.3698 10.9506 21.4296 11.0484 21.3218 11.1073C20.9985 11.2739 20.8028 11.5483 20.7638 11.8617C20.7347 12.185 20.8325 12.224 21.8898 12.3516L22.35 12.4104V16.5925C22.35 19.0799 22.311 20.7256 22.2621 20.6767C22.2131 20.6178 20.8226 18.5027 19.167 15.9756C17.512 13.4392 16.1407 11.3525 16.1209 11.3333C16.1011 11.3135 15.024 11.3724 13.7313 11.4609C12.1445 11.5687 11.273 11.6666 11.0965 11.7644C10.8122 11.9112 10.4988 12.4303 10.4988 12.7734C10.4988 12.979 10.871 13.0868 11.6545 13.0868H12.0658V25.1139L11.4 25.3196C10.8809 25.4763 10.7044 25.5741 10.6165 25.7698C10.4598 26.1031 10.4697 26.4066 10.6264 26.4066C10.6852 26.4066 11.792 26.3378 13.0649 26.2598C15.582 26.113 15.8657 26.0442 16.1302 25.5252C16.2088 25.3685 16.277 25.2019 16.277 25.1529C16.277 25.1139 15.9345 24.9962 15.5226 24.8984C15.1014 24.8005 14.6802 24.7027 14.5923 24.6828C14.4257 24.6339 14.4157 24.3304 14.4157 20.1186V15.6033L17.3931 20.2753C20.5173 25.1721 20.9093 25.7308 21.3893 25.9755C21.987 26.2889 23.5051 26.0733 24.2688 25.5741L24.5042 25.4273L24.524 18.7479L24.5531 12.0586L25.0722 11.9608C25.6891 11.8431 25.9734 11.5594 25.9734 11.0695C25.9734 10.7561 25.9536 10.7362 25.66 10.7462C25.4847 10.7542 24.4757 10.813 23.4277 10.8818Z" class="fill-black dark:fill-neutral-200" fill="currentColor" />
+                </svg>
+                Notion
+
+                <div class="ms-auto self-center hidden">
+                  <svg class="shrink-0 size-4 text-gray-800 dark:text-neutral-200" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+            <div class="p-1 border-t border-gray-200 dark:border-neutral-800">
+              <a class="flex items-center gap-x-3 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+                <svg class="shrink-0 mt-0.5 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                  <polyline points="16 17 21 12 16 7" />
+                  <line x1="21" x2="9" y1="12" y2="12" />
+                </svg>
+                Sign out
+              </a>
+            </div>
+          </div>
+          <!-- End Account Dropdown -->
+        </div>
+        <!-- End Account Dropdown -->
+
+        <div class="lg:hidden">
+          <!-- Collapse Button Trigger -->
+          <button type="button" class="hs-collapse-toggle inline-flex justify-center items-center w-7 h-9.5 text-start border border-white/20 text-white rounded-lg shadow-2xs align-middle hover:bg-white/10 disabled:opacity-50 focus:outline-hidden focus:bg-white/10" id="hs-pro-dmh-collapse" aria-expanded="false" aria-controls="hs-pro-dmh" aria-label="Toggle navigation" data-hs-collapse="#hs-pro-dmh">
+            <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="1" />
+              <circle cx="12" cy="5" r="1" />
+              <circle cx="12" cy="19" r="1" />
+            </svg>
+          </button>
+          <!-- End Collapse Button Trigger -->
+        </div>
+      </div>
+
+      <!-- Nav Links -->
+      <div class="lg:order-2 basis-full grow lg:basis-auto lg:ms-5">
+        <!-- Collapse -->
+        <div id="hs-pro-dmh" class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow lg:block" aria-labelledby="hs-pro-dmh-collapse">
+          <div class="overflow-hidden overflow-y-auto max-h-[75vh] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300">
+            <div class="flex flex-col lg:flex-row lg:justify-center lg:items-center gap-1 lg:gap-2 pt-2 lg:pt-0">
+              <a class="p-2 inline-flex items-center text-sm  text-white hover:bg-white/10 focus:bg-white/10 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 rounded-lg focus:outline-hidden" href="../../pro/workspace/index.html">
+                <svg class="shrink-0 size-4 me-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                  <polyline points="9 22 9 12 15 12 15 22" />
+                </svg>
+                Home
+              </a>
+              <a class="p-2 inline-flex items-center text-sm  text-white hover:bg-white/10 focus:bg-white/10 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 rounded-lg focus:outline-hidden" href="../../pro/workspace/projects.html">
+                <svg class="shrink-0 size-4 me-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="20" height="14" x="2" y="7" rx="2" ry="2" />
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                </svg>
+                Projects
+              </a>
+
+              <!-- Dropdown -->
+              <div class="hs-dropdown [--strategy:static] lg:[--strategy:absolute] [--adaptive:none] lg:inline-block">
+                <!-- Link -->
+                <button id="hs-pro-wntd" type="button" class="hs-dropdown-toggle p-2 w-full inline-flex items-center text-sm bg-white/10 dark:bg-neutral-800 text-white hover:bg-white/10 focus:bg-white/10 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 rounded-lg focus:outline-hidden" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
+                  <svg class="shrink-0 size-4 me-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                  </svg>
+                  Talents
+                  <svg class="hs-dropdown-open:-rotate-180 lg:hs-dropdown-open:rotate-0 duration-300 ms-auto lg:ms-1 shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                </button>
+                <!-- End Link -->
+
+                <!-- Dropdown Menu -->
+                <div class="hs-dropdown-menu transition-[opacity,margin] duration-[0.1ms] lg:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 w-full lg:w-52 hidden z-10 top-full lg:bg-gray-800 lg:border lg:border-gray-700 lg:rounded-xl lg:shadow-xl before:absolute before:-top-3 before:start-0 before:w-full before:h-5 lg:dark:bg-neutral-900 lg:dark:border-neutral-800" role="menu" aria-orientation="vertical" aria-labelledby="hs-pro-wntd">
+                  <div class="relative pt-1 lg:pb-1 ps-7 lg:px-1 space-y-0.5 lg:after:hidden after:absolute after:top-1 after:start-3.5 after:w-0.5 after:h-[calc(100%-4px)] after:bg-white/10 dark:after:bg-neutral-700">
+                    <!-- Link -->
+                    <a class="group py-2 px-3 flex items-center gap-x-3 text-sm text-white hover:bg-white/10 focus:bg-white/10 rounded-lg dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800  focus:outline-hidden" href="../../pro/workspace/talents.html">
+                      Overview
+                    </a>
+                    <!-- End Link -->
+
+                    <!-- Link -->
+                    <a class="group py-2 px-3 flex items-center gap-x-3 text-sm text-white hover:bg-white/10 focus:bg-white/10 rounded-lg dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 bg-white/10 focus:bg-gray-100 dark:bg-white/10 focus:outline-hidden" href="../../pro/workspace/talent-details.html">
+                      Talent Details
+                    </a>
+                    <!-- End Link -->
+                  </div>
+                </div>
+                <!-- End Dropdown Menu -->
+              </div>
+              <!-- End Dropdown -->
+
+              <!-- Dropdown -->
+              <div class="hs-dropdown [--strategy:static] lg:[--strategy:absolute] [--adaptive:none] lg:inline-block">
+                <!-- Link -->
+                <button id="hs-pro-wnesd" type="button" class="hs-dropdown-toggle p-2 w-full inline-flex items-center text-sm  text-white hover:bg-white/10 focus:bg-white/10 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 rounded-lg focus:outline-hidden" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
+                  <svg class="shrink-0 size-4 me-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+                    <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+                  </svg>
+                  Empty Contents
+                  <svg class="hs-dropdown-open:-rotate-180 lg:hs-dropdown-open:rotate-0 duration-300 ms-auto lg:ms-1 shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                </button>
+                <!-- End Link -->
+
+                <!-- Dropdown Menu -->
+                <div class="hs-dropdown-menu transition-[opacity,margin] duration-[0.1ms] lg:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 w-full lg:w-52 hidden z-10 top-full lg:bg-gray-800 lg:border lg:border-gray-700 lg:rounded-xl lg:shadow-xl before:absolute before:-top-3 before:start-0 before:w-full before:h-5 lg:dark:bg-neutral-900 lg:dark:border-neutral-800" role="menu" aria-orientation="vertical" aria-labelledby="hs-pro-wnesd">
+                  <div class="relative pt-1 lg:pb-1 ps-7 lg:px-1 space-y-0.5 lg:after:hidden after:absolute after:top-1 after:start-3.5 after:w-0.5 after:h-[calc(100%-4px)] after:bg-white/10 dark:after:bg-neutral-700">
+                    <!-- Link -->
+                    <a class="group py-2 px-3 flex items-center gap-x-3 text-sm text-white hover:bg-white/10 focus:bg-white/10 rounded-lg dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800  focus:outline-hidden" href="../../pro/workspace/empty-states.html">
+                      Main page
+                    </a>
+                    <!-- End Link -->
+
+                    <!-- Link -->
+                    <a class="group py-2 px-3 flex items-center gap-x-3 text-sm text-white hover:bg-white/10 focus:bg-white/10 rounded-lg dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800  focus:outline-hidden" href="../../pro/workspace/talent-details-empty-states.html">
+                      Talent Details
+                    </a>
+                    <!-- End Link -->
+                  </div>
+                </div>
+                <!-- End Dropdown Menu -->
+              </div>
+              <!-- End Dropdown -->
+            </div>
+          </div>
+        </div>
+        <!-- End Collapse -->
+      </div>
+      <!-- End Nav Links -->
+    </div>
+  </header>
+  <!-- ========== END HEADER ========== -->
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="content" class="pb-10 sm:pb-16">
+    <!-- Overlay User Profile -->
+    <div class="relative pt-5 bg-gray-800 dark:bg-neutral-950 before:absolute before:-bottom-14 before:start-0 before:-z-1 before:w-full before:h-14 before:bg-gray-800 dark:before:bg-neutral-950">
+      <div class="max-w-5xl mx-auto px-2 sm:px-5 xl:px-0">
+        <div class="grid grid-cols-2 sm:flex items-center gap-5 pt-4 lg:pt-10 pb-5 md:pb-8">
+          <!-- Avatar -->
+          <div class="col-span-1 sm:col-span-auto shrink-0">
+            <div class="relative shrink-0 size-16 sm:size-20">
+              <!-- <div class="shrink-0 size-16 sm:size-20 bg-gray-700 rounded-3xl dark:bg-neutral-900">
+                <span class="flex shrink-0 justify-center items-center size-16 sm:size-20 bg-gray-600 text-2xl font-semibold uppercase text-white rounded-2xl sm:rounded-3xl">
+                  AH
+                </span>
+              </div> -->
+              <img class="shrink-0 size-full rounded-2xl sm:rounded-3xl" src="https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=3&w=320&h=320&q=80" alt="Avatar">
+              <div class="absolute -bottom-3 inset-x-0 text-center">
+                <span class="py-1 px-2 inline-flex items-center gap-x-1 text-xs font-semibold uppercase rounded-md bg-linear-to-tr from-lime-500 to-teal-500 text-white">Pro</span>
+              </div>
+            </div>
+          </div>
+          <!-- End Avatar -->
+
+          <div class="col-span-1 sm:col-span-auto sm:order-3">
+            <div class="flex justify-end">
+              <button type="button" class="py-2 px-3 inline-flex items-center gap-x-2 whitespace-nowrap text-sm bg-white/10 text-white rounded-lg hover:bg-white/20 focus:outline-hidden focus:bg-white/20 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" data-hs-overlay="#@@modalID">
+                <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
+                  <path d="M8 12h.01" />
+                  <path d="M12 12h.01" />
+                  <path d="M16 12h.01" />
+                </svg>Contact
+              </button>
+            </div>
+          </div>
+
+          <!-- Body -->
+          <div class="grow col-span-full">
+            <h1 class="text-2xl md:text-3xl font-semibold text-white">
+              Amanda Harvey
+            </h1>
+
+            <!-- List -->
+            <ul class="mt-2 flex flex-wrap items-center gap-x-3">
+              <li class="relative before:hidden md:before:inline-block first:before:hidden first:before:ms-0 before:content-['•'] before:text-white/40 before:me-1.5">
+                <span class="text-sm text-white/50">
+                  Role:
+                </span>
+                <span class="inline-flex items-center gap-x-2 text-sm text-gray-200">
+                  Front-End Developer
+                </span>
+              </li>
+
+              <li class="relative before:hidden md:before:inline-block first:before:hidden first:before:ms-0 before:content-['•'] before:text-white/40 before:me-1.5">
+                <span class="text-sm text-white/50">
+                  Phone:
+                </span>
+                <span class="inline-flex items-center gap-x-2 text-sm text-gray-200">
+                  (892) 312-5483
+                </span>
+              </li>
+
+              <li class="relative before:hidden md:before:inline-block first:before:hidden first:before:ms-0 before:content-['•'] before:text-white/40 before:me-1.5">
+                <span class="text-sm text-white/50">
+                  Email:
+                </span>
+                <span class="inline-flex items-center gap-x-2 text-sm text-gray-200">
+                  amanda@site.com
+                </span>
+              </li>
+            </ul>
+            <!-- End List -->
+          </div>
+          <!-- End Body -->
+        </div>
+      </div>
+    </div>
+    <!-- End Overlay User Profile -->
+
+    <!-- Content -->
+    <div class="max-w-5xl mx-auto px-2 sm:px-5 xl:px-0 pb-10">
+      <!-- Stats Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
+        <!-- Card -->
+        <a class="group p-4 bg-white border border-gray-200 rounded-xl hover:shadow-lg hover:-translate-y-0.5 focus:outline-hidden focus:shadow-lg focus:-translate-y-0.5 transition dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-black" href="#">
+          <div class="flex gap-x-3">
+            <div class="grow">
+              <h2 class="text-xs text-gray-600 dark:text-neutral-400">
+                Total hours (7D)
+              </h2>
+              <p class="text-xl font-semibold text-gray-800 dark:text-white">
+                38h 9m
+              </p>
+            </div>
+            <svg class="shrink-0 size-6 text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5" />
+              <path d="M16 2v4" />
+              <path d="M8 2v4" />
+              <path d="M3 10h5" />
+              <path d="M17.5 17.5 16 16.25V14" />
+              <path d="M22 16a6 6 0 1 1-12 0 6 6 0 0 1 12 0Z" />
+            </svg>
+          </div>
+          <span class="mt-3 inline-flex items-center gap-x-1 text-sm text-teal-600 font-medium group-hover:text-teal-500 group-focus:text-teal-500">
+            View reports
+            <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m9 18 6-6-6-6" />
+            </svg>
+          </span>
+        </a>
+        <!-- End Card -->
+
+        <!-- Card -->
+        <a class="group p-4 bg-white border border-gray-200 rounded-xl hover:shadow-lg hover:-translate-y-0.5 focus:outline-hidden focus:shadow-lg focus:-translate-y-0.5 transition dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-black" href="#">
+          <div class="flex gap-x-3">
+            <div class="grow">
+              <h2 class="text-xs text-gray-600 dark:text-neutral-400">
+                Avg. daily hours
+              </h2>
+              <p class="text-xl font-semibold text-gray-800 dark:text-white">
+                5h 32m
+              </p>
+            </div>
+            <svg class="shrink-0 size-6 text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 22h14" />
+              <path d="M5 2h14" />
+              <path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22" />
+              <path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2" />
+            </svg>
+          </div>
+          <span class="mt-3 inline-flex items-center gap-x-1 text-sm text-teal-600 font-medium group-hover:text-teal-500 group-focus:text-teal-500">
+            View reports
+            <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m9 18 6-6-6-6" />
+            </svg>
+          </span>
+        </a>
+        <!-- End Card -->
+
+        <!-- Card -->
+        <a class="group p-4 bg-white border border-gray-200 rounded-xl hover:shadow-lg hover:-translate-y-0.5 focus:outline-hidden focus:shadow-lg focus:-translate-y-0.5 transition dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-black" href="#">
+          <div class="flex gap-x-3">
+            <div class="grow">
+              <h2 class="text-xs text-gray-600 dark:text-neutral-400">
+                Over limit
+              </h2>
+              <p class="text-xl font-semibold text-gray-800 dark:text-white">
+                0s
+              </p>
+            </div>
+            <svg class="shrink-0 size-6 text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 12A10 10 0 1 1 12 2" />
+              <path d="M22 2 12 12" />
+              <path d="M16 2h6v6" />
+            </svg>
+          </div>
+          <span class="mt-3 inline-flex items-center gap-x-1 text-sm text-teal-600 font-medium group-hover:text-teal-500 group-focus:text-teal-500">
+            View reports
+            <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m9 18 6-6-6-6" />
+            </svg>
+          </span>
+        </a>
+        <!-- End Card -->
+
+        <!-- Card -->
+        <a class="group p-4 bg-white border border-gray-200 rounded-xl hover:shadow-lg hover:-translate-y-0.5 focus:outline-hidden focus:shadow-lg focus:-translate-y-0.5 transition dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-black" href="#">
+          <div class="flex gap-x-3">
+            <div class="grow">
+              <h2 class="text-xs text-gray-600 dark:text-neutral-400">
+                Under limit
+              </h2>
+              <p class="text-xl font-semibold text-gray-800 dark:text-white">
+                1h 51m
+              </p>
+            </div>
+            <svg class="shrink-0 size-6 text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 12a10 10 0 1 1 10 10" />
+              <path d="m2 22 10-10" />
+              <path d="M8 22H2v-6" />
+            </svg>
+          </div>
+          <span class="mt-3 inline-flex items-center gap-x-1 text-sm text-teal-600 font-medium group-hover:text-teal-500 group-focus:text-teal-500">
+            View reports
+            <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m9 18 6-6-6-6" />
+            </svg>
+          </span>
+        </a>
+        <!-- End Card -->
+      </div>
+      <!-- End Stats Grid -->
+
+      <!-- Card Grid Group -->
+      <div class="mt-5 md:mt-10 grid md:grid-cols-8 gap-y-5 md:gap-y-0 md:gap-x-4">
+        <div class="md:col-span-4 lg:col-span-5">
+          <!-- Card -->
+          <div class="h-full flex flex-col bg-white border border-gray-200 rounded-xl dark:bg-neutral-900 dark:border-neutral-700">
+            <div class="pt-2.5 px-4">
+              <h2 class="font-semibold text-gray-800 dark:text-white">
+                Timesheet
+              </h2>
+            </div>
+
+            <!-- Body -->
+            <div class="p-4">
+              <!-- Progress -->
+              <div class="flex justify-between items-center gap-x-3 py-1.5 sm:py-2">
+                <span class="font-semibold text-sm text-gray-800 dark:text-white">
+                  Sep 4 - Sep 9
+                </span>
+                <span class="font-semibold text-sm text-gray-800 dark:text-white">
+                  Total hours
+                </span>
+              </div>
+              <!-- End Progress -->
+
+              <!-- Progress -->
+              <div class="grid grid-cols-12 items-center md:gap-x-3 py-1.5 sm:py-2">
+                <!-- Date -->
+                <div class="lg:order-1 col-span-6 lg:col-span-3">
+                  <h3 class="text-sm text-gray-800 dark:text-white">Mon, 4/9</h3>
+                </div>
+                <!-- End Date -->
+
+                <!-- Time -->
+                <div class="lg:order-3 col-span-6 lg:col-span-3 text-end">
+                  <div class="hs-tooltip [--placement:left] md:[--placement:right] inline-block">
+                    <span class="hs-tooltip-toggle inline-flex items-center gap-x-1 text-sm text-gray-800 dark:text-white">
+                      8:27
+                      <span class="md:hidden py-0.5 px-2 bg-white border border-gray-200 text-gray-500 text-xs rounded-full dark:bg-neutral-800 dark:border-neutral-700">
+                        <span class="text-red-500">-33m</span> under
+                      </span>
+                      <svg class="hidden md:block shrink-0 size-3.5 text-gray-400 dark:text-neutral-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 16v-4" />
+                        <path d="M12 8h.01" />
+                      </svg>
+                      <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-white border border-gray-200 text-xs font-medium text-gray-800 rounded-full shadow-2xs dark:bg-neutral-800 dark:border-neutral-700 dark:text-white" role="tooltip">
+                        <span class="text-red-500">-33m</span> under limit
+                      </span>
+                    </span>
+                  </div>
+                </div>
+                <!-- End Time -->
+
+                <!-- Step Progress -->
+                <div class="lg:order-2 col-span-12 lg:col-span-6 mt-1 md:mt-0 w-full flex lg:justify-center items-center gap-x-1.5">
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <!-- End Step Progress -->
+              </div>
+              <!-- End Progress -->
+
+              <!-- Progress -->
+              <div class="grid grid-cols-12 items-center md:gap-x-3 py-1.5 sm:py-2">
+                <!-- Date -->
+                <div class="lg:order-1 col-span-6 lg:col-span-3">
+                  <h3 class="text-sm text-gray-800 dark:text-white">Tue, 5/9</h3>
+                </div>
+                <!-- End Date -->
+
+                <!-- Time -->
+                <div class="lg:order-3 col-span-6 lg:col-span-3 text-end">
+                  <div class="hs-tooltip [--placement:left] md:[--placement:right] inline-block">
+                    <span class="hs-tooltip-toggle inline-flex items-center gap-x-1 text-sm text-gray-800 dark:text-white">
+                      4:50
+                      <span class="md:hidden py-0.5 px-2 bg-white border border-gray-200 text-gray-500 text-xs rounded-full dark:bg-neutral-800 dark:border-neutral-700">
+                        <span class="text-red-500">-4h 10m</span> under
+                      </span>
+                      <svg class="hidden md:block shrink-0 size-3.5 text-gray-400 dark:text-neutral-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 16v-4" />
+                        <path d="M12 8h.01" />
+                      </svg>
+                      <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-white border border-gray-200 text-xs font-medium text-gray-800 rounded-full shadow-2xs dark:bg-neutral-800 dark:border-neutral-700 dark:text-white" role="tooltip">
+                        <span class="text-red-500">-4h 10m</span> under limit
+                      </span>
+                    </span>
+                  </div>
+                </div>
+                <!-- End Time -->
+
+                <!-- Step Progress -->
+                <div class="lg:order-2 col-span-12 lg:col-span-6 mt-1 md:mt-0 w-full flex lg:justify-center items-center gap-x-1.5">
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <!-- End Step Progress -->
+              </div>
+              <!-- End Progress -->
+
+              <!-- Progress -->
+              <div class="grid grid-cols-12 items-center md:gap-x-3 py-1.5 sm:py-2">
+                <!-- Date -->
+                <div class="lg:order-1 col-span-6 lg:col-span-3">
+                  <h3 class="text-sm text-gray-800 dark:text-white">Wed, 6/9</h3>
+                </div>
+                <!-- End Date -->
+
+                <!-- Time -->
+                <div class="lg:order-3 col-span-6 lg:col-span-3 text-end">
+                  <div class="hs-tooltip [--placement:left] md:[--placement:right] inline-block">
+                    <span class="hs-tooltip-toggle inline-flex items-center gap-x-1 text-sm text-gray-800 dark:text-white">
+                      7:43
+                      <span class="md:hidden py-0.5 px-2 bg-white border border-gray-200 text-gray-500 text-xs rounded-full dark:bg-neutral-800 dark:border-neutral-700">
+                        <span class="text-red-500">-1h 17m</span> under
+                      </span>
+                      <svg class="hidden md:block shrink-0 size-3.5 text-gray-400 dark:text-neutral-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 16v-4" />
+                        <path d="M12 8h.01" />
+                      </svg>
+                      <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-white border border-gray-200 text-xs font-medium text-gray-800 rounded-full shadow-2xs dark:bg-neutral-800 dark:border-neutral-700 dark:text-white" role="tooltip">
+                        <span class="text-red-500">-1h 17m</span> under limit
+                      </span>
+                    </span>
+                  </div>
+                </div>
+                <!-- End Time -->
+
+                <!-- Step Progress -->
+                <div class="lg:order-2 col-span-12 lg:col-span-6 mt-1 md:mt-0 w-full flex lg:justify-center items-center gap-x-1.5">
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <!-- End Step Progress -->
+              </div>
+              <!-- End Progress -->
+
+              <!-- Progress -->
+              <div class="grid grid-cols-12 items-center md:gap-x-3 py-1.5 sm:py-2">
+                <!-- Date -->
+                <div class="lg:order-1 col-span-6 lg:col-span-3">
+                  <h3 class="text-sm text-gray-800 dark:text-white">Thu, 7/9</h3>
+                </div>
+                <!-- End Date -->
+
+                <!-- Time -->
+                <div class="lg:order-3 col-span-6 lg:col-span-3 text-end">
+                  <div class="hs-tooltip [--placement:left] md:[--placement:right] inline-block">
+                    <span class="hs-tooltip-toggle inline-flex items-center gap-x-1 text-sm text-gray-800 dark:text-white">
+                      9:09
+                      <span class="md:hidden py-0.5 px-2 bg-white border border-gray-200 text-gray-500 text-xs rounded-full dark:bg-neutral-800 dark:border-neutral-700">
+                        <span class="text-teal-500">+9m</span> over
+                      </span>
+                      <svg class="hidden md:block shrink-0 size-3.5 text-gray-400 dark:text-neutral-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 16v-4" />
+                        <path d="M12 8h.01" />
+                      </svg>
+                      <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-white border border-gray-200 text-xs font-medium text-gray-800 rounded-full shadow-2xs dark:bg-neutral-800 dark:border-neutral-700 dark:text-white" role="tooltip">
+                        <span class="text-teal-500">+9m</span> over limit
+                      </span>
+                    </span>
+                  </div>
+                </div>
+                <!-- End Time -->
+
+                <!-- Step Progress -->
+                <div class="lg:order-2 col-span-12 lg:col-span-6 mt-1 md:mt-0 w-full flex lg:justify-center items-center gap-x-1.5">
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-teal-500 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-teal-500 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-teal-500 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-teal-500 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-teal-500 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-teal-500 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-teal-500 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-teal-500 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-teal-500 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-teal-500 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-teal-500 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-teal-500 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-teal-500 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-teal-500 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-teal-500 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-teal-500 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-teal-500 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-teal-500 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <!-- End Step Progress -->
+              </div>
+              <!-- End Progress -->
+
+              <!-- Progress -->
+              <div class="grid grid-cols-12 items-center md:gap-x-3 py-1.5 sm:py-2">
+                <!-- Date -->
+                <div class="lg:order-1 col-span-6 lg:col-span-3">
+                  <h3 class="text-sm text-gray-800 dark:text-white">Fri, 8/9</h3>
+                </div>
+                <!-- End Date -->
+
+                <!-- Time -->
+                <div class="lg:order-3 col-span-6 lg:col-span-3 text-end">
+                  <div class="hs-tooltip [--placement:left] md:[--placement:right] inline-block">
+                    <span class="hs-tooltip-toggle inline-flex items-center gap-x-1 text-sm text-gray-800 dark:text-white">
+                      9:02
+                      <span class="md:hidden py-0.5 px-2 bg-white border border-gray-200 text-gray-500 text-xs rounded-full dark:bg-neutral-800 dark:border-neutral-700">
+                        <span class="text-teal-500">+2m</span> over
+                      </span>
+                      <svg class="hidden md:block shrink-0 size-3.5 text-gray-400 dark:text-neutral-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 16v-4" />
+                        <path d="M12 8h.01" />
+                      </svg>
+                      <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-white border border-gray-200 text-xs font-medium text-gray-800 rounded-full shadow-2xs dark:bg-neutral-800 dark:border-neutral-700 dark:text-white" role="tooltip">
+                        <span class="text-teal-500">+2m</span> over limit
+                      </span>
+                    </span>
+                  </div>
+                </div>
+                <!-- End Time -->
+
+                <!-- Step Progress -->
+                <div class="lg:order-2 col-span-12 lg:col-span-6 mt-1 md:mt-0 w-full flex lg:justify-center items-center gap-x-1.5">
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-teal-500 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-teal-500 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-teal-500 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-teal-500 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-teal-500 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-teal-500 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-teal-500 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-teal-500 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-teal-500 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-teal-500 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-teal-500 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-teal-500 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-teal-500 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-teal-500 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-teal-500 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-teal-500 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-teal-500 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-teal-500 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <!-- End Step Progress -->
+              </div>
+              <!-- End Progress -->
+
+              <!-- Progress -->
+              <div class="grid grid-cols-12 items-center md:gap-x-3 py-1.5 sm:py-2">
+                <!-- Date -->
+                <div class="lg:order-1 col-span-6 lg:col-span-3">
+                  <h3 class="text-sm text-gray-800 dark:text-white">Sat, 9/9</h3>
+                </div>
+                <!-- End Date -->
+
+                <!-- Time -->
+                <div class="lg:order-3 col-span-6 lg:col-span-3 text-end">
+                  <div class="hs-tooltip [--placement:left] md:[--placement:right] inline-block">
+                    <span class="hs-tooltip-toggle inline-flex items-center gap-x-1 text-sm text-gray-800 dark:text-white">
+                      0:00
+                      <svg class="hidden md:block shrink-0 size-3.5 text-gray-400 dark:text-neutral-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 16v-4" />
+                        <path d="M12 8h.01" />
+                      </svg>
+                      <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-white border border-gray-200 text-xs font-medium text-gray-800 rounded-full shadow-2xs dark:bg-neutral-800 dark:border-neutral-700 dark:text-white" role="tooltip">
+                        0s
+                      </span>
+                    </span>
+                  </div>
+                </div>
+                <!-- End Time -->
+
+                <!-- Step Progress -->
+                <div class="lg:order-2 col-span-12 lg:col-span-6 mt-1 md:mt-0 w-full flex lg:justify-center items-center gap-x-1.5">
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <!-- End Step Progress -->
+              </div>
+              <!-- End Progress -->
+
+              <!-- Progress -->
+              <div class="grid grid-cols-12 items-center md:gap-x-3 py-1.5 sm:py-2">
+                <!-- Date -->
+                <div class="lg:order-1 col-span-6 lg:col-span-3">
+                  <h3 class="text-sm text-gray-800 dark:text-white">Sun, 10/9</h3>
+                </div>
+                <!-- End Date -->
+
+                <!-- Time -->
+                <div class="lg:order-3 col-span-6 lg:col-span-3 text-end">
+                  <div class="hs-tooltip [--placement:left] md:[--placement:right] inline-block">
+                    <span class="hs-tooltip-toggle inline-flex items-center gap-x-1 text-sm text-gray-800 dark:text-white">
+                      2:35
+                      <span class="md:hidden py-0.5 px-2 bg-white border border-gray-200 text-gray-500 text-xs rounded-full dark:bg-neutral-800 dark:border-neutral-700">
+                        <span class="text-red-500">-6h 25m</span>
+                      </span>
+                      <svg class="hidden md:block shrink-0 size-3.5 text-gray-400 dark:text-neutral-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 16v-4" />
+                        <path d="M12 8h.01" />
+                      </svg>
+                      <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-white border border-gray-200 text-xs font-medium text-gray-800 rounded-full shadow-2xs dark:bg-neutral-800 dark:border-neutral-700 dark:text-white" role="tooltip">
+                        <span class="text-red-500">-6h 25m</span> under limit
+                      </span>
+                    </span>
+                  </div>
+                </div>
+                <!-- End Time -->
+
+                <!-- Step Progress -->
+                <div class="lg:order-2 col-span-12 lg:col-span-6 mt-1 md:mt-0 w-full flex lg:justify-center items-center gap-x-1.5">
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500  bg-gray-600 dark:bg-neutral-400 " role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="shrink-0 size-2.5 flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap rounded-full transition duration-500 dark:bg-neutral-700" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <!-- End Step Progress -->
+              </div>
+              <!-- End Progress -->
+            </div>
+            <!-- End Body -->
+          </div>
+          <!-- End Card -->
+        </div>
+
+        <div class="md:col-span-4 lg:col-span-3">
+          <!-- Card -->
+          <div class="h-full relative flex flex-col bg-white border border-gray-200 rounded-xl dark:bg-neutral-900 dark:border-neutral-700">
+            <div class="pt-2.5 px-4">
+              <h2 class="font-semibold text-gray-800 dark:text-white">
+                Total costs
+              </h2>
+            </div>
+
+            <!-- Body -->
+            <div class="p-1.5 flex flex-col h-full">
+              <div class="p-2.5">
+                <h4 class="font-semibold text-xl md:text-2xl text-gray-800 dark:text-white">
+                  $7,800
+                </h4>
+
+                <!-- Progress -->
+                <div class="relative mt-3">
+                  <div class="flex w-full h-2 bg-gray-200 rounded-sm overflow-hidden dark:bg-neutral-700" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100">
+                    <div class="flex flex-col justify-center rounded-sm overflow-hidden bg-teal-500 text-xs text-white text-center whitespace-nowrap transition duration-500" style="width: 72%"></div>
+                  </div>
+                  <div class="absolute top-1/2 start-[71%] w-2 h-5 bg-teal-500 border-2 border-white rounded-sm transform -translate-y-1/2 dark:border-neutral-700"></div>
+                </div>
+                <!-- End Progress -->
+
+                <!-- Progress Status -->
+                <div class="mt-3 flex justify-between items-center">
+                  <span class="text-xs text-gray-500 dark:text-neutral-500">
+                    $0.00 USD
+                  </span>
+                  <span class="text-xs text-gray-500 dark:text-neutral-500">
+                    $12,000 USD
+                  </span>
+                </div>
+                <!-- End Progress Status -->
+
+                <p class="mt-4 text-sm text-gray-600 dark:text-neutral-400">
+                  A project-wise breakdown of total spendings complemented by detailed insights.
+                </p>
+              </div>
+
+              <!-- Top Earners -->
+              <div class="md:mt-auto p-2.5 rounded-lg bg-gray-100 dark:bg-neutral-900">
+                <h2 class="mb-3 text-sm font-semibold text-gray-800 dark:text-white">
+                  Talents costs
+                </h2>
+
+                <!-- List Group -->
+                <ul class="mb-1 space-y-2">
+                  <!-- Item -->
+                  <li class="flex items-center gap-x-2">
+                    <span class="flex shrink-0 justify-center items-center size-6 bg-white border border-gray-200 text-gray-800 dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200 text-xs font-medium uppercase rounded-lg">
+                      B
+                    </span>
+                    <div class="grow flex justify-between items-center gap-x-2">
+                      <span class="text-sm font-medium text-gray-600 dark:text-neutral-400">
+                        BlueVista Innovations
+                      </span>
+                      <span class="text-sm text-gray-600 dark:text-neutral-400">
+                        $6,810
+                      </span>
+                    </div>
+                  </li>
+                  <!-- End Item -->
+
+                  <!-- Item -->
+                  <li class="flex items-center gap-x-2">
+                    <span class="flex shrink-0 justify-center items-center size-6 bg-white border border-gray-200 text-gray-800 dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200 text-xs font-medium uppercase rounded-lg">
+                      T
+                    </span>
+                    <div class="grow flex justify-between items-center gap-x-2">
+                      <span class="text-sm font-medium text-gray-600 dark:text-neutral-400">
+                        TerraNova Dynamics
+                      </span>
+                      <span class="text-sm text-gray-600 dark:text-neutral-400">
+                        $1,200
+                      </span>
+                    </div>
+                  </li>
+                  <!-- End Item -->
+
+                  <!-- Item -->
+                  <li class="flex items-center gap-x-2">
+                    <span class="flex shrink-0 justify-center items-center size-6 bg-white border border-gray-200 text-gray-800 dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200 text-xs font-medium uppercase rounded-lg">
+                      L
+                    </span>
+                    <div class="grow flex justify-between items-center gap-x-2">
+                      <span class="text-sm font-medium text-gray-600 dark:text-neutral-400">
+                        Lumen Systems
+                      </span>
+                      <span class="text-sm text-gray-600 dark:text-neutral-400">
+                        $680
+                      </span>
+                    </div>
+                  </li>
+                  <!-- End Item -->
+                </ul>
+                <!-- End List Group -->
+
+                <p class="text-center">
+                  <a class="py-1 px-1.5 inline-flex items-center justify-center gap-x-1 text-xs hover:bg-white rounded-md text-teal-600 font-medium hover:text-teal-500 focus:outline-hidden focus:bg-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" href="#">
+                    View all costs
+
+                    <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m9 18 6-6-6-6" />
+                    </svg>
+                  </a>
+                </p>
+              </div>
+              <!-- End Top Earners -->
+            </div>
+            <!-- End Body -->
+          </div>
+          <!-- End Card -->
+        </div>
+      </div>
+      <!-- End Card Grid Group -->
+
+      <!-- Filter Group -->
+      <div class="mt-10 mb-4 flex flex-wrap justify-between items-center gap-3">
+        <div>
+          <h2 class="text-base sm:text-lg font-semibold text-gray-800 dark:text-white">
+            Projects
+          </h2>
+        </div>
+        <!-- End Col -->
+
+        <div class="flex justify-end items-center flex-wrap gap-x-1">
+          <!-- Select -->
+          <div class="relative flex items-center">
+            <span class="me-1 text-sm text-gray-500 dark:text-neutral-500">Status:</span>
+            <select data-hs-select='{
+                "placeholder": "Status",
+                "toggleTag": "<button type=\"button\" aria-expanded=\"false\"></button>",
+                "toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 relative py-1 ps-1.5 pe-7 inline-flex shrink-0 justify-center items-center gap-x-1.5 border border-transparent text-sm text-gray-800 rounded-lg hover:bg-gray-100 hover:text-gray-800 focus:outline-hidden focus:bg-gray-100 before:absolute before:inset-0 before:z-1 dark:text-neutral-200 dark:bg-neutral-900 dark:hover:bg-neutral-800 dark:hover:text-neutral-200 dark:focus:bg-neutral-800",
+                "dropdownClasses": "end-0 mt-2 p-1 space-y-0.5 z-50 w-32 bg-white rounded-xl shadow-xl dark:bg-neutral-950",
+                "optionClasses": "hs-selected:bg-gray-100 dark:hs-selected:bg-neutral-800 flex gap-x-3 py-1.5 px-2 text-[13px] text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-hidden focus:bg-gray-100 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800",
+                "optionTemplate": "<div class=\"flex justify-between items-center w-full\"><span data-title></span><span class=\"hidden hs-selected:block\"><svg class=\"shrink-0 size-3.5 text-gray-800 dark:text-neutral-200\" xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" viewBox=\"0 0 16 16\"><path d=\"M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z\"/></svg></span></div>"
+              }' class="hidden">
+              <option value="">Choose</option>
+              <option selected>All</option>
+              <option>Active</option>
+              <option>Completed</option>
+              <option>On Hold</option>
+              <option>No status</option>
+            </select>
+
+            <div class="absolute top-1/2 end-2 -translate-y-1/2">
+              <svg class="shrink-0 size-3.5 text-gray-600 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </div>
+          </div>
+          <!-- End Select -->
+
+          <!-- Select -->
+          <div class="relative flex items-center">
+            <span class="me-1 text-sm text-gray-500 dark:text-neutral-500">Sort:</span>
+            <select data-hs-select='{
+                "placeholder": "Sort",
+                "toggleTag": "<button type=\"button\" aria-expanded=\"false\"></button>",
+                "toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 relative py-1 ps-1.5 pe-7 inline-flex shrink-0 justify-center items-center gap-x-1.5 border border-transparent text-sm text-gray-800 rounded-lg hover:bg-gray-100 hover:text-gray-800 focus:outline-hidden focus:bg-gray-100 before:absolute before:inset-0 before:z-1 dark:text-neutral-200 dark:bg-neutral-900 dark:hover:bg-neutral-800 dark:hover:text-neutral-200 dark:focus:bg-neutral-800",
+                "dropdownClasses": "end-0 mt-2 p-1 space-y-0.5 z-50 w-28 bg-white rounded-xl shadow-xl dark:bg-neutral-950",
+                "optionClasses": "hs-selected:bg-gray-100 dark:hs-selected:bg-neutral-800 flex gap-x-3 py-1.5 px-2 text-[13px] text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-hidden focus:bg-gray-100 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800",
+                "optionTemplate": "<div class=\"flex justify-between items-center w-full\"><span data-title></span><span class=\"hidden hs-selected:block\"><svg class=\"shrink-0 size-3.5 text-gray-800 dark:text-neutral-200\" xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" viewBox=\"0 0 16 16\"><path d=\"M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z\"/></svg></span></div>"
+              }' class="hidden">
+              <option value="">Choose</option>
+              <option selected>Newest</option>
+              <option>Oldest</option>
+            </select>
+
+            <div class="absolute top-1/2 end-2 -translate-y-1/2">
+              <svg class="shrink-0 size-3.5 text-gray-600 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </div>
+          </div>
+          <!-- End Select -->
+        </div>
+        <!-- End Col -->
+      </div>
+      <!-- End Filter Group -->
+
+      <!-- Card Grid Group -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4">
+        <!-- Card -->
+        <div class="p-4 flex flex-col bg-white border border-gray-200 rounded-xl dark:bg-neutral-900 dark:border-neutral-700">
+          <div class="space-y-1">
+            <h4 class="mb-2.5 font-medium text-sm text-gray-800 dark:text-neutral-300">
+              NexaCore Ventures
+            </h4>
+
+            <!-- Item -->
+            <div class="flex justify-between items-center gap-x-2">
+              <span class="text-xs text-gray-600 dark:text-neutral-400">
+                Total hours:
+              </span>
+              <span class="text-sm font-medium text-gray-800 dark:text-white">
+                6h 30m
+              </span>
+            </div>
+            <!-- End Item -->
+
+            <!-- Item -->
+            <div class="flex justify-between items-center gap-x-2">
+              <span class="text-xs text-gray-600 dark:text-neutral-400">
+                Days:
+              </span>
+              <span class="text-sm font-medium text-gray-800 dark:text-white">
+                3
+              </span>
+            </div>
+            <!-- End Item -->
+
+            <!-- Item -->
+            <div class="flex justify-between items-center gap-x-2">
+              <span class="text-xs text-gray-600 dark:text-neutral-400">
+                Status:
+              </span>
+
+              <span class="inline-flex items-center gap-x-1.5 py-0.5 px-1.5 rounded-md text-xs font-medium bg-teal-100 text-teal-800 dark:bg-teal-800/30 dark:text-teal-500">Completed</span>
+            </div>
+            <!-- End Item -->
+          </div>
+        </div>
+        <!-- End Card -->
+
+        <!-- Card -->
+        <div class="p-4 flex flex-col bg-white border border-gray-200 rounded-xl dark:bg-neutral-900 dark:border-neutral-700">
+          <div class="space-y-1">
+            <h4 class="mb-2.5 font-medium text-sm text-gray-800 dark:text-neutral-300">
+              BlueVista Innovations
+            </h4>
+
+            <!-- Item -->
+            <div class="flex justify-between items-center gap-x-2">
+              <span class="text-xs text-gray-600 dark:text-neutral-400">
+                Total hours:
+              </span>
+              <span class="text-sm font-medium text-gray-800 dark:text-white">
+                -
+              </span>
+            </div>
+            <!-- End Item -->
+
+            <!-- Item -->
+            <div class="flex justify-between items-center gap-x-2">
+              <span class="text-xs text-gray-600 dark:text-neutral-400">
+                Days:
+              </span>
+              <span class="text-sm font-medium text-gray-800 dark:text-white">
+                -
+              </span>
+            </div>
+            <!-- End Item -->
+
+            <!-- Item -->
+            <div class="flex justify-between items-center gap-x-2">
+              <span class="text-xs text-gray-600 dark:text-neutral-400">
+                Status:
+              </span>
+
+              <span class="inline-flex items-center gap-x-1.5 py-0.5 px-1.5 rounded-md text-xs font-medium bg-gray-100 text-gray-800 dark:bg-neutral-800/30 dark:text-neutral-500">No status</span>
+            </div>
+            <!-- End Item -->
+          </div>
+        </div>
+        <!-- End Card -->
+
+        <!-- Card -->
+        <div class="p-4 flex flex-col bg-white border border-gray-200 rounded-xl dark:bg-neutral-900 dark:border-neutral-700">
+          <div class="space-y-1">
+            <h4 class="mb-2.5 font-medium text-sm text-gray-800 dark:text-neutral-300">
+              Quantum Sphere
+            </h4>
+
+            <!-- Item -->
+            <div class="flex justify-between items-center gap-x-2">
+              <span class="text-xs text-gray-600 dark:text-neutral-400">
+                Total hours:
+              </span>
+              <span class="text-sm font-medium text-gray-800 dark:text-white">
+                8h 26m
+              </span>
+            </div>
+            <!-- End Item -->
+
+            <!-- Item -->
+            <div class="flex justify-between items-center gap-x-2">
+              <span class="text-xs text-gray-600 dark:text-neutral-400">
+                Days:
+              </span>
+              <span class="text-sm font-medium text-gray-800 dark:text-white">
+                7
+              </span>
+            </div>
+            <!-- End Item -->
+
+            <!-- Item -->
+            <div class="flex justify-between items-center gap-x-2">
+              <span class="text-xs text-gray-600 dark:text-neutral-400">
+                Status:
+              </span>
+
+              <span class="inline-flex items-center gap-x-1.5 py-0.5 px-1.5 rounded-md text-xs font-medium bg-sky-100 text-sky-800 dark:bg-sky-800/30 dark:text-sky-500">Active</span>
+            </div>
+            <!-- End Item -->
+          </div>
+        </div>
+        <!-- End Card -->
+
+        <!-- Card -->
+        <div class="p-4 flex flex-col bg-white border border-gray-200 rounded-xl dark:bg-neutral-900 dark:border-neutral-700">
+          <div class="space-y-1">
+            <h4 class="mb-2.5 font-medium text-sm text-gray-800 dark:text-neutral-300">
+              Lumen Systems
+            </h4>
+
+            <!-- Item -->
+            <div class="flex justify-between items-center gap-x-2">
+              <span class="text-xs text-gray-600 dark:text-neutral-400">
+                Total hours:
+              </span>
+              <span class="text-sm font-medium text-gray-800 dark:text-white">
+                55m
+              </span>
+            </div>
+            <!-- End Item -->
+
+            <!-- Item -->
+            <div class="flex justify-between items-center gap-x-2">
+              <span class="text-xs text-gray-600 dark:text-neutral-400">
+                Days:
+              </span>
+              <span class="text-sm font-medium text-gray-800 dark:text-white">
+                2
+              </span>
+            </div>
+            <!-- End Item -->
+
+            <!-- Item -->
+            <div class="flex justify-between items-center gap-x-2">
+              <span class="text-xs text-gray-600 dark:text-neutral-400">
+                Status:
+              </span>
+
+              <span class="inline-flex items-center gap-x-1.5 py-0.5 px-1.5 rounded-md text-xs font-medium bg-sky-100 text-sky-800 dark:bg-sky-800/30 dark:text-sky-500">Active</span>
+            </div>
+            <!-- End Item -->
+          </div>
+        </div>
+        <!-- End Card -->
+
+        <!-- Card -->
+        <div class="p-4 flex flex-col bg-white border border-gray-200 rounded-xl dark:bg-neutral-900 dark:border-neutral-700">
+          <div class="space-y-1">
+            <h4 class="mb-2.5 font-medium text-sm text-gray-800 dark:text-neutral-300">
+              StratoSync Enterprises
+            </h4>
+
+            <!-- Item -->
+            <div class="flex justify-between items-center gap-x-2">
+              <span class="text-xs text-gray-600 dark:text-neutral-400">
+                Total hours:
+              </span>
+              <span class="text-sm font-medium text-gray-800 dark:text-white">
+                9h 12m
+              </span>
+            </div>
+            <!-- End Item -->
+
+            <!-- Item -->
+            <div class="flex justify-between items-center gap-x-2">
+              <span class="text-xs text-gray-600 dark:text-neutral-400">
+                Days:
+              </span>
+              <span class="text-sm font-medium text-gray-800 dark:text-white">
+                5
+              </span>
+            </div>
+            <!-- End Item -->
+
+            <!-- Item -->
+            <div class="flex justify-between items-center gap-x-2">
+              <span class="text-xs text-gray-600 dark:text-neutral-400">
+                Status:
+              </span>
+
+              <span class="inline-flex items-center gap-x-1.5 py-0.5 px-1.5 rounded-md text-xs font-medium bg-sky-100 text-sky-800 dark:bg-sky-800/30 dark:text-sky-500">Active</span>
+            </div>
+            <!-- End Item -->
+          </div>
+        </div>
+        <!-- End Card -->
+
+        <!-- Card -->
+        <div class="p-4 flex flex-col bg-white border border-gray-200 rounded-xl dark:bg-neutral-900 dark:border-neutral-700">
+          <div class="space-y-1">
+            <h4 class="mb-2.5 font-medium text-sm text-gray-800 dark:text-neutral-300">
+              TerraNova Dynamics
+            </h4>
+
+            <!-- Item -->
+            <div class="flex justify-between items-center gap-x-2">
+              <span class="text-xs text-gray-600 dark:text-neutral-400">
+                Total hours:
+              </span>
+              <span class="text-sm font-medium text-gray-800 dark:text-white">
+                25h 11m
+              </span>
+            </div>
+            <!-- End Item -->
+
+            <!-- Item -->
+            <div class="flex justify-between items-center gap-x-2">
+              <span class="text-xs text-gray-600 dark:text-neutral-400">
+                Days:
+              </span>
+              <span class="text-sm font-medium text-gray-800 dark:text-white">
+                9
+              </span>
+            </div>
+            <!-- End Item -->
+
+            <!-- Item -->
+            <div class="flex justify-between items-center gap-x-2">
+              <span class="text-xs text-gray-600 dark:text-neutral-400">
+                Status:
+              </span>
+
+              <span class="inline-flex items-center gap-x-1.5 py-0.5 px-1.5 rounded-md text-xs font-medium bg-teal-100 text-teal-800 dark:bg-teal-800/30 dark:text-teal-500">Completed</span>
+            </div>
+            <!-- End Item -->
+          </div>
+        </div>
+        <!-- End Card -->
+
+        <!-- Card -->
+        <div class="p-4 flex flex-col bg-white border border-gray-200 rounded-xl dark:bg-neutral-900 dark:border-neutral-700">
+          <div class="space-y-1">
+            <h4 class="mb-2.5 font-medium text-sm text-gray-800 dark:text-neutral-300">
+              EchoFlow Technologies
+            </h4>
+
+            <!-- Item -->
+            <div class="flex justify-between items-center gap-x-2">
+              <span class="text-xs text-gray-600 dark:text-neutral-400">
+                Total hours:
+              </span>
+              <span class="text-sm font-medium text-gray-800 dark:text-white">
+                26m
+              </span>
+            </div>
+            <!-- End Item -->
+
+            <!-- Item -->
+            <div class="flex justify-between items-center gap-x-2">
+              <span class="text-xs text-gray-600 dark:text-neutral-400">
+                Days:
+              </span>
+              <span class="text-sm font-medium text-gray-800 dark:text-white">
+                1
+              </span>
+            </div>
+            <!-- End Item -->
+
+            <!-- Item -->
+            <div class="flex justify-between items-center gap-x-2">
+              <span class="text-xs text-gray-600 dark:text-neutral-400">
+                Status:
+              </span>
+
+              <span class="inline-flex items-center gap-x-1.5 py-0.5 px-1.5 rounded-md text-xs font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-800/30 dark:text-yellow-500">On hold</span>
+            </div>
+            <!-- End Item -->
+          </div>
+        </div>
+        <!-- End Card -->
+      </div>
+      <!-- End Card Grid Group -->
+    </div>
+    <!-- End Content -->
+  </main>
+  <!-- ========== END MAIN CONTENT ========== -->
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="h-10 sm:h-16 absolute bottom-0 inset-x-0">
+    <div class="max-w-5xl p-2 sm:px-5 xl:px-0 sm:py-5 mx-auto">
+      <div class="flex flex-wrap justify-between items-center gap-2">
+        <p class="text-xs sm:text-sm text-gray-500 dark:text-neutral-500">
+          © 2025 Preline Labs.
+        </p>
+
+        <!-- List -->
+        <ul>
+          <li class="inline-block relative pe-5 text-xs sm:text-sm text-gray-500 align-middle last:pe-0 last-of-type:before:hidden before:absolute before:top-1/2 before:end-2 before:-translate-y-1/2 before:w-px before:h-3.5 before:bg-gray-400 before:rotate-[18deg] dark:text-neutral-500 dark:before:bg-neutral-600">
+            <a class="hover:text-teal-600 focus:outline-hidden focus:underline dark:hover:text-neutral-200" href="#">
+              FAQ
+            </a>
+          </li>
+          <li class="inline-block relative pe-5 text-xs sm:text-sm text-gray-500 align-middle last:pe-0 last-of-type:before:hidden before:absolute before:top-1/2 before:end-2 before:-translate-y-1/2 before:w-px before:h-3.5 before:bg-gray-400 before:rotate-[18deg] dark:text-neutral-500 dark:before:bg-neutral-600">
+            <a class="hover:text-teal-600 focus:outline-hidden focus:underline dark:hover:text-neutral-200" href="#">
+              License
+            </a>
+          </li>
+        </ul>
+        <!-- End List -->
+      </div>
+    </div>
+  </footer>
+  <!-- ========== END FOOTER ========== -->
+
+  <!-- JS PLUGINS -->
+  <!-- Required plugins -->
+  <script src="../assets/vendor/preline/dist/index.js?v=3.0.0"></script>
+  <!-- Clipboard -->
+  <script src="../assets/vendor/clipboard/dist/clipboard.min.js"></script>
+  <script src="../assets/js/hs-copy-clipboard-helper.js"></script>
+
+</body>
+</html>

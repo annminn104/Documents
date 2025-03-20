@@ -1,0 +1,2033 @@
+<!DOCTYPE html>
+<html lang="en" class="relative min-h-full">
+<head>
+  <!-- Required Meta Tags Always Come First -->
+  <meta charset="utf-8">
+  <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://preline.co/">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Interactive Chat demo with user list, group chats, user invites, custom tags, search and more, featuring a sleek design.">
+
+  <meta name="twitter:site" content="@preline">
+  <meta name="twitter:creator" content="@preline">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Chat Visitors | Preline Pro | Preline UI, crafted with Tailwind CSS">
+  <meta name="twitter:description" content="Interactive Chat demo with user list, group chats, user invites, custom tags, search and more, featuring a sleek design.">
+  <meta name="twitter:image" content="https://preline.co/assets/img/og-image.png">
+
+  <meta property="og:url" content="https://preline.co/">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Preline">
+  <meta property="og:title" content="Chat Visitors | Preline Pro | Preline UI, crafted with Tailwind CSS">
+  <meta property="og:description" content="Interactive Chat demo with user list, group chats, user invites, custom tags, search and more, featuring a sleek design.">
+  <meta property="og:image" content="https://preline.co/assets/img/og-image.png">
+
+  <!-- Title -->
+  <title>Chat Visitors | Preline Pro | Preline UI, crafted with Tailwind CSS</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="../favicon.ico">
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS HS -->
+  <link rel="stylesheet" href="../assets/css/main.min.css?v=3.0.0">
+
+  <!-- Theme Check and Update -->
+  <script>
+    const html = document.querySelector('html');
+    const isLightOrAuto = localStorage.getItem('hs_theme') === 'light' || (localStorage.getItem('hs_theme') === 'auto' && !window.matchMedia('(prefers-color-scheme: dark)').matches);
+    const isDarkOrAuto = localStorage.getItem('hs_theme') === 'dark' || (localStorage.getItem('hs_theme') === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+    if (isLightOrAuto && html.classList.contains('dark')) html.classList.remove('dark');
+    else if (isDarkOrAuto && html.classList.contains('light')) html.classList.remove('light');
+    else if (isDarkOrAuto && !html.classList.contains('dark')) html.classList.add('dark');
+    else if (isLightOrAuto && !html.classList.contains('light')) html.classList.add('light');
+  </script>
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="../assets/vendor/leaflet/dist/leaflet.css">
+  <script src="../assets/vendor/lodash/lodash.min.js"></script>
+  <script src="../assets/vendor/leaflet/dist/leaflet.js"></script>
+  <style>
+    .hs-leaflet.leaflet-touch .leaflet-control-layers,
+    .hs-leaflet.leaflet-touch .leaflet-bar
+    {
+      border-width: 0px;
+    }
+
+    .hs-leaflet.leaflet-touch .leaflet-bar a
+    {
+      line-height: 1.5;
+      background-color: rgba(255, 255, 255, .8);
+      box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    }
+
+    .hs-leaflet.leaflet-touch .leaflet-bar a:first-child,
+    .hs-leaflet.leaflet-touch .leaflet-bar a:last-child
+    {
+      border-radius: 8px;
+    }
+
+    .hs-leaflet .leaflet-control-zoom-in,
+    .hs-leaflet .leaflet-control-zoom-out
+    {
+      font-weight: 400;
+      font-size: 18px;
+      color: #1f2937;
+      text-indent: 0px;
+    }
+
+    .hs-leaflet .leaflet-bar
+    {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .hs-leaflet .leaflet-bar a
+    {
+      border-width: 0;
+    }
+
+    .hs-leaflet .leaflet-bar a:hover,
+    .hs-leaflet .leaflet-bar a:focus
+    {
+      background-color: #e5e7eb;
+    }
+
+    .hs-leaflet .leaflet-popup-content-wrapper,
+    .hs-leaflet .leaflet-popup-tip
+    {
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    }
+
+    .hs-leaflet .leaflet-popup-tip
+    {
+      border-radius: 4px;
+    }
+
+    .hs-leaflet.leaflet-container a.leaflet-popup-close-button
+    {
+      top: -10px;
+      right: -10px;
+      border-radius: 9999px;
+      background-color: #f3f4f6;
+      color: #1f2937;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .hs-leaflet.leaflet-container a.leaflet-popup-close-button:hover
+    {
+      background-color: #f3f4f6;
+    }
+
+    .hs-leaflet-unstyled-popover .leaflet-popup-content-wrapper
+    {
+      display: flex;
+    }
+
+    .hs-leaflet-unstyled-popover .leaflet-popup-content
+    {
+      padding: 0;
+      margin: 0;
+      background: none;
+      line-height: normal;
+      border-radius: 0;
+      font-size: inherit;
+      min-height: auto;
+    }
+  </style>
+
+  <link rel="stylesheet" href="../assets/vendor/apexcharts/dist/apexcharts.css">
+  <style type="text/css">
+    .apexcharts-tooltip.apexcharts-theme-light
+    {
+      background-color: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+  </style>
+
+  <style>
+    #hs-pro-chrm .leaflet-popup-pane,
+    #hs-pro-chrm .leaflet-popup-pane *
+    {
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body class="dark:bg-neutral-800">
+  <!-- ========== MAIN SIDEBAR ========== -->
+  <aside class="relative">
+    <div id="hs-pro-chat-sidebar" class="hs-overlay [--auto-close:lg] w-16 lg:block lg:translate-x-0 lg:end-auto lg:bottom-0
+      [--auto-close-equality-type:less-than]
+      hs-overlay-open:translate-x-0
+      -translate-x-full transition-all duration-300 transform
+      size-full
+      hidden
+      fixed inset-y-0 start-0 z-59
+      bg-gray-200
+      
+      dark:bg-neutral-950" tabindex="-1">
+      <div class="h-full flex">
+        <div class="relative z-10 w-16 flex flex-col h-full max-h-full pb-5">
+          <header class="w-16 py-2.5 flex justify-center">
+            <a class="flex-none rounded-md text-xl inline-block font-semibold focus:outline-hidden focus:opacity-80" href="../../pro/chat/index.html" aria-label="Preline">
+              <svg class="w-7 h-auto" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M18.0835 3.23358C9.88316 3.23358 3.23548 9.8771 3.23548 18.0723V35.5832H0.583496V18.0723C0.583496 8.41337 8.41851 0.583252 18.0835 0.583252C27.7485 0.583252 35.5835 8.41337 35.5835 18.0723C35.5835 27.7312 27.7485 35.5614 18.0835 35.5614H16.7357V32.911H18.0835C26.2838 32.911 32.9315 26.2675 32.9315 18.0723C32.9315 9.8771 26.2838 3.23358 18.0835 3.23358Z" class="fill-blue-600 dark:fill-white" fill="currentColor" />
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M18.0833 8.62162C12.8852 8.62162 8.62666 12.9245 8.62666 18.2879V35.5833H5.97468V18.2879C5.97468 11.5105 11.3713 5.97129 18.0833 5.97129C24.7954 5.97129 30.192 11.5105 30.192 18.2879C30.192 25.0653 24.7954 30.6045 18.0833 30.6045H16.7355V27.9542H18.0833C23.2815 27.9542 27.54 23.6513 27.54 18.2879C27.54 12.9245 23.2815 8.62162 18.0833 8.62162Z" class="fill-blue-600 dark:fill-white" fill="currentColor" />
+                <path d="M24.8225 18.1012C24.8225 21.8208 21.8053 24.8361 18.0833 24.8361C14.3614 24.8361 11.3442 21.8208 11.3442 18.1012C11.3442 14.3815 14.3614 11.3662 18.0833 11.3662C21.8053 11.3662 24.8225 14.3815 24.8225 18.1012Z" class="fill-blue-600 dark:fill-white" fill="currentColor" />
+              </svg>
+            </a>
+          </header>
+
+          <!-- Content -->
+          <div class="w-16 h-full flex flex-col pt-2 pb-4">
+            <!-- Nav -->
+            <ul class="text-center space-y-4">
+              <!-- Item -->
+              <li>
+                <a class="relative group flex flex-col justify-center items-center gap-y-1 text-[11px] text-gray-600 dark:text-neutral-200 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden" href="../../pro/chat/index.html">
+                  <span class="flex justify-center items-center gap-x-3 size-9 rounded-lg group-hover:bg-gray-300 group-focus:bg-gray-300 dark:group-hover:bg-neutral-800 dark:group-focus:bg-neutral-800 transition">
+                    <svg class="shrink-0 size-4 group-hover:scale-110 mx-auto transition" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                    </svg>
+                  </span>
+                  Inbox
+                  <span class="flex absolute -top-1 end-2 z-10">
+                    <span class="relative min-w-4 min-h-4 inline-flex justify-center items-center text-[10px] bg-red-500 text-white rounded-full px-1">
+                      4
+                    </span>
+                  </span>
+                </a>
+              </li>
+              <!-- End Item -->
+
+              <!-- Item -->
+              <li>
+                <a class="relative group flex flex-col justify-center items-center gap-y-1 text-[11px] text-gray-600 dark:text-neutral-200 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden" href="../../pro/chat/tickets.html">
+                  <span class="flex justify-center items-center gap-x-3 size-9 rounded-lg group-hover:bg-gray-300 group-focus:bg-gray-300 dark:group-hover:bg-neutral-800 dark:group-focus:bg-neutral-800 transition">
+                    <svg class="shrink-0 size-4 group-hover:scale-110 mx-auto transition" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
+                      <path d="M13 5v2" />
+                      <path d="M13 17v2" />
+                      <path d="M13 11v2" />
+                    </svg>
+                  </span>
+                  Tickets
+                </a>
+              </li>
+              <!-- End Item -->
+
+              <!-- Item -->
+              <li>
+                <a class="relative group flex flex-col justify-center items-center gap-y-1 text-[11px] text-gray-600 dark:text-neutral-200 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden" href="../../pro/chat/visitors.html">
+                  <span class="flex justify-center items-center gap-x-3 size-9 rounded-lg bg-gray-300 dark:bg-neutral-800 transition">
+                    <svg class="shrink-0 size-4 group-hover:scale-110 mx-auto transition" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21.54 15H17a2 2 0 0 0-2 2v4.54" />
+                      <path d="M7 3.34V5a3 3 0 0 0 3 3v0a2 2 0 0 1 2 2v0c0 1.1.9 2 2 2v0a2 2 0 0 0 2-2v0c0-1.1.9-2 2-2h3.17" />
+                      <path d="M11 21.95V18a2 2 0 0 0-2-2v0a2 2 0 0 1-2-2v-1a2 2 0 0 0-2-2H2.05" />
+                      <circle cx="12" cy="12" r="10" />
+                    </svg>
+                  </span>
+                  Visitors
+                </a>
+              </li>
+              <!-- End Item -->
+
+              <!-- Item -->
+              <li>
+                <a class="relative group flex flex-col justify-center items-center gap-y-1 text-[11px] text-gray-600 dark:text-neutral-200 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden" href="../../pro/chat/activity.html">
+                  <span class="flex justify-center items-center gap-x-3 size-9 rounded-lg group-hover:bg-gray-300 group-focus:bg-gray-300 dark:group-hover:bg-neutral-800 dark:group-focus:bg-neutral-800 transition">
+                    <svg class="shrink-0 size-4 group-hover:scale-110 mx-auto transition" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2" />
+                    </svg>
+                  </span>
+                  Activity
+                </a>
+              </li>
+              <!-- End Item -->
+
+              <!-- Item -->
+              <li>
+                <a class="relative group flex flex-col justify-center items-center gap-y-1 text-[11px] text-gray-600 dark:text-neutral-200 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden" href="../../pro/chat/reports.html">
+                  <span class="flex justify-center items-center gap-x-3 size-9 rounded-lg group-hover:bg-gray-300 group-focus:bg-gray-300 dark:group-hover:bg-neutral-800 dark:group-focus:bg-neutral-800 transition">
+                    <svg class="shrink-0 size-4 group-hover:scale-110 mx-auto transition" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="18" x2="18" y1="20" y2="10" />
+                      <line x1="12" x2="12" y1="20" y2="4" />
+                      <line x1="6" x2="6" y1="20" y2="14" />
+                    </svg>
+                  </span>
+                  Reports
+                </a>
+              </li>
+              <!-- End Item -->
+
+              <!-- Item -->
+              <li>
+                <!-- More Dropdown -->
+                <div class="hs-dropdown [--strategy:absolute] [--placement:bottom-right] [--auto-close:inside] relative inline-flex">
+                  <button id="hs-pro-chmsnmd" type="button" class="relative group flex flex-col justify-center items-center gap-y-1 text-[11px] text-gray-600 dark:text-neutral-200 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
+                    <span class="flex justify-center items-center gap-x-3 size-9 rounded-lg group-hover:bg-gray-300 group-focus:bg-gray-300 dark:group-hover:bg-neutral-800 dark:group-focus:bg-neutral-800">
+                      <svg class="shrink-0 size-4 group-hover:scale-110 mx-auto transition" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 7h-9" />
+                        <path d="M14 17H5" />
+                        <circle cx="17" cy="17" r="3" />
+                        <circle cx="7" cy="7" r="3" />
+                      </svg>
+                    </span>
+                    Settings
+                  </button>
+
+                  <!-- More Dropdown -->
+                  <div class="hs-dropdown-menu hs-dropdown-open:opacity-100 w-40 transition-[opacity,margin] duration opacity-0 hidden z-10 bg-white rounded-xl shadow-lg dark:bg-neutral-900" role="menu" aria-orientation="vertical" aria-labelledby="hs-pro-chmsnmd">
+                    <div class="p-1 space-y-0.5">
+                      <!-- Item -->
+                      <label for="hs-pro-chsnldin" class="py-1.5 px-3 group flex items-center gap-x-3 rounded-lg cursor-pointer text-[13px] text-gray-800 hover:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800">
+                        <input type="checkbox" class="hidden" id="hs-pro-chsnldin" name="hs-pro-chsnld" checked>
+                        <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                        </svg>
+                        Inbox
+                        <svg class="shrink-0 size-3.5 ms-auto opacity-0 group-has-checked:opacity-100" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M20 6 9 17l-5-5" />
+                        </svg>
+                      </label>
+                      <!-- End Item -->
+
+                      <!-- Item -->
+                      <label for="hs-pro-chsnldtc" class="py-1.5 px-3 group flex items-center gap-x-3 rounded-lg cursor-pointer text-[13px] text-gray-800 hover:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800">
+                        <input type="checkbox" class="hidden" id="hs-pro-chsnldtc" name="hs-pro-chsnld" checked>
+                        <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
+                          <path d="M13 5v2" />
+                          <path d="M13 17v2" />
+                          <path d="M13 11v2" />
+                        </svg>
+                        Ticket
+                        <svg class="shrink-0 size-3.5 ms-auto opacity-0 group-has-checked:opacity-100" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M20 6 9 17l-5-5" />
+                        </svg>
+                      </label>
+                      <!-- End Item -->
+
+                      <!-- Item -->
+                      <label for="hs-pro-chsnldvs" class="py-1.5 px-3 group flex items-center gap-x-3 rounded-lg cursor-pointer text-[13px] text-gray-800 hover:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800">
+                        <input type="checkbox" class="hidden" id="hs-pro-chsnldvs" name="hs-pro-chsnld" checked>
+                        <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M21.54 15H17a2 2 0 0 0-2 2v4.54" />
+                          <path d="M7 3.34V5a3 3 0 0 0 3 3v0a2 2 0 0 1 2 2v0c0 1.1.9 2 2 2v0a2 2 0 0 0 2-2v0c0-1.1.9-2 2-2h3.17" />
+                          <path d="M11 21.95V18a2 2 0 0 0-2-2v0a2 2 0 0 1-2-2v-1a2 2 0 0 0-2-2H2.05" />
+                          <circle cx="12" cy="12" r="10" />
+                        </svg>
+                        Visitors
+                        <svg class="shrink-0 size-3.5 ms-auto opacity-0 group-has-checked:opacity-100" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M20 6 9 17l-5-5" />
+                        </svg>
+                      </label>
+                      <!-- End Item -->
+
+                      <!-- Item -->
+                      <label for="hs-pro-chsnldct" class="py-1.5 px-3 group flex items-center gap-x-3 rounded-lg cursor-pointer text-[13px] text-gray-800 hover:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800">
+                        <input type="checkbox" class="hidden" id="hs-pro-chsnldct" name="hs-pro-chsnld">
+                        <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                          <circle cx="9" cy="7" r="4" />
+                          <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                          <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                        Contacts
+                        <svg class="shrink-0 size-3.5 ms-auto opacity-0 group-has-checked:opacity-100" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M20 6 9 17l-5-5" />
+                        </svg>
+                      </label>
+                      <!-- End Item -->
+
+                      <!-- Item -->
+                      <label for="hs-pro-chsnldac" class="py-1.5 px-3 group flex items-center gap-x-3 rounded-lg cursor-pointer text-[13px] text-gray-800 hover:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800">
+                        <input type="checkbox" class="hidden" id="hs-pro-chsnldac" name="hs-pro-chsnld" checked>
+                        <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
+                          <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
+                        </svg>
+                        Activity
+                        <svg class="shrink-0 size-3.5 ms-auto opacity-0 group-has-checked:opacity-100" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M20 6 9 17l-5-5" />
+                        </svg>
+                      </label>
+                      <!-- End Item -->
+
+                      <!-- Item -->
+                      <label for="hs-pro-chsnldpl" class="py-1.5 px-3 group flex items-center gap-x-3 rounded-lg cursor-pointer text-[13px] text-gray-800 hover:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800">
+                        <input type="checkbox" class="hidden" id="hs-pro-chsnldpl" name="hs-pro-chsnld">
+                        <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <rect width="7" height="7" x="14" y="3" rx="1" />
+                          <path d="M10 21V8a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1H3" />
+                        </svg>
+                        Plugins
+                        <svg class="shrink-0 size-3.5 ms-auto opacity-0 group-has-checked:opacity-100" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M20 6 9 17l-5-5" />
+                        </svg>
+                      </label>
+                      <!-- End Item -->
+
+                      <!-- Item -->
+                      <label for="hs-pro-chsnldrp" class="py-1.5 px-3 group flex items-center gap-x-3 rounded-lg cursor-pointer text-[13px] text-gray-800 hover:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800">
+                        <input type="checkbox" class="hidden" id="hs-pro-chsnldrp" name="hs-pro-chsnld" checked>
+                        <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="18" x2="18" y1="20" y2="10" />
+                          <line x1="12" x2="12" y1="20" y2="4" />
+                          <line x1="6" x2="6" y1="20" y2="14" />
+                        </svg>
+                        Reports
+                        <svg class="shrink-0 size-3.5 ms-auto opacity-0 group-has-checked:opacity-100" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M20 6 9 17l-5-5" />
+                        </svg>
+                      </label>
+                      <!-- End Item -->
+
+                      <!-- Item -->
+                      <label for="hs-pro-chsnldar" class="py-1.5 px-3 group flex items-center gap-x-3 rounded-lg cursor-pointer text-[13px] text-gray-800 hover:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800">
+                        <input type="checkbox" class="hidden" id="hs-pro-chsnldar" name="hs-pro-chsnld">
+                        <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                        </svg>
+                        Articles
+                        <svg class="shrink-0 size-3.5 ms-auto opacity-0 group-has-checked:opacity-100" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M20 6 9 17l-5-5" />
+                        </svg>
+                      </label>
+                      <!-- End Item -->
+                    </div>
+                  </div>
+                  <!-- End More Dropdown -->
+                </div>
+                <!-- End More Dropdown -->
+              </li>
+              <!-- End Item -->
+            </ul>
+            <!-- End Nav -->
+          </div>
+          <!-- End Content -->
+
+          <!-- Footer -->
+          <footer class="w-16 space-y-3 pt-4">
+            <div class="hidden lg:block">
+              <!-- Project Dropdown -->
+              <div class="inline-flex justify-center w-full">
+                <div class="hs-dropdown relative [--strategy:absolute] [--placement:bottom-left] inline-flex">
+                  <!-- Project Button -->
+                  <button id="hs-pro-dnwpd" type="button" class="flex justify-center items-center gap-x-3 size-8 mx- rounded-lg hover:bg-gray-300 focus:bg-gray-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
+                    <img class="shrink-0 size-8 rounded-md object-cover" src="../assets/img/logo/hs.png" alt="Logo">
+                    <span class="sr-only">Htmlstream</span>
+                  </button>
+                  <!-- End Project Button -->
+
+                  <!-- Dropdown -->
+                  <div class="hs-dropdown-menu hs-dropdown-open:opacity-100 w-65 transition-[opacity,margin] duration opacity-0 hidden z-20 bg-white rounded-xl shadow-xl dark:bg-neutral-900" role="menu" aria-orientation="vertical" aria-labelledby="hs-pro-dnwpd">
+                    <div class="p-1">
+                      <span class="block pt-2 pb-1 ps-2.5 text-xs text-gray-500 dark:text-neutral-500">
+                        Workspaces (2)
+                      </span>
+
+                      <!-- Item -->
+                      <label for="hs-pro-dplid1" class="py-1 px-2.5 group flex justify-start items-center gap-x-3 rounded-lg cursor-pointer text-[13px] text-gray-800 hover:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800">
+                        <input type="radio" class="hidden" id="hs-pro-dplid1" name="hs-pro-dplnm" checked>
+                        <svg class="shrink-0 size-4 opacity-0 group-has-checked:opacity-100" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M20 6 9 17l-5-5" />
+                        </svg>
+                        <span class="grow">
+                          <span class="block text-sm font-medium text-gray-800 dark:text-neutral-200">
+                            Htmlstream
+                          </span>
+                          <span class="block text-xs text-gray-500 dark:text-neutral-500">
+                            htmlstream.preline.so
+                          </span>
+                        </span>
+                        <img class="shrink-0 size-7 rounded-md object-cover" src="../assets/img/logo/hs.png" alt="Logo">
+                      </label>
+                      <!-- End Item -->
+
+                      <!-- Item -->
+                      <label for="hs-pro-dplid2" class="py-1 px-2.5 group flex justify-start items-center gap-x-3 rounded-lg cursor-pointer text-[13px] text-gray-800 hover:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800">
+                        <input type="radio" class="hidden" id="hs-pro-dplid2" name="hs-pro-dplnm">
+                        <svg class="shrink-0 size-4 opacity-0 group-has-checked:opacity-100" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M20 6 9 17l-5-5" />
+                        </svg>
+                        <span class="grow">
+                          <span class="block text-sm font-medium text-gray-800 dark:text-neutral-200">
+                            Bloomark
+                          </span>
+                          <span class="block text-xs text-gray-500 dark:text-neutral-500">
+                            bloomark.preline.com
+                          </span>
+                        </span>
+                        <img class="shrink-0 size-7 rounded-md object-cover" src="../assets/img/logo/logo-short.png" alt="Logo">
+                      </label>
+                      <!-- End Item -->
+
+                      <button type="button" class="group w-full flex items-center gap-x-3 py-2 px-2.5 rounded-lg text-sm text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800">
+                        <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <circle cx="12" cy="12" r="10" />
+                          <path d="M8 12h8" />
+                          <path d="M12 8v8" />
+                        </svg>
+                        Add a workspace
+                      </button>
+                    </div>
+
+                    <div class="p-1 border-t border-gray-200 dark:border-neutral-800">
+                      <span class="block pt-2 pb-1 ps-2.5 text-xs text-gray-500 dark:text-neutral-500">
+                        Download mobile app on
+                      </span>
+                      <a class="flex items-center gap-x-3 py-1.5 px-2.5 w-full rounded-lg text-sm text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+                        <svg class="shrink-0 size-4" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M25.536 0H6.464C2.892 0 0 2.892 0 6.464V25.54C0 29.108 2.892 32 6.464 32H25.54C29.108 32 32.004 29.108 32.004 25.536V6.464C32 2.892 29.108 0 25.536 0Z" fill="url(#paint0_linear_4403_2024)" />
+                          <path d="M15.864 7.352L16.512 6.232C16.912 5.532 17.804 5.296 18.504 5.696C19.204 6.096 19.44 6.988 19.04 7.688L12.796 18.496H17.312C18.776 18.496 19.596 20.216 18.96 21.408H5.72C4.912 21.408 4.264 20.76 4.264 19.952C4.264 19.144 4.912 18.496 5.72 18.496H9.432L14.184 10.26L12.7 7.684C12.3 6.984 12.536 6.1 13.236 5.692C13.936 5.292 14.82 5.528 15.228 6.228L15.864 7.352ZM10.248 22.908L8.848 25.336C8.448 26.036 7.556 26.272 6.856 25.872C6.156 25.472 5.92 24.58 6.32 23.88L7.36 22.08C8.536 21.716 9.492 21.996 10.248 22.908ZM22.304 18.504H26.092C26.9 18.504 27.548 19.152 27.548 19.96C27.548 20.768 26.9 21.416 26.092 21.416H23.988L25.408 23.88C25.808 24.58 25.572 25.464 24.872 25.872C24.172 26.272 23.288 26.036 22.88 25.336C20.488 21.188 18.692 18.084 17.5 16.016C16.28 13.912 17.152 11.8 18.012 11.084C18.968 12.724 20.396 15.2 22.304 18.504Z" fill="white" />
+                          <defs>
+                            <linearGradient id="paint0_linear_4403_2024" x1="16.002" y1="0" x2="16.002" y2="32" gradientUnits="userSpaceOnUse">
+                              <stop stop-color="#18BFFB" />
+                              <stop offset="1" stop-color="#2072F3" />
+                            </linearGradient>
+                          </defs>
+                        </svg>
+                        App Store
+                        <svg class="shrink-0 size-3.5 ms-auto opacity-60" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6" />
+                          <path d="m21 3-9 9" />
+                          <path d="M15 3h6v6" />
+                        </svg>
+                      </a>
+                      <a class="flex items-center gap-x-3 py-1.5 px-2.5 w-full rounded-lg text-sm text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+                        <svg class="shrink-0 size-4" width="32" height="37" viewBox="0 0 32 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M20.5159 11.1765L1.20745 0.140891C0.964824 1.05128e-05 0.659583 0.00783721 0.424782 0.148718C0.182154 0.289598 0.0334473 0.540052 0.0334473 0.821813C0.0334473 0.821813 0.041274 1.83928 0.0491007 3.5142L14.1137 17.5788L20.5159 11.1765Z" fill="url(#paint0_linear_4406_2034)" />
+                          <path d="M0.0491007 3.5142C0.0725807 9.5564 0.143021 24.2236 0.174328 31.5259L14.1215 17.5788L0.0491007 3.5142Z" fill="url(#paint1_linear_4406_2034)" />
+                          <path d="M31.5672 17.4927L20.5159 11.1765L14.1058 17.5788L21.3377 24.8106L31.575 18.8467C31.8177 18.7058 31.9664 18.4475 31.9664 18.1736C31.9664 17.8918 31.8098 17.6336 31.5672 17.4927Z" fill="url(#paint2_linear_4406_2034)" />
+                          <path d="M0.166501 31.5259C0.182154 34.1322 0.189981 35.7993 0.189981 35.7993C0.189981 36.0811 0.338688 36.3394 0.581316 36.4724C0.823943 36.6133 1.12136 36.6133 1.36399 36.4724L21.3455 24.8185L14.1137 17.5866L0.166501 31.5259Z" fill="url(#paint3_linear_4406_2034)" />
+                          <defs>
+                            <linearGradient id="paint0_linear_4406_2034" x1="0.0334473" y1="18.3158" x2="31.972" y2="18.3158" gradientUnits="userSpaceOnUse">
+                              <stop stop-color="#63BE6B" />
+                              <stop offset="0.506" stop-color="#5BBC6A" />
+                              <stop offset="1" stop-color="#4AB96A" />
+                            </linearGradient>
+                            <linearGradient id="paint1_linear_4406_2034" x1="0.0249224" y1="18.313" x2="31.9479" y2="18.313" gradientUnits="userSpaceOnUse">
+                              <stop stop-color="#3EC6F2" />
+                              <stop offset="1" stop-color="#45AFE3" />
+                            </linearGradient>
+                            <linearGradient id="paint2_linear_4406_2034" x1="0.0468809" y1="18.322" x2="31.963" y2="18.322" gradientUnits="userSpaceOnUse">
+                              <stop stop-color="#FAA51A" />
+                              <stop offset="0.387" stop-color="#FAB716" />
+                              <stop offset="0.741" stop-color="#FAC412" />
+                              <stop offset="1" stop-color="#FAC80F" />
+                            </linearGradient>
+                            <linearGradient id="paint3_linear_4406_2034" x1="0.169948" y1="27.082" x2="21.3452" y2="27.082" gradientUnits="userSpaceOnUse">
+                              <stop stop-color="#EC3B50" />
+                              <stop offset="1" stop-color="#E7515B" />
+                            </linearGradient>
+                          </defs>
+                        </svg>
+                        Google Play
+                        <svg class="shrink-0 size-3.5 ms-auto opacity-60" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6" />
+                          <path d="m21 3-9 9" />
+                          <path d="M15 3h6v6" />
+                        </svg>
+                      </a>
+                    </div>
+
+                    <div class="p-1 border-t border-gray-200 dark:border-neutral-800">
+                      <a class="flex items-center gap-x-3 py-1.5 px-2.5 rounded-lg text-sm text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+                        Invite people to Htmlstream
+                      </a>
+                      <a class="flex items-center gap-x-3 py-1.5 px-2.5 rounded-lg text-sm text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+                        Preferences
+                      </a>
+                      <a class="flex items-center gap-x-3 py-1.5 px-2.5 rounded-lg text-sm text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+                        Manage workspace
+                      </a>
+                    </div>
+
+                    <div class="p-1 border-t border-gray-200 dark:border-neutral-800">
+                      <button type="button" class="w-full flex items-center gap-x-3 py-2 px-2.5 rounded-lg text-sm text-gray-800 hover:bg-gray-100 disabled:opacity-50 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800">
+                        Sign out
+                        <span class="ms-auto text-xs text-gray-500 dark:text-neutral-500">
+                          notion.preline.so
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                  <!-- End Dropdown -->
+                </div>
+              </div>
+              <!-- End Project Dropdown -->
+            </div>
+
+            <!-- Account Dropdown -->
+            <div class="inline-flex justify-center w-full">
+              <div class="hs-dropdown relative [--strategy:absolute] [--auto-close:inside] [--placement:bottom-right] inline-flex">
+                <button id="hs-pro-chmsad" type="button" class="flex justify-center items-center gap-x-3 size-8 text-start disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
+                  <img class="shrink-0 rounded-full" src="https://images.unsplash.com/photo-1659482633369-9fe69af50bfb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=3&w=320&h=320&q=80" alt="Avatar">
+                  <span class="absolute -bottom-0 -end-0 block size-2 rounded-full ring-2 ring-gray-100 bg-green-500 dark:ring-neutral-800"></span>
+                </button>
+
+                <!-- Account Dropdown -->
+                <div class="hs-dropdown-menu hs-dropdown-open:opacity-100 w-48 transition-[opacity,margin] duration opacity-0 hidden z-20 bg-white rounded-xl shadow-xl dark:bg-neutral-900" role="menu" aria-orientation="vertical" aria-labelledby="hs-pro-chmsad">
+                  <div class="p-1">
+                    <a class="flex items-center gap-x-3 py-1.5 px-2.5 rounded-lg text-sm text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+                      <svg class="shrink-0 mt-0.5 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="20" height="14" x="2" y="5" rx="2" />
+                        <line x1="2" x2="22" y1="10" y2="10" />
+                      </svg>
+                      Billing
+                    </a>
+                    <a class="flex items-center gap-x-3 py-1.5 px-2.5 rounded-lg text-sm text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+                      <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+                        <circle cx="12" cy="12" r="3" />
+                      </svg>
+                      Settings
+                    </a>
+                    <a class="flex items-center gap-x-3 py-1.5 px-2.5 rounded-lg text-sm text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+                      <svg class="shrink-0 mt-0.5 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                      </svg>
+                      My account
+                    </a>
+                  </div>
+                  <div class="py-1.5 px-3.5 border-y border-gray-200 dark:border-neutral-800">
+                    <!-- Switch/Toggle -->
+                    <div class="flex flex-wrap justify-between items-center gap-2">
+                      <label for="hs-pro-chmsaddm" class="flex flex-1 cursor-pointer text-sm text-gray-800 dark:text-neutral-300">Dark mode</label>
+                      <label for="hs-pro-chmsaddm" class="relative inline-block w-9 h-5 cursor-pointer">
+                        <input data-hs-theme-switch type="checkbox" id="hs-pro-chmsaddm" class="peer sr-only">
+                        <span class="absolute inset-0 bg-gray-200 rounded-full transition-colors duration-200 ease-in-out peer-checked:bg-blue-600 dark:bg-neutral-700 dark:peer-checked:bg-blue-500 peer-disabled:opacity-50 peer-disabled:pointer-events-none"></span>
+                        <span class="absolute top-1/2 start-0.5 -translate-y-1/2 size-4 bg-white rounded-full shadow-sm !transition-transform duration-200 ease-in-out peer-checked:translate-x-full dark:bg-neutral-400 dark:peer-checked:bg-white"></span>
+                      </label>
+                    </div>
+                    <!-- End Switch/Toggle -->
+                  </div>
+                  <div class="p-1">
+                    <a class="flex items-center gap-x-3 py-1.5 px-2.5 rounded-lg text-sm text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+                      Sign out
+                    </a>
+                  </div>
+                </div>
+                <!-- End Account Dropdown -->
+              </div>
+            </div>
+            <!-- End Account Dropdown -->
+          </footer>
+          <!-- End Footer -->
+        </div>
+      </div>
+    </div>
+  </aside>
+  <!-- ========== END MAIN SIDEBAR ========== -->
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="content" class="lg:ps-16">
+    <!-- Leaflet -->
+    <div id="hs-pro-chrm" class="h-dvh hs-leaflet hs-leaflet-unstyled-popover absolute inset-0 z-0"></div>
+
+    <!-- Navbar -->
+    <div class="lg:hidden absolute top-0 start-0 lg:start-12 end-12 z-10 p-2.5">
+      <button type="button" class="flex justify-center items-center gap-x-1 py-1.5 px-2 min-h-8 text-xs text-gray-600 bg-white hover:bg-gray-100 rounded-full disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:bg-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 dark:hover:text-neutral-200 dark:focus:text-neutral-200" data-hs-overlay="#hs-pro-chat-sidebar" aria-controls="hs-pro-chat-sidebar" aria-label="Toggle navigation">
+        <svg class="shrink-0 size-4 -ms-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m15 18-6-6 6-6" />
+        </svg> Menu
+      </button>
+    </div>
+    <!-- End Navbar -->
+
+    <!-- Content -->
+    <div class="absolute lg:relative inset-x-0 lg:top-0 bottom-0 z-10 p-2 lg:p-5 lg:max-w-lg lg:max-w-md max-h-120 lg:max-h-dvh flex flex-nowrap lg:flex-col gap-2.5 overflow-x-auto lg:overflow-x-visible lg:overflow-y-auto [&::-webkit-scrollbar]:h-0 lg:[&::-webkit-scrollbar]:h-auto lg:[&::-webkit-scrollbar]:w-0">
+      <div class="w-96 lg:w-auto flex flex-none">
+        <!-- Top Countries Card -->
+        <div class="size-full flex flex-col bg-white border border-stone-200 shadow-2xs rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
+          <!-- Header -->
+          <div class="p-5 pb-3 flex justify-between items-center">
+            <h2 class="ms-1 inline-block font-semibold text-stone-800 dark:text-neutral-200">
+              Top countries
+            </h2>
+          </div>
+          <!-- End Header -->
+
+          <!-- Body -->
+          <div class="flex flex-col justify-between h-full pb-5 px-5">
+            <!-- Grid -->
+            <div class="pt-3 grid grid-cols-3 items-end gap-4">
+              <!-- Progress -->
+              <div class="text-center">
+                <svg class="mb-3 shrink-0 size-8 rounded-full mx-auto" xmlns="http://www.w3.org/2000/svg" id="flag-icon-css-us" viewBox="0 0 512 512">
+                  <g fill-rule="evenodd">
+                    <g stroke-width="1pt">
+                      <path fill="#bd3d44" d="M0 0h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0z" transform="scale(3.9385)" />
+                      <path fill="#fff" d="M0 10h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0z" transform="scale(3.9385)" />
+                    </g>
+                    <path fill="#192f5d" d="M0 0h98.8v70H0z" transform="scale(3.9385)" />
+                    <path fill="#fff" d="M8.2 3l1 2.8H12L9.7 7.5l.9 2.7-2.4-1.7L6 10.2l.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7L74 8.5l-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 7.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 24.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 21.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 38.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 35.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 52.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 49.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm-74.1 7l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7H65zm16.4 0l1 2.8H86l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm-74 7l.8 2.8h3l-2.4 1.7.9 2.7-2.4-1.7L6 66.2l.9-2.7-2.4-1.7h3zm16.4 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8H45l-2.4 1.7 1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9zm16.4 0l1 2.8h2.8l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h3zm16.5 0l.9 2.8h2.9l-2.3 1.7.9 2.7-2.4-1.7-2.3 1.7.9-2.7-2.4-1.7h2.9zm16.5 0l.9 2.8h2.9L92 63.5l1 2.7-2.4-1.7-2.4 1.7 1-2.7-2.4-1.7h2.9z" transform="scale(3.9385)" />
+                  </g>
+                </svg>
+
+                <div class="p-3 h-40 bg-stone-100 rounded-lg dark:bg-neutral-700">
+                  <p class="text-sm text-stone-800 dark:text-neutral-200">
+                    1st
+                  </p>
+                  <p class="mt-1 py-1 px-2.5 inline-flex items-center gap-x-1 text-xs font-medium rounded-full bg-white border border-stone-200 text-stone-800 dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-200">
+                    1,265
+                  </p>
+                </div>
+
+                <p class="mt-1.5 text-sm text-stone-800 dark:text-neutral-200">
+                  United States
+                </p>
+              </div>
+              <!-- End Progress -->
+
+              <!-- Progress -->
+              <div class="text-center">
+                <svg class="mb-3 shrink-0 size-8 rounded-full mx-auto" xmlns="http://www.w3.org/2000/svg" id="flag-icon-css-de" viewBox="0 0 512 512">
+                  <path fill="#ffce00" d="M0 341.3h512V512H0z" />
+                  <path d="M0 0h512v170.7H0z" />
+                  <path fill="#d00" d="M0 170.7h512v170.6H0z" />
+                </svg>
+
+                <div class="p-3 h-32 bg-stone-100 rounded-lg dark:bg-neutral-700">
+                  <p class="text-sm text-stone-800 dark:text-neutral-200">
+                    2nd
+                  </p>
+                  <p class="mt-1 py-1 px-2.5 inline-flex items-center gap-x-1 text-xs font-medium rounded-full bg-white border border-stone-200 text-stone-800 dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-200">
+                    1,009
+                  </p>
+                </div>
+
+                <p class="mt-1.5 text-sm text-stone-800 dark:text-neutral-200">
+                  Germany
+                </p>
+              </div>
+              <!-- End Progress -->
+
+              <!-- Progress -->
+              <div class="text-center">
+                <svg class="mb-3 shrink-0 size-8 rounded-full mx-auto" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="flag-icon-css-cn" viewBox="0 0 512 512">
+                  <defs>
+                    <path id="a" fill="#ffde00" d="M1-.3L-.7.8 0-1 .6.8-1-.3z" />
+                  </defs>
+                  <path fill="#de2910" d="M0 0h512v512H0z" />
+                  <use width="30" height="20" transform="matrix(76.8 0 0 76.8 128 128)" xlink:href="#a" />
+                  <use width="30" height="20" transform="rotate(-121 142.6 -47) scale(25.5827)" xlink:href="#a" />
+                  <use width="30" height="20" transform="rotate(-98.1 198 -82) scale(25.6)" xlink:href="#a" />
+                  <use width="30" height="20" transform="rotate(-74 272.4 -114) scale(25.6137)" xlink:href="#a" />
+                  <use width="30" height="20" transform="matrix(16 -19.968 19.968 16 256 230.4)" xlink:href="#a" />
+                </svg>
+
+                <div class="p-3 h-24 bg-stone-100 rounded-lg dark:bg-neutral-700">
+                  <p class="text-sm text-stone-800 dark:text-neutral-200">
+                    3rd
+                  </p>
+                  <p class="mt-1 py-1 px-2.5 inline-flex items-center gap-x-1 text-xs font-medium rounded-full bg-white border border-stone-200 text-stone-800 dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-200">
+                    922
+                  </p>
+                </div>
+
+                <p class="mt-1.5 text-sm text-stone-800 dark:text-neutral-200">
+                  China
+                </p>
+              </div>
+              <!-- End Progress -->
+            </div>
+            <!-- End Grid -->
+
+            <div class="mt-4 py-3 flex items-center text-sm text-stone-800 before:flex-1 before:border-t before:border-stone-200 before:me-3 after:flex-1 after:border-t after:border-stone-200 after:ms-3 dark:text-white dark:before:border-neutral-600 dark:after:border-neutral-600">
+              <span class="py-1 ps-1.5 pe-2.5 inline-flex items-center gap-x-1.5 text-xs font-medium bg-teal-100 text-teal-800 rounded-full dark:bg-teal-500/10 dark:text-teal-500">
+                <svg class="shrink-0 size-3" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                </svg>
+                Good
+              </span>
+            </div>
+
+            <p class="mt-1 text-sm text-stone-500 dark:text-neutral-200">Your overall performance is 98% higher than average.</p>
+          </div>
+          <!-- End Body -->
+        </div>
+        <!-- End Top Countries Card -->
+      </div>
+
+      <div class="w-96 lg:w-auto flex flex-none">
+        <!-- Import Data Card -->
+        <div class="size-full flex flex-col bg-white border border-gray-200 shadow-2xs rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
+          <!-- Header -->
+          <div class="p-5 pb-4 grid grid-cols-2 items-center gap-x-4">
+            <div>
+              <h2 class="inline-block font-semibold text-lg text-gray-800 dark:text-neutral-200">
+                Referral Traffic
+              </h2>
+            </div>
+            <!-- End Col -->
+
+            <div class="flex justify-end items-center gap-x-1">
+              <!-- Download Dropdown -->
+              <div class="hs-dropdown [--auto-close:inside] [--placement:bottom-right] relative inline-flex">
+                <button id="hs-pro-dbrrtchdd" type="button" class="size-8.5 inline-flex justify-center items-center gap-x-2 rounded-lg border border-transparent text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
+                  <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" x2="12" y1="15" y2="3" />
+                  </svg>
+                </button>
+
+                <!-- Download Dropdown -->
+                <div class="hs-dropdown-menu hs-dropdown-open:opacity-100 w-60 transition-[opacity,margin] duration opacity-0 hidden z-20 bg-white rounded-xl shadow-xl dark:bg-neutral-900" role="menu" aria-orientation="vertical" aria-labelledby="hs-pro-dbrrtchdd">
+                  <div class="p-1">
+                    <div class="py-2 px-3">
+                      <span class="block font-semibold text-gray-800 dark:text-neutral-200">
+                        Download Report
+                      </span>
+                      <span class="block text-xs text-gray-500 dark:text-neutral-500">
+                        Select Options
+                      </span>
+                    </div>
+
+                    <div class="m-2 border-t border-gray-200 dark:border-neutral-700"></div>
+
+                    <div class="py-1 px-2">
+                      <div class="flex items-center bg-gray-100 rounded-xl p-1 dark:bg-neutral-800">
+                        <label for="hs-pro-dbrrtchddts1" class="relative py-1.5 px-3 w-full cursor-pointer text-center text-sm text-gray-800 rounded-lg has-checked:bg-white has-checked:shadow-2xs dark:text-neutral-200 dark:has-checked:bg-neutral-600">
+                          <svg class="relative z-10 me-1.5 inline-block align-middle shrink-0 size-4" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.0324 1.91994H9.45071C9.09999 1.91994 8.76367 2.05926 8.51567 2.30725C8.26767 2.55523 8.12839 2.89158 8.12839 3.24228V8.86395L20.0324 15.8079L25.9844 18.3197L31.9364 15.8079V8.86395L20.0324 1.91994Z" fill="#21A366" />
+                            <path d="M8.12839 8.86395H20.0324V15.8079H8.12839V8.86395Z" fill="#107C41" />
+                            <path d="M30.614 1.91994H20.0324V8.86395H31.9364V3.24228C31.9364 2.89158 31.7971 2.55523 31.5491 2.30725C31.3011 2.05926 30.9647 1.91994 30.614 1.91994Z" fill="#33C481" />
+                            <path d="M20.0324 15.8079H8.12839V28.3736C8.12839 28.7243 8.26767 29.0607 8.51567 29.3087C8.76367 29.5567 9.09999 29.6959 9.45071 29.6959H30.6141C30.9647 29.6959 31.3011 29.5567 31.549 29.3087C31.797 29.0607 31.9364 28.7243 31.9364 28.3736V22.7519L20.0324 15.8079Z" fill="#185C37" />
+                            <path d="M20.0324 15.8079H31.9364V22.7519H20.0324V15.8079Z" fill="#107C41" />
+                            <path opacity="0.1" d="M16.7261 6.87994H8.12839V25.7279H16.7261C17.0764 25.7269 17.4121 25.5872 17.6599 25.3395C17.9077 25.0917 18.0473 24.756 18.0484 24.4056V8.20226C18.0473 7.8519 17.9077 7.51616 17.6599 7.2684C17.4121 7.02064 17.0764 6.88099 16.7261 6.87994Z" class="fill-black dark:fill-neutral-200" fill="currentColor" />
+                            <path opacity="0.2" d="M15.7341 7.87194H8.12839V26.7199H15.7341C16.0844 26.7189 16.4201 26.5792 16.6679 26.3315C16.9157 26.0837 17.0553 25.748 17.0564 25.3976V9.19426C17.0553 8.84386 16.9157 8.50818 16.6679 8.26042C16.4201 8.01266 16.0844 7.87299 15.7341 7.87194Z" class="fill-black dark:fill-neutral-200" fill="currentColor" />
+                            <path opacity="0.2" d="M15.7341 7.87194H8.12839V24.7359H15.7341C16.0844 24.7349 16.4201 24.5952 16.6679 24.3475C16.9157 24.0997 17.0553 23.764 17.0564 23.4136V9.19426C17.0553 8.84386 16.9157 8.50818 16.6679 8.26042C16.4201 8.01266 16.0844 7.87299 15.7341 7.87194Z" class="fill-black dark:fill-neutral-200" fill="currentColor" />
+                            <path opacity="0.2" d="M14.7421 7.87194H8.12839V24.7359H14.7421C15.0924 24.7349 15.4281 24.5952 15.6759 24.3475C15.9237 24.0997 16.0633 23.764 16.0644 23.4136V9.19426C16.0633 8.84386 15.9237 8.50818 15.6759 8.26042C15.4281 8.01266 15.0924 7.87299 14.7421 7.87194Z" class="fill-black dark:fill-neutral-200" fill="currentColor" />
+                            <path d="M1.51472 7.87194H14.7421C15.0927 7.87194 15.4291 8.01122 15.6771 8.25922C15.925 8.50722 16.0644 8.84354 16.0644 9.19426V22.4216C16.0644 22.7723 15.925 23.1087 15.6771 23.3567C15.4291 23.6047 15.0927 23.7439 14.7421 23.7439H1.51472C1.16402 23.7439 0.827672 23.6047 0.579686 23.3567C0.3317 23.1087 0.192383 22.7723 0.192383 22.4216V9.19426C0.192383 8.84354 0.3317 8.50722 0.579686 8.25922C0.827672 8.01122 1.16402 7.87194 1.51472 7.87194Z" fill="#107C41" />
+                            <path d="M3.69711 20.7679L6.90722 15.794L3.96694 10.8479H6.33286L7.93791 14.0095C8.08536 14.3091 8.18688 14.5326 8.24248 14.68H8.26328C8.36912 14.4407 8.47984 14.2079 8.5956 13.9817L10.3108 10.8479H12.4822L9.46656 15.7663L12.5586 20.7679H10.2473L8.3932 17.2959C8.30592 17.148 8.23184 16.9927 8.172 16.8317H8.14424C8.09016 16.9891 8.01824 17.1399 7.92998 17.2811L6.02236 20.7679H3.69711Z" fill="white" />
+                          </svg><span class="relative z-10 align-middle">Excel</span>
+                          <input type="radio" name="hs-pro-dbrrtchddts" class="hidden" id="hs-pro-dbrrtchddts1" checked>
+                        </label>
+
+                        <label for="hs-pro-dbrrtchddts2" class="relative py-1.5 px-3 w-full cursor-pointer text-center text-sm text-gray-800 rounded-lg has-checked:bg-white has-checked:shadow-2xs dark:text-neutral-200 dark:has-checked:bg-neutral-600">
+                          <svg class="relative z-10 me-1.5 inline-block align-middle shrink-0 size-4" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M30.6141 1.91994H9.45071C9.09999 1.91994 8.76367 2.05926 8.51567 2.30725C8.26767 2.55523 8.12839 2.89158 8.12839 3.24228V8.86395L20.0324 12.3359L31.9364 8.86395V3.24228C31.9364 2.89158 31.797 2.55523 31.549 2.30725C31.3011 2.05926 30.9647 1.91994 30.6141 1.91994Z" fill="#41A5EE" />
+                            <path d="M31.9364 8.86395H8.12839V15.8079L20.0324 19.2799L31.9364 15.8079V8.86395Z" fill="#2B7CD3" />
+                            <path d="M31.9364 15.8079H8.12839V22.7519L20.0324 26.2239L31.9364 22.7519V15.8079Z" fill="#185ABD" />
+                            <path d="M31.9364 22.752H8.12839V28.3736C8.12839 28.7244 8.26767 29.0607 8.51567 29.3087C8.76367 29.5567 9.09999 29.696 9.45071 29.696H30.6141C30.9647 29.696 31.3011 29.5567 31.549 29.3087C31.797 29.0607 31.9364 28.7244 31.9364 28.3736V22.752Z" fill="#103F91" />
+                            <path opacity="0.1" d="M16.7261 6.87994H8.12839V25.7279H16.7261C17.0764 25.7269 17.4121 25.5872 17.6599 25.3395C17.9077 25.0917 18.0473 24.756 18.0484 24.4056V8.20226C18.0473 7.8519 17.9077 7.51616 17.6599 7.2684C17.4121 7.02064 17.0764 6.88099 16.7261 6.87994Z" class="fill-black dark:fill-neutral-200" fill="currentColor" />
+                            <path opacity="0.2" d="M15.7341 7.87194H8.12839V26.7199H15.7341C16.0844 26.7189 16.4201 26.5792 16.6679 26.3315C16.9157 26.0837 17.0553 25.748 17.0564 25.3976V9.19426C17.0553 8.84386 16.9157 8.50818 16.6679 8.26042C16.4201 8.01266 16.0844 7.87299 15.7341 7.87194Z" class="fill-black dark:fill-neutral-200" fill="currentColor" />
+                            <path opacity="0.2" d="M15.7341 7.87194H8.12839V24.7359H15.7341C16.0844 24.7349 16.4201 24.5952 16.6679 24.3475C16.9157 24.0997 17.0553 23.764 17.0564 23.4136V9.19426C17.0553 8.84386 16.9157 8.50818 16.6679 8.26042C16.4201 8.01266 16.0844 7.87299 15.7341 7.87194Z" class="fill-black dark:fill-neutral-200" fill="currentColor" />
+                            <path opacity="0.2" d="M14.7421 7.87194H8.12839V24.7359H14.7421C15.0924 24.7349 15.4281 24.5952 15.6759 24.3475C15.9237 24.0997 16.0633 23.764 16.0644 23.4136V9.19426C16.0633 8.84386 15.9237 8.50818 15.6759 8.26042C15.4281 8.01266 15.0924 7.87299 14.7421 7.87194Z" class="fill-black dark:fill-neutral-200" fill="currentColor" />
+                            <path d="M1.51472 7.87194H14.7421C15.0927 7.87194 15.4291 8.01122 15.6771 8.25922C15.925 8.50722 16.0644 8.84354 16.0644 9.19426V22.4216C16.0644 22.7723 15.925 23.1087 15.6771 23.3567C15.4291 23.6047 15.0927 23.7439 14.7421 23.7439H1.51472C1.16401 23.7439 0.827669 23.6047 0.579687 23.3567C0.3317 23.1087 0.192383 22.7723 0.192383 22.4216V9.19426C0.192383 8.84354 0.3317 8.50722 0.579687 8.25922C0.827669 8.01122 1.16401 7.87194 1.51472 7.87194Z" fill="#185ABD" />
+                            <path d="M12.0468 20.7679H10.2612L8.17801 13.9231L5.99558 20.7679H4.20998L2.22598 10.8479H4.01158L5.40038 17.7919L7.48358 11.0463H8.97161L10.9556 17.7919L12.3444 10.8479H14.0308L12.0468 20.7679Z" fill="white" />
+                          </svg><span class="relative z-10 align-middle">Word</span>
+                          <input type="radio" name="hs-pro-dbrrtchddts" class="hidden" id="hs-pro-dbrrtchddts2">
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="m-2 border-t border-gray-200 dark:border-neutral-700"></div>
+
+                    <div class="flex justify-between items-center py-2 px-3 cursor-pointer rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-700">
+                      <label for="hs-pro-dbrrtchdds1" class="flex flex-1 items-center gap-x-3 cursor-pointer text-sm text-gray-800 dark:text-neutral-300">
+                        <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+                          <path d="m15 5 4 4" />
+                        </svg>Section name
+                      </label>
+                      <input type="checkbox" class="shrink-0 size-3.5 border-gray-300 rounded-sm text-blue-500 focus:ring-blue-500 checked:border-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-600 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-pro-dbrrtchdds1" checked>
+                    </div>
+                    <div class="flex justify-between items-center py-2 px-3 cursor-pointer rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-700">
+                      <label for="hs-pro-dbrrtchdds2" class="flex flex-1 items-center gap-x-3 cursor-pointer text-sm text-gray-800 dark:text-neutral-300">
+                        <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M16 22h2a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v3" />
+                          <polyline points="14 2 14 8 20 8" />
+                          <path d="M4.04 11.71a5.84 5.84 0 1 0 8.2 8.29" />
+                          <path d="M13.83 16A5.83 5.83 0 0 0 8 10.17V16h5.83Z" />
+                        </svg>Comparison stats
+                      </label>
+                      <input type="checkbox" class="shrink-0 size-3.5 border-gray-300 rounded-sm text-blue-500 focus:ring-blue-500 checked:border-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-600 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-pro-dbrrtchdds2" checked>
+                    </div>
+                    <div class="flex justify-between items-center py-2 px-3 cursor-pointer rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-700">
+                      <label for="hs-pro-dbrrtchdds3" class="flex flex-1 items-center gap-x-3 cursor-pointer text-sm text-gray-800 dark:text-neutral-300">
+                        <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <circle cx="12" cy="12" r="10" />
+                        </svg>Legend indicator
+                      </label>
+                      <input type="checkbox" class="shrink-0 size-3.5 border-gray-300 rounded-sm text-blue-500 focus:ring-blue-500 checked:border-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-600 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-pro-dbrrtchdds3" checked>
+                    </div>
+
+                    <div class="my-1 border-t border-gray-200 dark:border-neutral-700"></div>
+
+                    <button type="button" class="w-full py-2 px-3 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:ring-2 focus:ring-blue-500">
+                      Download
+                    </button>
+                  </div>
+                </div>
+                <!-- End Download Dropdown -->
+              </div>
+              <!-- End Download Dropdown -->
+
+              <!-- Download Dropdown -->
+              <div class="hs-dropdown [--auto-close:inside] [--placement:bottom-right] relative inline-flex">
+                <button id="hs-pro-dbrrtchmd" type="button" class="size-8.5 inline-flex justify-center items-center gap-x-2 rounded-lg border border-transparent text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
+                  <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="1" />
+                    <circle cx="12" cy="5" r="1" />
+                    <circle cx="12" cy="19" r="1" />
+                  </svg>
+                </button>
+
+                <!-- Download Dropdown -->
+                <div class="hs-dropdown-menu hs-dropdown-open:opacity-100 w-48 transition-[opacity,margin] duration opacity-0 hidden z-10 bg-white rounded-xl shadow-xl dark:bg-neutral-900" role="menu" aria-orientation="vertical" aria-labelledby="hs-pro-dbrrtchmd">
+                  <div class="p-1">
+                    <button type="button" class="w-full flex items-center gap-x-3 py-1.5 px-2 rounded-lg text-[13px] text-gray-800 hover:bg-gray-100 disabled:opacity-50 focus:outline-hidden focus:bg-gray-100 disabled:pointer-events-none dark:text-neutral-300 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
+                      <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="18" cy="5" r="3" />
+                        <circle cx="6" cy="12" r="3" />
+                        <circle cx="18" cy="19" r="3" />
+                        <line x1="8.59" x2="15.42" y1="13.51" y2="17.49" />
+                        <line x1="15.41" x2="8.59" y1="6.51" y2="10.49" />
+                      </svg>
+                      Share reports
+                    </button>
+                    <button type="button" class="w-full flex items-center gap-x-3 py-1.5 px-2 rounded-lg text-[13px] text-gray-800 hover:bg-gray-100 disabled:opacity-50 focus:outline-hidden focus:bg-gray-100 disabled:pointer-events-none dark:text-neutral-300 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
+                      <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M8 3H5a2 2 0 0 0-2 2v3" />
+                        <path d="M21 8V5a2 2 0 0 0-2-2h-3" />
+                        <path d="M3 16v3a2 2 0 0 0 2 2h3" />
+                        <path d="M16 21h3a2 2 0 0 0 2-2v-3" />
+                      </svg>
+                      View in fullscreen
+                    </button>
+                    <button type="button" class="w-full flex items-center gap-x-3 py-1.5 px-2 rounded-lg text-[13px] text-gray-800 hover:bg-gray-100 disabled:opacity-50 focus:outline-hidden focus:bg-gray-100 disabled:pointer-events-none dark:text-neutral-300 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
+                      <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 3h6l6 18h6" />
+                        <path d="M14 3h7" />
+                      </svg>
+                      Connect other apps
+                    </button>
+
+                    <div class="my-1 border-t border-gray-200 dark:border-neutral-700"></div>
+
+                    <button type="button" class="w-full flex items-center gap-x-3 py-1.5 px-2 rounded-lg text-[13px] text-gray-800 hover:bg-gray-100 disabled:opacity-50 focus:outline-hidden focus:bg-gray-100 disabled:pointer-events-none dark:text-neutral-300 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
+                      <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                        <line x1="9" x2="15" y1="10" y2="10" />
+                        <line x1="12" x2="12" y1="7" y2="13" />
+                      </svg>
+                      Submit Feedback
+                    </button>
+                  </div>
+                </div>
+                <!-- End Download Dropdown -->
+              </div>
+              <!-- End Download Dropdown -->
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Header -->
+
+          <!-- Body -->
+          <div class="h-full p-5 pt-0">
+            <div class="h-full flex flex-col justify-between space-y-4">
+              <div class="space-y-4">
+                <!-- Progress -->
+                <div class="flex gap-x-1 w-full h-2.5 rounded-full overflow-hidden">
+                  <div class="flex flex-col justify-center overflow-hidden bg-blue-500 text-xs text-white text-center whitespace-nowrap" style="width: 42%" role="progressbar" aria-valuenow="42" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="flex flex-col justify-center overflow-hidden bg-violet-500 text-xs text-white text-center whitespace-nowrap" style="width: 27%" role="progressbar" aria-valuenow="27" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="flex flex-col justify-center overflow-hidden bg-teal-400 text-xs text-white text-center whitespace-nowrap" style="width: 16%" role="progressbar" aria-valuenow="16" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="flex flex-col justify-center overflow-hidden bg-blue-400 text-xs text-white text-center whitespace-nowrap" style="width: 6%" role="progressbar" aria-valuenow="6" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="flex flex-col justify-center overflow-hidden bg-gray-200 text-xs text-white text-center whitespace-nowrap dark:bg-neutral-500" style="width: 9%" role="progressbar" aria-valuenow="9" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <!-- End Progress -->
+
+                <!-- List Group -->
+                <ul>
+                  <!-- List Item -->
+                  <li class="py-2 grid grid-cols-2 justify-between items-center gap-x-4">
+                    <div class="flex items-center">
+                      <span class="shrink-0 size-2.5 inline-block bg-blue-600 rounded-sm me-2.5"></span>
+                      <span class="text-sm text-gray-800 dark:text-neutral-200">
+                        github.com
+                      </span>
+                    </div>
+                    <div class="text-end">
+                      <span class="text-sm text-gray-500 dark:text-neutral-500">
+                        164k
+                      </span>
+                    </div>
+                  </li>
+                  <!-- End List Item -->
+
+                  <!-- List Item -->
+                  <li class="py-2 grid grid-cols-2 justify-between items-center gap-x-4">
+                    <div class="flex items-center">
+                      <span class="shrink-0 size-2.5 inline-block bg-violet-500 rounded-sm me-2.5"></span>
+                      <span class="text-sm text-gray-800 dark:text-neutral-200">
+                        accounts.google.com
+                      </span>
+                    </div>
+                    <div class="text-end">
+                      <span class="text-sm text-gray-500 dark:text-neutral-500">
+                        49k
+                      </span>
+                    </div>
+                  </li>
+                  <!-- End List Item -->
+
+                  <!-- List Item -->
+                  <li class="py-2 grid grid-cols-2 justify-between items-center gap-x-4">
+                    <div class="flex items-center">
+                      <span class="shrink-0 size-2.5 inline-block bg-teal-400 rounded-sm me-2.5"></span>
+                      <span class="text-sm text-gray-800 dark:text-neutral-200">
+                        themes.getbootstrap.com
+                      </span>
+                    </div>
+                    <div class="text-end">
+                      <span class="text-sm text-gray-500 dark:text-neutral-500">
+                        26k
+                      </span>
+                    </div>
+                  </li>
+                  <!-- End List Item -->
+
+                  <!-- List Item -->
+                  <li class="py-2 grid grid-cols-2 justify-between items-center gap-x-4">
+                    <div class="flex items-center">
+                      <span class="shrink-0 size-2.5 inline-block bg-blue-400 rounded-sm me-2.5"></span>
+                      <span class="text-sm text-gray-800 dark:text-neutral-200">
+                        htmlstream.com
+                      </span>
+                    </div>
+                    <div class="text-end">
+                      <span class="text-sm text-gray-500 dark:text-neutral-500">
+                        8k
+                      </span>
+                    </div>
+                  </li>
+                  <!-- End List Item -->
+
+                  <!-- List Item -->
+                  <li class="py-2 grid grid-cols-2 justify-between items-center gap-x-4">
+                    <div class="flex items-center">
+                      <span class="shrink-0 size-2.5 inline-block bg-gray-200 rounded-sm me-2 dark:bg-neutral-500"></span>
+                      <span class="text-sm text-gray-800 dark:text-neutral-200">
+                        Others
+                      </span>
+                    </div>
+                    <div class="text-end">
+                      <span class="text-sm text-gray-500 dark:text-neutral-500">
+                        12k
+                      </span>
+                    </div>
+                  </li>
+                  <!-- End List Item -->
+                </ul>
+                <!-- End List Group -->
+              </div>
+            </div>
+          </div>
+          <!-- End Body -->
+
+          <!-- Footer -->
+          <div class="text-center border-t border-gray-200 dark:border-neutral-700">
+            <a class="p-3 flex justify-center items-center gap-x-2 text-sm text-blue-600 rounded-b-lg hover:text-blue-700 focus:outline-hidden focus:decoration-2 focus:underline focus:text-blue-700 dark:text-blue-500 dark:hover:text-blue-600 dark:focus:text-blue-600" href="#">
+              View full reports
+            </a>
+          </div>
+          <!-- End Footer -->
+        </div>
+        <!-- End Import Data Card -->
+      </div>
+
+      <div class="w-96 lg:w-auto flex flex-none">
+        <!-- Sales Stats Card -->
+        <div class="size-full flex flex-col bg-white border border-gray-200 shadow-2xs rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
+          <!-- Header -->
+          <div class="p-5 pb-3 flex justify-between items-center">
+            <h2 class="inline-block font-semibold text-lg text-gray-800 dark:text-neutral-200">
+              Total sales
+            </h2>
+
+            <!-- Calendar Dropdown -->
+            <div class="hs-dropdown [--auto-close:inside] inline-flex">
+              <button id="hs-pro-dnic" type="button" class="p-2 inline-flex items-center text-xs font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-50 dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
+                <svg class="shrink-0 me-2 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+                  <line x1="16" x2="16" y1="2" y2="6" />
+                  <line x1="8" x2="8" y1="2" y2="6" />
+                  <line x1="3" x2="21" y1="10" y2="10" />
+                  <path d="M8 14h.01" />
+                  <path d="M12 14h.01" />
+                  <path d="M16 14h.01" />
+                  <path d="M8 18h.01" />
+                  <path d="M12 18h.01" />
+                  <path d="M16 18h.01" />
+                </svg>
+                Today
+                <svg class="shrink-0 ms-1.5 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+              </button>
+
+              <div class="hs-dropdown-menu hs-dropdown-open:opacity-100 w-79.5 transition-[opacity,margin] duration opacity-0 hidden z-50 bg-white rounded-xl shadow-xl dark:bg-neutral-900" role="menu" aria-orientation="vertical" aria-labelledby="hs-pro-dnic">
+
+                <!-- Calendar -->
+                <div class="p-3 space-y-0.5">
+                  <!-- Months -->
+                  <div class="grid grid-cols-5 items-center gap-x-3 mx-1.5 pb-3">
+                    <!-- Prev Button -->
+                    <div class="col-span-1">
+                      <button type="button" class="size-8 flex justify-center items-center text-gray-800 hover:bg-gray-100 rounded-full disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" aria-label="Previous">
+                        <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="m15 18-6-6 6-6" />
+                        </svg>
+                      </button>
+                    </div>
+                    <!-- End Prev Button -->
+
+                    <!-- Month / Year -->
+                    <div class="col-span-3 flex justify-center items-center gap-x-1">
+                      <div class="relative">
+                        <select data-hs-select='{
+                                "placeholder": "Select month",
+                                "toggleTag": "<button type=\"button\" aria-expanded=\"false\"></button>",
+                                "toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 relative flex text-nowrap w-full cursor-pointer text-start font-medium text-gray-800 hover:text-blue-600 focus:outline-hidden focus:text-blue-600 before:absolute before:inset-0 before:z-1 dark:text-neutral-200 dark:hover:text-blue-500 dark:focus:text-blue-500",
+                                "dropdownClasses": "mt-2 z-50 w-32 max-h-72 p-1 space-y-0.5 bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500 dark:bg-neutral-900 dark:border-neutral-700",
+                                "optionClasses": "p-2 w-full text-sm text-gray-800 cursor-pointer hover:bg-gray-100 rounded-lg focus:outline-hidden focus:bg-gray-100 dark:bg-neutral-900 dark:hover:bg-neutral-800 dark:text-neutral-200 dark:focus:bg-neutral-800",
+                                "optionTemplate": "<div class=\"flex justify-between items-center w-full\"><span data-title></span><span class=\"hidden hs-selected:block\"><svg class=\"shrink-0 size-3.5 text-gray-800 dark:text-neutral-200\" xmlns=\"http:.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"20 6 9 17 4 12\"/></svg></span></div>"
+                              }' class="hidden">
+                          <option value="0">January</option>
+                          <option value="1">February</option>
+                          <option value="2">March</option>
+                          <option value="3">April</option>
+                          <option value="4">May</option>
+                          <option value="5">June</option>
+                          <option value="6" selected>July</option>
+                          <option value="7">August</option>
+                          <option value="8">September</option>
+                          <option value="9">October</option>
+                          <option value="10">November</option>
+                          <option value="11">December</option>
+                        </select>
+                      </div>
+
+                      <span class="text-gray-800 dark:text-neutral-200">/</span>
+
+                      <div class="relative">
+                        <select data-hs-select='{
+                                "placeholder": "Select year",
+                                "toggleTag": "<button type=\"button\" aria-expanded=\"false\"></button>",
+                                "toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 relative flex text-nowrap w-full cursor-pointer text-start font-medium text-gray-800 hover:text-blue-600 focus:outline-hidden focus:text-blue-600 before:absolute before:inset-0 before:z-1 dark:text-neutral-200 dark:hover:text-blue-500 dark:focus:text-blue-500",
+                                "dropdownClasses": "mt-2 z-50 w-20 max-h-72 p-1 space-y-0.5 bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500 dark:bg-neutral-900 dark:border-neutral-700",
+                                "optionClasses": "p-2 w-full text-sm text-gray-800 cursor-pointer hover:bg-gray-100 rounded-lg focus:outline-hidden focus:bg-gray-100 dark:bg-neutral-900 dark:hover:bg-neutral-800 dark:text-neutral-200 dark:focus:bg-neutral-800",
+                                "optionTemplate": "<div class=\"flex justify-between items-center w-full\"><span data-title></span><span class=\"hidden hs-selected:block\"><svg class=\"shrink-0 size-3.5 text-gray-800 dark:text-neutral-200\" xmlns=\"http:.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"20 6 9 17 4 12\"/></svg></span></div>"
+                              }' class="hidden">
+                          <option selected>2023</option>
+                          <option>2024</option>
+                          <option>2025</option>
+                          <option>2026</option>
+                          <option>2027</option>
+                        </select>
+                      </div>
+                    </div>
+                    <!-- End Month / Year -->
+
+                    <!-- Next Button -->
+                    <div class="col-span-1 flex justify-end">
+                      <button type="button" class=" size-8 flex justify-center items-center text-gray-800 hover:bg-gray-100 rounded-full disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" aria-label="Next">
+                        <svg class="shrink-0 size-4" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="m9 18 6-6-6-6" />
+                        </svg>
+                      </button>
+                    </div>
+                    <!-- End Next Button -->
+                  </div>
+                  <!-- Months -->
+
+                  <!-- Weeks -->
+                  <div class="flex pb-1.5">
+                    <span class="m-px w-10 block text-center text-sm text-gray-500 dark:text-neutral-500">
+                      Mo
+                    </span>
+                    <span class="m-px w-10 block text-center text-sm text-gray-500 dark:text-neutral-500">
+                      Tu
+                    </span>
+                    <span class="m-px w-10 block text-center text-sm text-gray-500 dark:text-neutral-500">
+                      We
+                    </span>
+                    <span class="m-px w-10 block text-center text-sm text-gray-500 dark:text-neutral-500">
+                      Th
+                    </span>
+                    <span class="m-px w-10 block text-center text-sm text-gray-500 dark:text-neutral-500">
+                      Fr
+                    </span>
+                    <span class="m-px w-10 block text-center text-sm text-gray-500 dark:text-neutral-500">
+                      Sa
+                    </span>
+                    <span class="m-px w-10 block text-center text-sm text-gray-500 dark:text-neutral-500">
+                      Su
+                    </span>
+                  </div>
+                  <!-- Weeks -->
+
+                  <!-- Days -->
+                  <div class="flex">
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 rounded-full hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:border-blue-600 focus:text-blue-600 dark:text-neutral-200 dark:hover:border-blue-500 dark:hover:text-blue-500 dark:focus:border-blue-500 dark:focus:text-blue-500" disabled>
+                        26
+                      </button>
+                    </div>
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 rounded-full hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:border-blue-600 focus:text-blue-600 dark:text-neutral-200 dark:hover:border-blue-500 dark:hover:text-blue-500 dark:focus:border-blue-500 dark:focus:text-blue-500" disabled>
+                        27
+                      </button>
+                    </div>
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 rounded-full hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:border-blue-600 focus:text-blue-600 dark:text-neutral-200 dark:hover:border-blue-500 dark:hover:text-blue-500 dark:focus:border-blue-500 dark:focus:text-blue-500" disabled>
+                        28
+                      </button>
+                    </div>
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 rounded-full hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:border-blue-600 focus:text-blue-600 dark:text-neutral-200 dark:hover:border-blue-500 dark:hover:text-blue-500 dark:focus:border-blue-500 dark:focus:text-blue-500" disabled>
+                        29
+                      </button>
+                    </div>
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 rounded-full hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:border-blue-600 focus:text-blue-600 dark:text-neutral-200 dark:hover:border-blue-500 dark:hover:text-blue-500 dark:focus:border-blue-500 dark:focus:text-blue-500" disabled>
+                        30
+                      </button>
+                    </div>
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 rounded-full hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:border-blue-600 focus:text-blue-600 dark:text-neutral-200 dark:hover:border-blue-500 dark:hover:text-blue-500 dark:focus:border-blue-500 dark:focus:text-blue-500">
+                        1
+                      </button>
+                    </div>
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 rounded-full hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:border-blue-600 focus:text-blue-600 dark:text-neutral-200 dark:hover:border-blue-500 dark:hover:text-blue-500 dark:focus:border-blue-500 dark:focus:text-blue-500">
+                        2
+                      </button>
+                    </div>
+                  </div>
+                  <!-- Days -->
+
+                  <!-- Days -->
+                  <div class="flex">
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 rounded-full hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:border-blue-600 focus:text-blue-600 dark:text-neutral-200 dark:hover:border-blue-500 dark:hover:text-blue-500 dark:focus:border-blue-500 dark:focus:text-blue-500">
+                        3
+                      </button>
+                    </div>
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 rounded-full hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:border-blue-600 focus:text-blue-600 dark:text-neutral-200 dark:hover:border-blue-500 dark:hover:text-blue-500 dark:focus:border-blue-500 dark:focus:text-blue-500">
+                        4
+                      </button>
+                    </div>
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 rounded-full hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:border-blue-600 focus:text-blue-600 dark:text-neutral-200 dark:hover:border-blue-500 dark:hover:text-blue-500 dark:focus:border-blue-500 dark:focus:text-blue-500">
+                        5
+                      </button>
+                    </div>
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 rounded-full hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:border-blue-600 focus:text-blue-600 dark:text-neutral-200 dark:hover:border-blue-500 dark:hover:text-blue-500 dark:focus:border-blue-500 dark:focus:text-blue-500">
+                        6
+                      </button>
+                    </div>
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 rounded-full hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:border-blue-600 focus:text-blue-600 dark:text-neutral-200 dark:hover:border-blue-500 dark:hover:text-blue-500 dark:focus:border-blue-500 dark:focus:text-blue-500">
+                        7
+                      </button>
+                    </div>
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 rounded-full hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:border-blue-600 focus:text-blue-600 dark:text-neutral-200 dark:hover:border-blue-500 dark:hover:text-blue-500 dark:focus:border-blue-500 dark:focus:text-blue-500">
+                        8
+                      </button>
+                    </div>
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 rounded-full hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:border-blue-600 focus:text-blue-600 dark:text-neutral-200 dark:hover:border-blue-500 dark:hover:text-blue-500 dark:focus:border-blue-500 dark:focus:text-blue-500">
+                        9
+                      </button>
+                    </div>
+                  </div>
+                  <!-- Days -->
+
+                  <!-- Days -->
+                  <div class="flex">
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 rounded-full hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:border-blue-600 focus:text-blue-600 dark:text-neutral-200 dark:hover:border-blue-500 dark:hover:text-blue-500 dark:focus:border-blue-500 dark:focus:text-blue-500">
+                        10
+                      </button>
+                    </div>
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 rounded-full hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:border-blue-600 focus:text-blue-600 dark:text-neutral-200 dark:hover:border-blue-500 dark:hover:text-blue-500 dark:focus:border-blue-500 dark:focus:text-blue-500">
+                        11
+                      </button>
+                    </div>
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 rounded-full hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:border-blue-600 focus:text-blue-600 dark:text-neutral-200 dark:hover:border-blue-500 dark:hover:text-blue-500 dark:focus:border-blue-500 dark:focus:text-blue-500">
+                        12
+                      </button>
+                    </div>
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 rounded-full hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:border-blue-600 focus:text-blue-600 dark:text-neutral-200 dark:hover:border-blue-500 dark:hover:text-blue-500 dark:focus:border-blue-500 dark:focus:text-blue-500">
+                        13
+                      </button>
+                    </div>
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 rounded-full hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:border-blue-600 focus:text-blue-600 dark:text-neutral-200 dark:hover:border-blue-500 dark:hover:text-blue-500 dark:focus:border-blue-500 dark:focus:text-blue-500">
+                        14
+                      </button>
+                    </div>
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 rounded-full hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:border-blue-600 focus:text-blue-600 dark:text-neutral-200 dark:hover:border-blue-500 dark:hover:text-blue-500 dark:focus:border-blue-500 dark:focus:text-blue-500">
+                        15
+                      </button>
+                    </div>
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 rounded-full hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:border-blue-600 focus:text-blue-600 dark:text-neutral-200 dark:hover:border-blue-500 dark:hover:text-blue-500 dark:focus:border-blue-500 dark:focus:text-blue-500">
+                        16
+                      </button>
+                    </div>
+                  </div>
+                  <!-- Days -->
+
+                  <!-- Days -->
+                  <div class="flex">
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 rounded-full hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:border-blue-600 focus:text-blue-600 dark:text-neutral-200 dark:hover:border-blue-500 dark:hover:text-blue-500 dark:focus:border-blue-500 dark:focus:text-blue-500">
+                        17
+                      </button>
+                    </div>
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 rounded-full hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:border-blue-600 focus:text-blue-600 dark:text-neutral-200 dark:hover:border-blue-500 dark:hover:text-blue-500 dark:focus:border-blue-500 dark:focus:text-blue-500">
+                        18
+                      </button>
+                    </div>
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 rounded-full hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:border-blue-600 focus:text-blue-600 dark:text-neutral-200 dark:hover:border-blue-500 dark:hover:text-blue-500 dark:focus:border-blue-500 dark:focus:text-blue-500">
+                        19
+                      </button>
+                    </div>
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center bg-blue-600 border border-transparent text-sm font-medium text-white hover:border-blue-600 rounded-full dark:bg-blue-500 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:hover:border-neutral-700">
+                        20
+                      </button>
+                    </div>
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 rounded-full hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:border-blue-600 focus:text-blue-600 dark:text-neutral-200 dark:hover:border-blue-500 dark:hover:text-blue-500 dark:focus:border-blue-500 dark:focus:text-blue-500">
+                        21
+                      </button>
+                    </div>
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 rounded-full hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:border-blue-600 focus:text-blue-600 dark:text-neutral-200 dark:hover:border-blue-500 dark:hover:text-blue-500 dark:focus:border-blue-500 dark:focus:text-blue-500">
+                        22
+                      </button>
+                    </div>
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 rounded-full hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:border-blue-600 focus:text-blue-600 dark:text-neutral-200 dark:hover:border-blue-500 dark:hover:text-blue-500 dark:focus:border-blue-500 dark:focus:text-blue-500">
+                        23
+                      </button>
+                    </div>
+                  </div>
+                  <!-- Days -->
+
+                  <!-- Days -->
+                  <div class="flex">
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 rounded-full hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:border-blue-600 focus:text-blue-600 dark:text-neutral-200 dark:hover:border-blue-500 dark:hover:text-blue-500 dark:focus:border-blue-500 dark:focus:text-blue-500">
+                        24
+                      </button>
+                    </div>
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 rounded-full hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:border-blue-600 focus:text-blue-600 dark:text-neutral-200 dark:hover:border-blue-500 dark:hover:text-blue-500 dark:focus:border-blue-500 dark:focus:text-blue-500">
+                        25
+                      </button>
+                    </div>
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 rounded-full hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:border-blue-600 focus:text-blue-600 dark:text-neutral-200 dark:hover:border-blue-500 dark:hover:text-blue-500 dark:focus:border-blue-500 dark:focus:text-blue-500">
+                        26
+                      </button>
+                    </div>
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 rounded-full hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:border-blue-600 focus:text-blue-600 dark:text-neutral-200 dark:hover:border-blue-500 dark:hover:text-blue-500 dark:focus:border-blue-500 dark:focus:text-blue-500">
+                        27
+                      </button>
+                    </div>
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 rounded-full hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:border-blue-600 focus:text-blue-600 dark:text-neutral-200 dark:hover:border-blue-500 dark:hover:text-blue-500 dark:focus:border-blue-500 dark:focus:text-blue-500">
+                        28
+                      </button>
+                    </div>
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 rounded-full hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:border-blue-600 focus:text-blue-600 dark:text-neutral-200 dark:hover:border-blue-500 dark:hover:text-blue-500 dark:focus:border-blue-500 dark:focus:text-blue-500">
+                        29
+                      </button>
+                    </div>
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 rounded-full hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:border-blue-600 focus:text-blue-600 dark:text-neutral-200 dark:hover:border-blue-500 dark:hover:text-blue-500 dark:focus:border-blue-500 dark:focus:text-blue-500">
+                        30
+                      </button>
+                    </div>
+                  </div>
+                  <!-- Days -->
+
+                  <!-- Days -->
+                  <div class="flex">
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 rounded-full hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:border-blue-600 focus:text-blue-600 dark:text-neutral-200 dark:hover:border-blue-500 dark:hover:text-blue-500 dark:focus:border-blue-500 dark:focus:text-blue-500">
+                        31
+                      </button>
+                    </div>
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 hover:border-blue-600 hover:text-blue-600 rounded-full disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-200 dark:hover:border-neutral-500 dark:focus:bg-neutral-700" disabled>
+                        1
+                      </button>
+                    </div>
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 hover:border-blue-600 hover:text-blue-600 rounded-full disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-200 dark:hover:border-neutral-500 dark:focus:bg-neutral-700" disabled>
+                        2
+                      </button>
+                    </div>
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 hover:border-blue-600 hover:text-blue-600 rounded-full disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-200 dark:hover:border-neutral-500 dark:focus:bg-neutral-700" disabled>
+                        3
+                      </button>
+                    </div>
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 hover:border-blue-600 hover:text-blue-600 rounded-full disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-200 dark:hover:border-neutral-500 dark:focus:bg-neutral-700" disabled>
+                        4
+                      </button>
+                    </div>
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 hover:border-blue-600 hover:text-blue-600 rounded-full disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-200 dark:hover:border-neutral-500 dark:focus:bg-neutral-700" disabled>
+                        5
+                      </button>
+                    </div>
+                    <div>
+                      <button type="button" class="m-px size-10 flex justify-center items-center border border-transparent text-sm text-gray-800 hover:border-blue-600 hover:text-blue-600 rounded-full disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-200 dark:hover:border-neutral-500 dark:focus:bg-neutral-700" disabled>
+                        6
+                      </button>
+                    </div>
+                  </div>
+                  <!-- Days -->
+                </div>
+
+              </div>
+            </div>
+            <!-- End Calendar Dropdown -->
+          </div>
+          <!-- End Header -->
+
+          <!-- Body -->
+          <div class="h-full pb-5 px-5 space-y-8">
+            <h4 class="text-4xl font-medium text-gray-800 dark:text-neutral-200">
+              <span class="-me-1.5 text-sm align-top text-gray-500 dark:text-neutral-500">$</span>
+              43,350
+            </h4>
+
+            <!-- List Group -->
+            <ul class="space-y-3">
+              <!-- List Item -->
+              <li class="flex flex-wrap justify-between items-center gap-x-2">
+                <div>
+                  <div class="flex items-center gap-x-2">
+                    <div class="inline-block size-2.5 bg-blue-600 rounded-sm"></div>
+                    <h2 class="inline-block align-middle text-gray-500 dark:text-neutral-400">
+                      Store sales
+                    </h2>
+                  </div>
+                </div>
+                <div>
+                  <span class="text-gray-800 dark:text-neutral-200">
+                    $51,392
+                  </span>
+                  <span class="ms-3 min-w-20 inline-block text-gray-600 dark:text-neutral-400">
+                    <svg class="inline-block align-middle size-4 text-teal-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+                      <polyline points="16 7 22 7 22 13" />
+                    </svg>
+                    38.2%
+                  </span>
+                </div>
+              </li>
+              <!-- End List Item -->
+
+              <!-- List Item -->
+              <li class="flex flex-wrap justify-between items-center gap-x-2">
+                <div>
+                  <div class="flex items-center gap-x-2">
+                    <div class="inline-block size-2.5 bg-purple-600 rounded-sm"></div>
+                    <h2 class="inline-block align-middle text-gray-500 dark:text-neutral-400">
+                      Online sales
+                    </h2>
+                  </div>
+                </div>
+                <div>
+                  <span class="text-gray-800 dark:text-neutral-200">
+                    $46,420
+                  </span>
+                  <span class="ms-3 min-w-20 inline-block text-gray-600 dark:text-neutral-400">
+                    <svg class="inline-block align-middle size-4 text-teal-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+                      <polyline points="16 7 22 7 22 13" />
+                    </svg>
+                    5.9%
+                  </span>
+                </div>
+              </li>
+              <!-- End List Item -->
+
+              <!-- List Item -->
+              <li class="flex flex-wrap justify-between items-center gap-x-2">
+                <div>
+                  <div class="flex items-center gap-x-2">
+                    <div class="inline-block size-2.5 bg-gray-300 rounded-sm dark:bg-neutral-500"></div>
+                    <h2 class="inline-block align-middle text-gray-500 dark:text-neutral-400">
+                      Others
+                    </h2>
+                  </div>
+                </div>
+                <div>
+                  <span class="text-gray-800 dark:text-neutral-200">
+                    $39,539
+                  </span>
+                  <span class="ms-3 min-w-20 inline-block text-gray-600 dark:text-neutral-400">
+                    <svg class="inline-block align-middle size-4 text-red-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="22 17 13.5 8.5 8.5 13.5 2 7" />
+                      <polyline points="16 17 22 17 22 11" />
+                    </svg>
+                    3.1%
+                  </span>
+                </div>
+              </li>
+              <!-- End List Item -->
+            </ul>
+            <!-- End List Group -->
+          </div>
+          <!-- End Body -->
+
+          <!-- Footer -->
+          <div class="p-5 pt-0 space-y-8">
+            <div class="w-full">
+              <!-- Apex Line Chart -->
+              <div id="hs-total-sales-lines-chart" class="min-h-[115px] "></div>
+            </div>
+          </div>
+          <!-- End Footer -->
+        </div>
+        <!-- End Sales Stats Card -->
+      </div>
+    </div>
+    <!-- End Content -->
+  </main>
+  <!-- ========== END MAIN CONTENT ========== -->
+
+  <!-- JS PLUGINS -->
+  <!-- Required plugins -->
+  <script src="../assets/vendor/preline/dist/index.js?v=3.0.0"></script>
+  <!-- Clipboard -->
+  <script src="../assets/vendor/clipboard/dist/clipboard.min.js"></script>
+  <script src="../assets/js/hs-copy-clipboard-helper.js"></script>
+  <!-- Apexcharts -->
+  <script src="../assets/vendor/lodash/lodash.min.js"></script>
+  <script src="../assets/vendor/apexcharts/dist/apexcharts.min.js"></script>
+  <script src="../assets/vendor/preline/dist/helper-apexcharts.js"></script>
+
+  <!-- JS INITIALIZATIONS -->
+  <script>
+    window.addEventListener('load', () => {
+      // Apex Line Chart
+      (function () {
+        buildChart('#hs-sales-line-chart', (mode) => ({
+          chart: {
+            height: 400,
+            type: 'area',
+            toolbar: {
+              show: false
+            },
+            zoom: {
+              enabled: false
+            }
+          },
+          series: [
+            {
+              name: '2022',
+              data: [18000, 51000, 60000, 38000, 88000, 50000, 40000, 52000, 88000, 80000, 60000, 70000]
+            },
+            {
+              name: '2023',
+              data: [27000, 38000, 60000, 77000, 40000, 50000, 49000, 29000, 42000, 27000, 42000, 50000]
+            }
+          ],
+          legend: {
+            show: false
+          },
+          dataLabels: {
+            enabled: false
+          },
+          stroke: {
+            curve: 'straight',
+            width: 2
+          },
+          fill: {
+            type: 'gradient',
+            gradient: {
+              type: 'vertical',
+              shadeIntensity: 1,
+              opacityFrom: 0.2,
+              opacityTo: 0.8
+            }
+          },
+          xaxis: {
+            type: 'category',
+            tickPlacement: 'on',
+            categories: [
+              '25 January 2023',
+              '28 January 2023',
+              '31 January 2023',
+              '1 February 2023',
+              '3 February 2023',
+              '6 February 2023',
+              '9 February 2023',
+              '12 February 2023',
+              '15 February 2023',
+              '18 February 2023',
+              '21 February 2023',
+              '25 February 2023'
+            ],
+            axisBorder: {
+              show: false
+            },
+            axisTicks: {
+              show: false
+            },
+            crosshairs: {
+              stroke: {
+                dashArray: 0
+              },
+              dropShadow: {
+                show: false
+              }
+            },
+            tooltip: {
+              enabled: false
+            },
+            labels: {
+              style: {
+                colors: '#9ca3af',
+                fontSize: '13px',
+                fontFamily: 'Inter, ui-sans-serif',
+                fontWeight: 400
+              },
+              formatter: (title) => {
+                let t = title;
+
+                if (t) {
+                  const newT = t.split(' ');
+                  t = `${newT[0]} ${newT[1].slice(0, 3)}`;
+                }
+
+                return t;
+              }
+            }
+          },
+          yaxis: {
+            labels: {
+              align: 'left',
+              minWidth: 0,
+              maxWidth: 140,
+              style: {
+                colors: '#9ca3af',
+                fontSize: '12px',
+                fontFamily: 'Inter, ui-sans-serif',
+                fontWeight: 400
+              },
+              formatter: (value) => value >= 1000 ? `${value / 1000}k` : value
+            }
+          },
+          tooltip: {
+            x: {
+              format: 'MMMM yyyy'
+            },
+            y: {
+              formatter: (value) => `$${value >= 1000 ? `${value / 1000}k` : value}`
+            },
+            custom: function (props) {
+              return buildTooltipCompareTwo(props, {
+                title: 'Revenue',
+                mode,
+                hasTextLabel: true,
+                wrapperExtClasses: 'min-w-48',
+              });
+            }
+          },
+          responsive: [{
+            breakpoint: 568,
+            options: {
+              chart: {
+                height: 300
+              },
+              labels: {
+                style: {
+                  colors: '#9ca3af',
+                  fontSize: '11px',
+                  fontFamily: 'Inter, ui-sans-serif',
+                  fontWeight: 400
+                },
+                offsetX: -2,
+                formatter: (title) => title.slice(0, 3)
+              },
+              yaxis: {
+                labels: {
+                  align: 'left',
+                  minWidth: 0,
+                  maxWidth: 140,
+                  style: {
+                    colors: '#9ca3af',
+                    fontSize: '11px',
+                    fontFamily: 'Inter, ui-sans-serif',
+                    fontWeight: 400
+                  },
+                  formatter: (value) => value >= 1000 ? `${value / 1000}k` : value
+                }
+              },
+            },
+          }]
+        }), {
+          colors: ['#2563eb', '#9333ea'],
+          fill: {
+            gradient: {
+              shadeIntensity: .1,
+              opacityFrom: .5,
+              opacityTo: 0,
+              stops: [50, 100, 100, 100]
+            }
+          },
+          xaxis: {
+            labels: {
+              style: {
+                colors: '#9ca3af'
+              }
+            }
+          },
+          yaxis: {
+            labels: {
+              style: {
+                colors: '#9ca3af'
+              }
+            }
+          },
+          grid: {
+            strokeDashArray: 2,
+            borderColor: '#e5e7eb'
+          }
+        }, {
+          colors: ['#3b82f6', '#a855f7'],
+          fill: {
+            gradient: {
+              shadeIntensity: .1,
+              opacityFrom: .5,
+              opacityTo: 0,
+              stops: [50, 100, 100, 100]
+            }
+          },
+          xaxis: {
+            labels: {
+              style: {
+                colors: '#a3a3a3',
+              }
+            }
+          },
+          yaxis: {
+            labels: {
+              style: {
+                colors: '#a3a3a3'
+              }
+            }
+          },
+          grid: {
+            strokeDashArray: 2,
+            borderColor: '#404040'
+          }
+        });
+      })();
+    });
+  </script>
+
+  <script>
+  	window.addEventListener("load", () => {
+  	  // Apex Lines Chart
+  	  (function () {
+  	    buildChart(
+  	      "#hs-total-sales-lines-chart",
+  	      (mode) => ({
+  	        series: [
+  	          {
+  	            name: "Store sales",
+  	            data: [0, 27000, 5000, 27000, 40000, 30000, 48000],
+  	          },
+  	          {
+  	            name: "Online sales",
+  	            data: [19500, 10000, 1000, 17500, 6000, 20500, 24000],
+  	          },
+  	          {
+  	            name: "Others",
+  	            data: [12500, 7000, 4000, 8000, 10000, 12800, 8500],
+  	          },
+  	        ],
+  	        chart: {
+  	          height: 100,
+  	          type: "line",
+  	          sparkline: {
+  	            enabled: true,
+  	          },
+  	        },
+  	        stroke: {
+  	          curve: "straight",
+  	          width: 2,
+  	        },
+  	        xaxis: {
+  	          type: "category",
+  	          categories: [
+  	            "25 January 2023",
+  	            "1 February 2023",
+  	            "5 February 2023",
+  	            "10 February 2023",
+  	            "15 February 2023",
+  	            "20 February 2023",
+  	            "25 February 2023",
+  	          ],
+  	          crosshairs: {
+  	            show: false,
+  	          },
+  	        },
+  	        markers: {
+  	          hover: {
+  	            size: 0,
+  	          },
+  	        },
+  	        tooltip: {
+  	          custom: function (props) {
+  	            const { categories } = props.ctx.opts.xaxis;
+  	            const { dataPointIndex } = props;
+  	            const title = categories[dataPointIndex];
+
+  	            return buildTooltip(props, {
+  	              title: title,
+  	              mode,
+  	              hasTextLabel: true,
+  	              wrapperExtClasses: "min-w-48",
+  	              labelDivider: ":",
+  	              labelExtClasses: "ms-2",
+  	            });
+  	          },
+  	        },
+  	      }),
+  	      {
+  	        colors: ["#2563EB", "#9333ea", "#d1d5db"],
+  	        grid: {
+  	          borderColor: "#e5e7eb",
+  	        },
+  	        fill: {
+  	          type: "gradient",
+  	          gradient: {
+  	            gradientToColors: ["#fff", "#fff", "#fff"],
+  	          },
+  	        },
+  	      },
+  	      {
+  	        colors: ["#3b82f6", "#a855f7", "#737373"],
+  	        grid: {
+  	          borderColor: "#404040",
+  	        },
+  	        fill: {
+  	          type: "gradient",
+  	          gradient: {
+  	            gradientToColors: ["#262626", "#262626", "#262626"],
+  	          },
+  	        },
+  	      }
+  	    );
+  	  })();
+  	});
+  </script>
+
+  <script>
+    window.addEventListener('load', () => {
+      const currentTheme = localStorage.getItem('hs_theme');
+      const map = L.map('hs-pro-chrm', {
+        center: [51.5074, 15],
+        zoom: 3,
+        zoomControl: false,
+        // Prevent dragging over the limit
+        maxBounds: [
+          [-90, -180],
+          [90, 180]
+        ],
+        maxBoundsViscosity: 1.0
+      });
+      const maxRadius = 700000;
+      const circles = [];
+      const dataPoints = [
+        { lat: 51.5, lng: -0.12, country: 'UK', city: 'London', short: 'gb', percentage: 50, current: { value: '8,408', percent: '5.4', isGrown: false }, previous: { value: '1,001', percent: '5.1', isGrown: true } },
+        { lat: 48.8566, lng: 2.3522, country: 'France', city: 'Paris', short: 'fr', percentage: 55, current: { value: '5,101', percent: '42.2', isGrown: false }, previous: { value: '444', percent: '41.2', isGrown: false } },
+        { lat: 52.52, lng: 13.405, country: 'Germany', city: 'Berlin', short: 'de', percentage: 30, current: { value: '7,000', percent: '25.5', isGrown: true }, previous: { value: '3,000', percent: '20.1', isGrown: true } },
+        { lat: 41.9028, lng: 12.4964, country: 'Italy', city: 'Rome', short: 'it', percentage: 50, current: { value: '9,100', percent: '30.4', isGrown: false }, previous: { value: '7,500', percent: '25.2', isGrown: false } },
+        { lat: 52.2297, lng: 21.0122, country: 'Poland', city: 'Warsaw', short: 'pl', percentage: 50, current: { value: '5,100', percent: '40.2', isGrown: true }, previous: { value: '4,000', percent: '35.1', isGrown: true } },
+        { lat: 55.7558, lng: 37.6173, country: 'Russia', city: 'Moscow', short: 'ru', percentage: 50, current: { value: '15,500', percent: '25.3', isGrown: true }, previous: { value: '12,000', percent: '24.8', isGrown: true } },
+        { lat: 41.2995, lng: 69.2401, country: 'Uzbekistan', city: 'Tashkent', short: 'uz', percentage: 50, current: { value: '15,500', percent: '25.3', isGrown: true }, previous: { value: '12,000', percent: '24.8', isGrown: true } },
+        { lat: 31.7683, lng: 35.2137, country: 'Israel', city: 'Jerusalem', short: 'il', percentage: 50, current: { value: '9,000', percent: '15.0', isGrown: true }, previous: { value: '7,800', percent: '14.8', isGrown: true } },
+        { lat: 30.0444, lng: 31.2357, country: 'Egypt', city: 'Cairo', short: 'eg', percentage: 40, current: { value: '4,500', percent: '7.8', isGrown: false }, previous: { value: '4,700', percent: '8.1', isGrown: false } },
+        { lat: 35.6892, lng: 51.389, country: 'Iran', city: 'Tehran', short: 'ir', percentage: 50, current: { value: '13,000', percent: '21.5', isGrown: true }, previous: { value: '10,900', percent: '20.0', isGrown: true } },
+        { lat: 9.082, lng: 8.6753, country: 'Nigeria', city: 'Abuja', short: 'ng', percentage: 50, current: { value: '11,500', percent: '18.2', isGrown: true }, previous: { value: '10,200', percent: '17.5', isGrown: true } },
+        { lat: 28.6139, lng: 77.209, country: 'India', city: 'New Delhi', short: 'in', percentage: 30, current: { value: '22,000', percent: '35.6', isGrown: true }, previous: { value: '20,000', percent: '34.2', isGrown: true } },
+        { lat: 23.685, lng: 90.3563, country: 'Bangladesh', city: 'Dhaka', short: 'bd', percentage: 50, current: { value: '8,500', percent: '13.7', isGrown: true }, previous: { value: '7,800', percent: '12.9', isGrown: true } },
+        { lat: 15.870, lng: 100.992, country: 'Thailand', city: 'Bangkok', short: 'th', percentage: 30, current: { value: '7,200', percent: '11.6', isGrown: false }, previous: { value: '7,500', percent: '12.0', isGrown: false } },
+        { lat: 14.0583, lng: 108.2772, country: 'Vietnam', city: 'Hanoi', short: 'vn', percentage: 50, current: { value: '6,800', percent: '11.2', isGrown: true }, previous: { value: '6,200', percent: '10.8', isGrown: true } },
+        { lat: 4.2105, lng: 101.9758, country: 'Malaysia', city: 'Kuala Lumpur', short: 'my', percentage: 50, current: { value: '6,000', percent: '9.9', isGrown: true }, previous: { value: '5,500', percent: '9.1', isGrown: true } },
+        { lat: 1.3521, lng: 103.8198, country: 'Singapore', city: 'Singapore', short: 'sg', percentage: 50, current: { value: '5,700', percent: '9.5', isGrown: false }, previous: { value: '6,000', percent: '9.8', isGrown: false } },
+        { lat: -0.7893, lng: 113.9213, country: 'Indonesia', city: 'Jakarta', short: 'id', percentage: 70, current: { value: '25,000', percent: '40.0', isGrown: true }, previous: { value: '23,000', percent: '38.5', isGrown: true } },
+        { lat: 35.6895, lng: 139.6917, country: 'Japan', city: 'Tokyo', short: 'jp', percentage: 50, current: { value: '20,000', percent: '32.0', isGrown: true }, previous: { value: '18,500', percent: '31.0', isGrown: true } },
+        { lat: 40.7128, lng: -74.006, country: 'USA', city: 'New York', short: 'us', percentage: 60, current: { value: '15,000', percent: '25.0', isGrown: true }, previous: { value: '12,000', percent: '20.0', isGrown: true } },
+        { lat: 34.0522, lng: -118.2437, country: 'USA', city: 'Los Angeles', short: 'us', percentage: 50, current: { value: '12,500', percent: '22.5', isGrown: true }, previous: { value: '10,000', percent: '20.0', isGrown: true } },
+        { lat: 41.8781, lng: -87.6298, country: 'USA', city: 'Chicago', short: 'us', percentage: 45, current: { value: '10,000', percent: '18.0', isGrown: false }, previous: { value: '11,000', percent: '19.5', isGrown: false } },
+        { lat: 29.7604, lng: -95.3698, country: 'USA', city: 'Houston', short: 'us', percentage: 40, current: { value: '8,000', percent: '14.5', isGrown: true }, previous: { value: '7,000', percent: '13.0', isGrown: true } },
+        { lat: 33.749, lng: -84.388, country: 'USA', city: 'Atlanta', short: 'us', percentage: 35, current: { value: '7,500', percent: '13.0', isGrown: true }, previous: { value: '6,800', percent: '12.5', isGrown: true } }
+      ];
+      const lightLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        maxZoom: 19,
+        minZoom: 2,
+        attribution: '© <a href="https://carto.com/attributions">CARTO</a>'
+      });
+      const darkLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        maxZoom: 19,
+        minZoom: 2,
+        attribution: '© <a href="https://carto.com/attributions">CARTO</a>'
+      });
+      const setInitialTheme = (theme) => {
+        if (theme === 'dark') {
+          darkLayer.addTo(map);
+        } else {
+          lightLayer.addTo(map);
+        }
+      };
+      const changeTheme = (theme) => {
+        if (theme === 'default') {
+          map.removeLayer(darkLayer);
+          map.addLayer(lightLayer);
+        } else {
+          map.removeLayer(lightLayer);
+          map.addLayer(darkLayer);
+        }
+      };
+
+      setInitialTheme(currentTheme);
+
+      L.control.zoom({
+        position: 'topright'
+      }).addTo(map);
+
+
+      let currentHoveredCircle = null;
+      let isOnPopover = false;
+
+      dataPoints.forEach((point, index) => {
+        const baseMaxRadius = 700000;
+        const zoom = map.getZoom();
+        const baseZoom = 3;
+        const scalePerZoom = 2;
+        const scaleFactor = 1 / Math.pow(scalePerZoom, (zoom - baseZoom));
+        const initialRadius = (point.percentage / 100) * baseMaxRadius * scaleFactor;
+        const maxRadius = initialRadius * 0.25;
+        const animationDuration = 6000;
+        const delay = index * 800;
+        let startTime = null;
+
+        const circle = L.circle([point.lat, point.lng], {
+          fillColor: '#2563eb',
+          fillOpacity: 0.6,
+          radius: initialRadius,
+          color: null,
+          weight: 0
+        }).addTo(map);
+        const { city, country, short, current, previous } = point;
+        const growUp = `<svg class="size-4 text-emerald-500 dark:text-emerald-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>`;
+        const growDown = `<svg class="size-4 text-red-500 dark:text-red-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 17 13.5 8.5 8.5 13.5 2 7"/><polyline points="16 17 22 17 22 11"/></svg>`;
+        const popupContent = `<div class="bg-white rounded-xl shadow-xl w-40 p-3">
+          <div class="flex mb-1">
+            <div class="mt-0.5 me-2">
+              <div class="size-4 rounded-full bg-no-repeat bg-center bg-cover" style="background-image: url('../../assets/vendor/svg-country-flags/svg/${short}.svg')"></div>
+            </div>
+            <span class="text-sm font-medium">${city}, ${country}</span>
+          </div>
+          <div class="flex items-center space-x-1">
+            <span class="text-sm text-gray-500 dark:text-neutral-500">Active:</span>
+            <span class="text-sm ${current.isGrown ? 'text-emerald-500 dark:text-emerald-400' : 'text-red-500 dark:text-red-400'}">${current.value}</span>
+            ${current.isGrown ? growUp : growDown}
+          </div>
+          <div class="flex items-center space-x-1">
+            <span class="text-sm text-gray-500 dark:text-neutral-500">New:</span>
+            <span class="text-sm ${previous.isGrown ? 'text-emerald-500 dark:text-emerald-400' : 'text-red-500 dark:text-red-400'}">${previous.value}</span>
+            ${previous.isGrown ? growUp : growDown}
+          </div>
+        </div>`;
+
+        const animatePulse = (timestamp) => {
+          if (!startTime) startTime = timestamp;
+
+          const elapsed = (timestamp - startTime + delay) % animationDuration;
+          const progress = elapsed / animationDuration;
+        
+          const easing = Math.sin(progress * Math.PI) * Math.sin(progress * Math.PI * 0.5);
+          const currentRadius = initialRadius + (maxRadius - initialRadius) * easing;
+        
+          circle.setRadius(currentRadius);
+
+          requestAnimationFrame(animatePulse);
+        };
+
+        requestAnimationFrame(animatePulse);
+
+        circles.push({
+          circle,
+          data: point
+        });
+
+        circle.on('mouseover', function () {
+          circle.bindPopup(popupContent, { closeButton: false }).openPopup();
+        });
+
+        circle.on('mouseout', function () {
+          map.closePopup();
+        });
+      });
+
+      map.on('zoomend', () => {
+        const zoom = map.getZoom();
+        const baseZoom = 3;
+        const scalePerZoom = 1.5;
+        const scaleFactor = 1 / Math.pow(scalePerZoom, (zoom - baseZoom));
+
+        circles.forEach(({ circle, data }) => {
+          const newRadius = (data.percentage / 100) * maxRadius * scaleFactor;
+
+          circle.setRadius(newRadius);
+        });
+      });
+
+      window.addEventListener('on-hs-appearance-change', (evt) => changeTheme(evt.detail));
+    });
+  </script>
+
+</body>
+</html>

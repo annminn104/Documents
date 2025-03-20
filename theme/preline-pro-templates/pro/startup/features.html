@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="en" class="relative min-h-full">
+<head>
+  <!-- Required Meta Tags Always Come First -->
+  <meta charset="utf-8">
+  <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://preline.co/">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="A sleek marketing template for startups, featuring modern design, conversion-focused sections, and seamless user experience.">
+
+  <meta name="twitter:site" content="@preline">
+  <meta name="twitter:creator" content="@preline">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Startup | Preline Pro | Preline UI, crafted with Tailwind CSS">
+  <meta name="twitter:description" content="A sleek marketing template for startups, featuring modern design, conversion-focused sections, and seamless user experience.">
+  <meta name="twitter:image" content="https://preline.co/assets/img/og-image.png">
+
+  <meta property="og:url" content="https://preline.co/">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Preline">
+  <meta property="og:title" content="Startup | Preline Pro | Preline UI, crafted with Tailwind CSS">
+  <meta property="og:description" content="A sleek marketing template for startups, featuring modern design, conversion-focused sections, and seamless user experience.">
+  <meta property="og:image" content="https://preline.co/assets/img/og-image.png">
+
+  <!-- Title -->
+  <title>Startup | Preline Pro | Preline UI, crafted with Tailwind CSS</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="../favicon.ico">
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS HS -->
+  <link rel="stylesheet" href="../assets/css/main.min.css?v=3.0.0">
+
+  <!-- Theme Check and Update -->
+  <script>
+    const html = document.querySelector('html');
+    const isLightOrAuto = localStorage.getItem('hs_theme') === 'light' || (localStorage.getItem('hs_theme') === 'auto' && !window.matchMedia('(prefers-color-scheme: dark)').matches);
+    const isDarkOrAuto = localStorage.getItem('hs_theme') === 'dark' || (localStorage.getItem('hs_theme') === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+    if (isLightOrAuto && html.classList.contains('dark')) html.classList.remove('dark');
+    else if (isDarkOrAuto && html.classList.contains('light')) html.classList.remove('light');
+    else if (isDarkOrAuto && !html.classList.contains('dark')) html.classList.add('dark');
+    else if (isLightOrAuto && !html.classList.contains('light')) html.classList.add('light');
+  </script>
+</head>
+
+<body class="dark:bg-neutral-900">
+  <!-- ========== HEADER ========== -->
+  <header class="sticky top-0 inset-x-0 z-50 bg-white dark:bg-neutral-900">
+    <nav class="max-w-6xl basis-full w-full py-4 px-4 sm:px-6 lg:px-8 lg:mx-auto">
+      <div class="flex flex-wrap md:flex-nowrap basis-full justify-between gap-x-2 w-full">
+        <div class="flex items-center gap-x-1">
+          <!-- Logo -->
+          <a class="flex-none rounded-md text-xl inline-block font-semibold focus:outline-hidden focus:opacity-80" href="../../pro/startup/index.html" aria-label="Preline">
+            <svg class="w-24 h-auto" width="116" height="32" viewBox="0 0 116 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M33.5696 30.8182V11.3182H37.4474V13.7003H37.6229C37.7952 13.3187 38.0445 12.9309 38.3707 12.5369C38.7031 12.1368 39.134 11.8045 39.6634 11.5398C40.1989 11.2689 40.8636 11.1335 41.6577 11.1335C42.6918 11.1335 43.6458 11.4044 44.5199 11.946C45.3939 12.4815 46.0926 13.291 46.6158 14.3743C47.139 15.4515 47.4006 16.8026 47.4006 18.4276C47.4006 20.0095 47.1451 21.3452 46.6342 22.4347C46.1295 23.518 45.4401 24.3397 44.5661 24.8999C43.6982 25.4538 42.7256 25.7308 41.6484 25.7308C40.8852 25.7308 40.2358 25.6046 39.7003 25.3523C39.1709 25.0999 38.737 24.7829 38.3984 24.4013C38.0599 24.0135 37.8014 23.6226 37.6229 23.2287H37.5028V30.8182H33.5696ZM37.4197 18.4091C37.4197 19.2524 37.5367 19.9879 37.7706 20.6158C38.0045 21.2436 38.343 21.733 38.7862 22.0838C39.2294 22.4285 39.768 22.6009 40.402 22.6009C41.0421 22.6009 41.5838 22.4254 42.027 22.0746C42.4702 21.7176 42.8056 21.2251 43.0334 20.5973C43.2673 19.9633 43.3842 19.2339 43.3842 18.4091C43.3842 17.5904 43.2704 16.8703 43.0426 16.2486C42.8149 15.6269 42.4794 15.1406 42.0362 14.7898C41.593 14.4389 41.0483 14.2635 40.402 14.2635C39.7618 14.2635 39.2202 14.4328 38.777 14.7713C38.34 15.1098 38.0045 15.59 37.7706 16.2116C37.5367 16.8333 37.4197 17.5658 37.4197 18.4091ZM49.2427 25.5V11.3182H53.0559V13.7926H53.2037C53.4622 12.9124 53.8961 12.2476 54.5055 11.7983C55.1149 11.3428 55.8166 11.1151 56.6106 11.1151C56.8076 11.1151 57.02 11.1274 57.2477 11.152C57.4754 11.1766 57.6755 11.2105 57.8478 11.2536V14.7436C57.6632 14.6882 57.4077 14.639 57.0815 14.5959C56.7553 14.5528 56.4567 14.5312 56.1859 14.5312C55.6073 14.5312 55.0903 14.6574 54.6348 14.9098C54.1854 15.156 53.8284 15.5007 53.5638 15.9439C53.3052 16.3871 53.176 16.898 53.176 17.4766V25.5H49.2427ZM64.9043 25.777C63.4455 25.777 62.1898 25.4815 61.1373 24.8906C60.0909 24.2936 59.2845 23.4503 58.7182 22.3608C58.1519 21.2652 57.8688 19.9695 57.8688 18.4737C57.8688 17.0149 58.1519 15.7346 58.7182 14.6328C59.2845 13.531 60.0816 12.6723 61.1096 12.0568C62.1437 11.4413 63.3563 11.1335 64.7474 11.1335C65.683 11.1335 66.5539 11.2843 67.3603 11.5859C68.1728 11.8814 68.8806 12.3277 69.4839 12.9247C70.0932 13.5218 70.5672 14.2727 70.9057 15.1776C71.2443 16.0762 71.4135 17.1288 71.4135 18.3352V19.4155H59.4384V16.978H67.7111C67.7111 16.4117 67.588 15.91 67.3418 15.473C67.0956 15.036 66.754 14.6944 66.317 14.4482C65.8861 14.1958 65.3844 14.0696 64.812 14.0696C64.2149 14.0696 63.6856 14.2081 63.2239 14.4851C62.7684 14.7559 62.4114 15.1222 62.1529 15.5838C61.8944 16.0393 61.762 16.5471 61.7559 17.1072V19.4247C61.7559 20.1264 61.8851 20.7327 62.1437 21.2436C62.4083 21.7545 62.7807 22.1484 63.2608 22.4254C63.741 22.7024 64.3103 22.8409 64.9689 22.8409C65.406 22.8409 65.8061 22.7794 66.1692 22.6562C66.5324 22.5331 66.8432 22.3485 67.1018 22.1023C67.3603 21.8561 67.5572 21.5545 67.6927 21.1974L71.3304 21.4375C71.1458 22.3116 70.7672 23.0748 70.1948 23.7273C69.6285 24.3736 68.896 24.8783 67.9974 25.2415C67.1048 25.5985 66.0738 25.777 64.9043 25.777ZM77.1335 6.59091V25.5H73.2003V6.59091H77.1335ZM79.5043 25.5V11.3182H83.4375V25.5H79.5043ZM81.4801 9.49006C80.8954 9.49006 80.3937 9.29616 79.9752 8.90838C79.5628 8.51444 79.3566 8.04356 79.3566 7.49574C79.3566 6.95407 79.5628 6.48935 79.9752 6.10156C80.3937 5.70762 80.8954 5.51065 81.4801 5.51065C82.0649 5.51065 82.5635 5.70762 82.9759 6.10156C83.3944 6.48935 83.6037 6.95407 83.6037 7.49574C83.6037 8.04356 83.3944 8.51444 82.9759 8.90838C82.5635 9.29616 82.0649 9.49006 81.4801 9.49006ZM89.7415 17.3011V25.5H85.8083V11.3182H89.5569V13.8203H89.723C90.037 12.9955 90.5632 12.343 91.3019 11.8629C92.0405 11.3767 92.9361 11.1335 93.9887 11.1335C94.9735 11.1335 95.8322 11.349 96.5647 11.7798C97.2971 12.2107 97.8665 12.8262 98.2728 13.6264C98.679 14.4205 98.8821 15.3684 98.8821 16.4702V25.5H94.9489V17.1719C94.9551 16.304 94.7335 15.6269 94.2841 15.1406C93.8348 14.6482 93.2162 14.402 92.4283 14.402C91.8989 14.402 91.4311 14.5159 91.0249 14.7436C90.6248 14.9714 90.3109 15.3037 90.0831 15.7408C89.8615 16.1716 89.7477 16.6918 89.7415 17.3011ZM107.665 25.777C106.206 25.777 104.951 25.4815 103.898 24.8906C102.852 24.2936 102.045 23.4503 101.479 22.3608C100.913 21.2652 100.63 19.9695 100.63 18.4737C100.63 17.0149 100.913 15.7346 101.479 14.6328C102.045 13.531 102.842 12.6723 103.87 12.0568C104.905 11.4413 106.117 11.1335 107.508 11.1335C108.444 11.1335 109.315 11.2843 110.121 11.5859C110.934 11.8814 111.641 12.3277 112.245 12.9247C112.854 13.5218 113.328 14.2727 113.667 15.1776C114.005 16.0762 114.174 17.1288 114.174 18.3352V19.4155H102.199V16.978H110.472C110.472 16.4117 110.349 15.91 110.103 15.473C109.856 15.036 109.515 14.6944 109.078 14.4482C108.647 14.1958 108.145 14.0696 107.573 14.0696C106.976 14.0696 106.446 14.2081 105.985 14.4851C105.529 14.7559 105.172 15.1222 104.914 15.5838C104.655 16.0393 104.523 16.5471 104.517 17.1072V19.4247C104.517 20.1264 104.646 20.7327 104.905 21.2436C105.169 21.7545 105.542 22.1484 106.022 22.4254C106.502 22.7024 107.071 22.8409 107.73 22.8409C108.167 22.8409 108.567 22.7794 108.93 22.6562C109.293 22.5331 109.604 22.3485 109.863 22.1023C110.121 21.8561 110.318 21.5545 110.454 21.1974L114.091 21.4375C113.907 22.3116 113.528 23.0748 112.956 23.7273C112.389 24.3736 111.657 24.8783 110.758 25.2415C109.866 25.5985 108.835 25.777 107.665 25.777Z" class="fill-blue-700 dark:fill-white" fill="currentColor" />
+              <path d="M1 29.5V16.5C1 9.87258 6.37258 4.5 13 4.5C19.6274 4.5 25 9.87258 25 16.5C25 23.1274 19.6274 28.5 13 28.5H12" class="stroke-blue-700 dark:stroke-white" stroke="currentColor" stroke-width="2" />
+              <path d="M5 29.5V16.66C5 12.1534 8.58172 8.5 13 8.5C17.4183 8.5 21 12.1534 21 16.66C21 21.1666 17.4183 24.82 13 24.82H12" class="stroke-blue-700 dark:stroke-white" stroke="currentColor" stroke-width="2" />
+              <circle cx="13" cy="16.5214" r="5" class="fill-blue-700 dark:fill-white" fill="currentColor" />
+            </svg>
+          </a>
+          <!-- End Logo -->
+        </div>
+
+        <!-- Button Group -->
+        <div class="md:order-3 flex gap-x-1">
+          <a class="py-2 px-2.5 hidden md:flex items-center gap-x-1.5 text-sm whitespace-nowrap text-start text-gray-800 rounded-lg hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+            Get a demo
+          </a>
+
+          <a class="py-2 px-2.5 flex items-center gap-x-1.5 whitespace-nowrap text-[13px] md:text-sm text-start text-gray-800 rounded-lg hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+            Log in
+          </a>
+
+          <a class="py-2 px-2.5 inline-flex items-center gap-x-1.5 whitespace-nowrap text-[13px] md:text-sm rounded-lg shadow-md bg-blue-600 text-white hover:bg-blue-700 hover:shadow-none focus:outline-hidden focus:bg-blue-700 focus:shadow-none disabled:opacity-50 disabled:pointer-events-none" href="#">
+            Try it free
+          </a>
+
+          <!-- Collapse Button Trigger -->
+          <button type="button" class="hs-collapse-toggle md:hidden flex justify-center items-center size-9 rounded-lg shadow-2xs bg-white border border-gray-200 text-sm text-gray-800 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:hover:bg-neutral-800 dark:text-neutral-300 dark:focus:bg-neutral-800" id="hs-pro-dmh-collapse" aria-expanded="false" aria-controls="hs-pro-dmh" aria-label="Toggle navigation" data-hs-collapse="#hs-pro-dmh">
+            <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="1" />
+              <circle cx="12" cy="5" r="1" />
+              <circle cx="12" cy="19" r="1" />
+            </svg>
+          </button>
+          <!-- End Collapse Button Trigger -->
+        </div>
+        <!-- End Button Group -->
+
+        <!-- Collapse -->
+        <div id="hs-pro-dmh" class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow md:block bg-white dark:bg-neutral-900" aria-labelledby="hs-pro-dmh-collapse">
+          <div class="overflow-hidden overflow-y-auto max-h-[75vh] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-white/10 [&::-webkit-scrollbar-thumb]:bg-white/30 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
+            <!-- Nav -->
+            <div class="flex flex-col md:flex-row md:gap-y-0 md:gap-x-1 py-2 md:p-0">
+              <a class="py-2 px-2.5 flex items-center gap-x-1.5 text-sm whitespace-nowrap text-start text-gray-800 rounded-lg hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="../../pro/startup/index.html">
+                Home
+              </a>
+
+              <a class="py-2 px-2.5 flex items-center gap-x-1.5 text-sm whitespace-nowrap text-start text-gray-800 rounded-lg hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="../../pro/startup/features.html">
+                Features
+              </a>
+
+              <a class="py-2 px-2.5 flex items-center gap-x-1.5 text-sm whitespace-nowrap text-start text-gray-800 rounded-lg hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="../../pro/startup/about.html">
+                About
+              </a>
+
+              <a class="py-2 px-2.5 flex items-center gap-x-1.5 text-sm whitespace-nowrap text-start text-gray-800 rounded-lg hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="../../pro/startup/pricing.html">
+                Pricing
+              </a>
+
+              <a class="py-2 px-2.5 flex items-center gap-x-1.5 text-sm whitespace-nowrap text-start text-gray-800 rounded-lg hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="../../pro/startup/customers.html">
+                Customers
+              </a>
+
+              <a class="py-2 px-2.5 md:hidden flex items-center gap-x-1.5 text-sm whitespace-nowrap text-start text-gray-800 rounded-lg hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+                Get a demo
+              </a>
+            </div>
+            <!-- End Nav -->
+          </div>
+        </div>
+        <!-- End Collapse -->
+      </div>
+    </nav>
+  </header>
+  <!-- ========== END HEADER ========== -->
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="content">
+    <!-- Hero -->
+    <div class="relative overflow-hidden bg-gray-100 before:absolute before:inset-0 before:size-full before:bg-[radial-gradient(var(--color-gray-300)_1px,transparent_1px)] dark:before:bg-[radial-gradient(var(--color-neutral-700)_1px,transparent_1px)] before:bg-[size:20px_20px] dark:bg-neutral-800">
+      <div class="relative z-10 min-h-150 lg:min-h-[800px] flex flex-col justify-center">
+        <div class="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto">
+          <!-- Content -->
+          <div class="max-w-sm md:max-w-xl mx-auto text-center">
+            <p class="mb-3 md:mb-4 font-mono text-sm text-gray-500 dark:text-neutral-400">
+              Preline Build
+            </p>
+
+            <h1 class="font-bold text-gray-800 text-4xl md:text-5xl lg:text-6xl dark:text-white">
+              Do more with Preline in Web App
+            </h1>
+
+            <p class="mt-5 text-sm md:text-lg text-gray-800 dark:text-gray-200">
+              You can use Preline for much more than just Web App.
+            </p>
+          </div>
+          <!-- End Content -->
+
+          <div class="hidden lg:block absolute top-[2%] start-[4%] sm:start-[20%] lg:start-[33%] -z-1 scale-75 lg:scale-100">
+            <!-- Card -->
+            <div class="p-2.5 w-64 flex flex-col gap-y-2.5 bg-white ring-6 ring-white/50 rounded-2xl shadow-lg dark:bg-neutral-900 dark:ring-black/30">
+              <span class="block font-medium text-sm text-gray-800 dark:text-neutral-200">
+                Datatables Integration
+              </span>
+
+              <div class="flex flex-wrap gap-2">
+
+                <!-- Avatar -->
+                <div class="flex items-center gap-x-1">
+                  <img class="shrink-0 size-5 rounded-full" src="https://images.unsplash.com/photo-1601935111741-ae98b2b230b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=3&w=320&h=320&q=80" alt="Avatar">
+                  <div class="grow">
+                    <span class="block text-[13px] text-gray-800 dark:text-neutral-200">
+                      Daniel Hobbs
+                    </span>
+                  </div>
+                </div>
+                <!-- End Avatar -->
+              </div>
+
+              <!-- Priority -->
+              <div class="flex flex-wrap gap-1">
+                <span class="py-0.5 px-2 inline-flex items-center gap-x-1 text-xs font-medium rounded-full border border-yellow-200 bg-yellow-100 text-yellow-800 dark:border-yellow-500/20 dark:bg-yellow-500/10 dark:text-yellow-500">
+                  Medium 🌟
+                </span>
+              </div>
+              <!-- End Priority -->
+
+              <!-- Issue Type -->
+              <div class="flex flex-wrap gap-1">
+                <span class="py-0.5 px-2 inline-flex items-center gap-x-1 text-xs font-medium rounded-full border border-gray-200 bg-white text-gray-800 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-200">
+                  Feature ⚡️
+                </span>
+                <span class="py-0.5 px-2 inline-flex items-center gap-x-1 text-xs font-medium rounded-full border border-gray-200 bg-white text-gray-800 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-200">
+                  Docs 📄
+                </span>
+              </div>
+              <!-- End Issue Type -->
+
+              <!-- Footer -->
+              <div class="flex items-center">
+                <span class="flex justify-center items-center gap-x-1 text-xs text-gray-500 dark:text-neutral-500">
+                  <svg class="shrink-0 size-3" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2z"></path>
+                    <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"></path>
+                  </svg>
+                  24
+                </span>
+
+                <div class="relative ms-2.5 ps-2.5 before:absolute before:top-1/2 before:-start-px before:w-px before:h-3 before:bg-gray-300 before:-translate-y-1/2 dark:before:bg-neutral-700">
+                  <span class="flex justify-center items-center gap-x-1 text-xs text-gray-500 dark:text-neutral-500">
+                    <svg class="shrink-0 size-3" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"></path>
+                    </svg>
+                    8
+                  </span>
+                </div>
+
+                <!-- Progress -->
+                <div class="ms-auto w-1/2 flex items-center gap-x-1 whitespace-nowrap">
+                  <div class="flex w-full h-1 bg-gray-200 rounded-full overflow-hidden dark:bg-neutral-700" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                    <div class="flex flex-col justify-center rounded-full overflow-hidden bg-green-500 text-xs text-white text-center whitespace-nowrap transition duration-500" style="width: 100%;"></div>
+                  </div>
+                  <div class="w-10 text-end -mt-0.5">
+                    <span class="text-xs text-gray-500 dark:text-neutral-500">100%</span>
+                  </div>
+                </div>
+                <!-- End Progress -->
+              </div>
+              <!-- End Footer -->
+            </div>
+            <!-- End Card -->
+          </div>
+
+          <div class="absolute top-[15%] lg:top-[25%] start-0 md:start-[5%] xl:start-[14%] -z-1 scale-75 lg:scale-100">
+            <!-- Card -->
+            <div class="relative w-64 overflow-hidden p-4 sm:p-5 bg-white ring-6 ring-white/50 rounded-2xl shadow-lg before:absolute before:top-0 before:end-0 before:size-full before:bg-linear-to-br before:from-purple-100 before:via-transparent before:blur-xl dark:bg-neutral-800 dark:ring-black/30 dark:before:from-purple-800/30 dark:before:via-transparent">
+              <div class="relative z-10">
+                <!-- Header -->
+                <div class="flex justify-between gap-x-3">
+                  <!-- Icon -->
+                  <span class="mb-3 inline-flex justify-center items-center size-8 md:size-10 rounded-lg bg-white text-gray-700 shadow-xs dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400">
+                    <svg class="shrink-0 size-4 md:size-5 text-purple-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                      <circle cx="9" cy="7" r="4" />
+                      <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                    </svg>
+                  </span>
+                  <!-- End Icon -->
+                </div>
+                <!-- End Header -->
+
+                <h2 class="text-sm md:text-base text-gray-800 dark:text-neutral-200">
+                  Total Users
+                </h2>
+
+                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-3">
+                  <h3 class="text-lg md:text-2xl font-semibold text-gray-800 dark:text-neutral-200">
+                    356
+                  </h3>
+
+                  <div class="flex items-center -space-x-2">
+                    <!-- Avatar -->
+                    <div class="hs-tooltip hidden sm:inline-block hover:z-10">
+                      <img class="hs-tooltip-toggle shrink-0 size-7 border-2 border-white rounded-full dark:border-neutral-800" src="https://images.unsplash.com/photo-1679412330254-90cb240038c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2.5&w=320&h=320&q=80" alt="Avatar">
+                      <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 inline-block absolute invisible z-20 py-1.5 px-2.5 bg-gray-900 text-xs text-white rounded-lg whitespace-nowrap dark:bg-neutral-700" role="tooltip">
+                        Lewis Clarke
+                      </span>
+                    </div>
+                    <!-- End Avatar -->
+
+                    <!-- Avatar -->
+                    <div class="hs-tooltip hidden sm:inline-block hover:z-10">
+                      <span class="hs-tooltip-toggle flex shrink-0 justify-center items-center size-7 bg-gray-200 border-2 border-white text-gray-700 text-xs font-medium uppercase rounded-full dark:bg-neutral-700 dark:border-neutral-800 dark:text-neutral-300">
+                        L
+                      </span>
+                      <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 inline-block absolute invisible z-20 py-1.5 px-2.5 bg-gray-900 text-xs text-white rounded-lg whitespace-nowrap dark:bg-neutral-700" role="tooltip">
+                        Lori Hunter
+                      </span>
+                    </div>
+                    <!-- End Avatar -->
+
+                    <!-- Avatar -->
+                    <div class="hs-tooltip hidden sm:inline-block hover:z-10">
+                      <img class="hs-tooltip-toggle shrink-0 size-7 border-2 border-white rounded-full dark:border-neutral-800" src="https://images.unsplash.com/photo-1659482634023-2c4fda99ac0c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2.5&w=320&h=320&q=80" alt="Avatar">
+                      <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 inline-block absolute invisible z-20 py-1.5 px-2.5 bg-gray-900 text-xs text-white rounded-lg whitespace-nowrap dark:bg-neutral-700" role="tooltip">
+                        Ella Lauda
+                      </span>
+                    </div>
+                    <!-- End Avatar -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Card -->
+          </div>
+
+          <div class="absolute bottom-0 lg:bottom-[15%] start-[10%] lg:start-[12%] -z-1 scale-75 xl:scale-100 blur-xs">
+            <!-- Card -->
+            <div class="relative w-48 overflow-hidden p-4 bg-indigo-200 ring-6 ring-white/50 rounded-2xl shadow-lg dark:bg-indigo-900 dark:ring-black/30">
+              <div class="relative z-10">
+                <!-- Icon -->
+                <svg class="mb-2 shrink-0 size-8 text-indigo-700 dark:text-white" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 2L0 7.27424L8 12.471L15.9999 7.27424L8 2ZM23.9999 2L15.9999 7.27424L23.9999 12.471L31.9998 7.27424L23.9999 2ZM0 17.7451L8 23.0194L15.9999 17.7451L8 12.471L0 17.7451ZM23.9999 12.471L15.9999 17.7451L23.9999 23.0194L31.9998 17.7451L23.9999 12.471ZM8 24.7258L15.9999 30L23.9999 24.7258L15.9999 19.5291L8 24.7258Z" fill="currentColor"></path>
+                </svg>
+                <!-- End Icon -->
+
+                <h3 class="font-semibold text-sm text-gray-800 dark:text-indigo-100">
+                  Dropbox
+                </h3>
+
+                <div class="mt-5">
+                  <p class="font-semibold text-xl text-gray-800 dark:text-white">
+                    119.88 <span class="font-normal text-sm text-indigo-900 dark:text-indigo-100/50">/ yr</span>
+                  </p>
+                  <p class="text-xs text-indigo-900 dark:text-indigo-100/50">
+                    Due Nov 2
+                  </p>
+                  <div class="mt-4">
+                    <button type="button" class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-indigo-800 hover:text-indigo-600 disabled:opacity-50 disabled:pointer-events-none decoration-2 focus:outline-hidden focus:underline dark:text-indigo-100/50 dark:hover:text-indigo-100">
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="z-9 absolute top-0 end-0">
+                <svg class="w-48 h-56" width="806" height="511" viewBox="0 0 806 511" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M544.8 -1147.08L1098.08 484L714.167 614.228C692.688 577.817 658.308 547.748 620.707 527.375C561.271 495.163 493.688 482.213 428.253 465.21C391.41 455.641 349.053 438.735 340.625 401.621C335.248 377.942 346.056 354.034 351.234 330.304C364.887 267.777 335.093 198.172 280.434 164.889C266.851 156.619 251.423 149.934 242.315 136.897C214.215 96.6599 268.253 45.1471 263.125 -3.66296C261.266 -21.3099 251.617 -37.124 241.172 -51.463C126.21 -209.336 -87.5388 -248.663 -263.351 -333.763C-314.682 -358.613 -364.939 -389.135 -400.106 -434.021C-435.273 -478.907 -453.106 -540.621 -434.096 -594.389C-408.119 -667.874 -325.246 -703.948 -248.613 -718.248C-171.98 -732.548 -90.1128 -734.502 -23.1788 -774.468C49.5632 -817.9 90.8002 -897.847 147.393 -960.879C175.737 -992.458 208.024 -1019.8 242.465 -1044.52L544.8 -1147.08Z" fill="currentColor" class="fill-indigo-300/40 dark:fill-indigo-700/40"></path>
+                  <path d="M726.923 -1341.99L1280.23 288.8L896.3 419.008C874.821 382.608 840.438 352.54 802.834 332.171C743.394 299.964 675.808 287.017 610.369 270.017C573.523 260.45 531.162 243.546 522.736 206.439C517.358 182.765 528.167 158.861 533.345 135.139C547 72.6228 517.203 3.03076 462.545 -30.2462C448.963 -38.5142 433.533 -45.1982 424.425 -58.2323C396.325 -98.4623 450.366 -149.965 445.237 -198.767C443.377 -216.411 433.727 -232.222 423.283 -246.567C308.3 -404.412 94.5421 -443.732 -81.2789 -528.817C-132.615 -553.663 -182.874 -584.179 -218.044 -629.057C-253.214 -673.935 -271.044 -735.64 -252.036 -789.397C-226.058 -862.869 -143.178 -898.936 -66.543 -913.234C10.092 -927.532 91.9721 -929.485 158.905 -969.444C231.652 -1012.86 272.9 -1092.8 329.489 -1155.82C357.834 -1187.39 390.124 -1214.73 424.565 -1239.45L726.923 -1341.99Z" fill="currentColor" class="fill-indigo-400/20 dark:fill-indigo-600/30"></path>
+                </svg>
+              </div>
+            </div>
+            <!-- End Card -->
+          </div>
+
+          <div class="absolute top-0 lg:top-[5%] end-[15%] lg:end-[25%] -z-1 scale-75 lg:scale-100">
+            <!-- Card -->
+            <div class="py-4 px-3 w-32 flex flex-col items-center gap-x-3 bg-white ring-6 ring-white/50 rounded-2xl shadow-lg dark:bg-neutral-900 dark:ring-black/30">
+              <span class="mb-3 shrink-0 relative">
+                <img class="shrink-0 size-11 rounded-full" src="https://images.unsplash.com/photo-1724037231939-c4fa9bd69a84?q=80&w=180&h=180&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Avatar">
+
+                <span class="absolute flex shrink-0 justify-center items-center size-5 overflow-hidden -bottom-1 -end-1 bg-white dark:bg-neutral-900 rounded-full">
+                  <svg class="shrink-0 w-3 h-auto" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M18.0835 3.23358C9.88316 3.23358 3.23548 9.8771 3.23548 18.0723V35.5832H0.583496V18.0723C0.583496 8.41337 8.41851 0.583252 18.0835 0.583252C27.7485 0.583252 35.5835 8.41337 35.5835 18.0723C35.5835 27.7312 27.7485 35.5614 18.0835 35.5614H16.7357V32.911H18.0835C26.2838 32.911 32.9315 26.2675 32.9315 18.0723C32.9315 9.8771 26.2838 3.23358 18.0835 3.23358Z" class="fill-purple-600 dark:fill-purple-500" fill="currentColor"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M18.0833 8.62162C12.8852 8.62162 8.62666 12.9245 8.62666 18.2879V35.5833H5.97468V18.2879C5.97468 11.5105 11.3713 5.97129 18.0833 5.97129C24.7954 5.97129 30.192 11.5105 30.192 18.2879C30.192 25.0653 24.7954 30.6045 18.0833 30.6045H16.7355V27.9542H18.0833C23.2815 27.9542 27.54 23.6513 27.54 18.2879C27.54 12.9245 23.2815 8.62162 18.0833 8.62162Z" class="fill-purple-600 dark:fill-purple-500" fill="currentColor"></path>
+                    <path d="M24.8225 18.1012C24.8225 21.8208 21.8053 24.8361 18.0833 24.8361C14.3614 24.8361 11.3442 21.8208 11.3442 18.1012C11.3442 14.3815 14.3614 11.3662 18.0833 11.3662C21.8053 11.3662 24.8225 14.3815 24.8225 18.1012Z" class="fill-purple-600 dark:fill-purple-500" fill="currentColor"></path>
+                  </svg>
+                </span>
+              </span>
+
+              <div class="text-center">
+                <h4 class="font-medium text-gray-800 dark:text-neutral-200">
+                  Isabella Cruz
+                </h4>
+
+                <p class="text-[13px] text-gray-500 dark:text-neutral-500">
+                  Preline account
+                </p>
+              </div>
+            </div>
+            <!-- End Card -->
+          </div>
+
+          <div class="hidden md:block absolute top-[35%] end-0 xl:end-[5%] -z-1 scale-75 xl:scale-100">
+            <!-- Card -->
+            <div class="p-5 w-80 space-y-4 flex flex-col bg-white ring-6 ring-white/50 rounded-2xl shadow-lg dark:bg-neutral-900 dark:ring-black/30">
+              <!-- Header -->
+              <div class="flex justify-between">
+                <div class="flex flex-col justify-center items-center size-9.5 border border-gray-200 rounded-lg dark:border-neutral-700">
+                  <svg class="shrink-0 size-5 text-gray-500 dark:text-neutral-500" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M11.7326 0C9.96372 0.00130479 8.53211 1.43397 8.53342 3.19935C8.53211 4.96473 9.96503 6.39739 11.7339 6.39869H14.9345V3.20065C14.9358 1.43527 13.5029 0.00260958 11.7326 0C11.7339 0 11.7339 0 11.7326 0M11.7326 8.53333H3.20053C1.43161 8.53464 -0.00130383 9.9673 3.57297e-06 11.7327C-0.00261123 13.4981 1.4303 14.9307 3.19922 14.9333H11.7326C13.5016 14.932 14.9345 13.4994 14.9332 11.734C14.9345 9.9673 13.5016 8.53464 11.7326 8.53333V8.53333Z" fill="#36C5F0"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M32 11.7327C32.0013 9.9673 30.5684 8.53464 28.7995 8.53333C27.0306 8.53464 25.5976 9.9673 25.5989 11.7327V14.9333H28.7995C30.5684 14.932 32.0013 13.4994 32 11.7327ZM23.4666 11.7327V3.19935C23.4679 1.43527 22.0363 0.00260958 20.2674 0C18.4984 0.00130479 17.0655 1.43397 17.0668 3.19935V11.7327C17.0642 13.4981 18.4971 14.9307 20.2661 14.9333C22.035 14.932 23.4679 13.4994 23.4666 11.7327Z" fill="#2EB67D"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M20.2661 32C22.035 31.9987 23.4679 30.566 23.4666 28.8007C23.4679 27.0353 22.035 25.6026 20.2661 25.6013H17.0656V28.8007C17.0642 30.5647 18.4972 31.9974 20.2661 32ZM20.2661 23.4654H28.7995C30.5684 23.4641 32.0013 22.0314 32 20.266C32.0026 18.5006 30.5697 17.068 28.8008 17.0654H20.2674C18.4985 17.0667 17.0656 18.4993 17.0669 20.2647C17.0656 22.0314 18.4972 23.4641 20.2661 23.4654V23.4654Z" fill="#ECB22E"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M8.93953e-07 20.266C-0.00130651 22.0314 1.43161 23.4641 3.20052 23.4654C4.96944 23.4641 6.40235 22.0314 6.40105 20.266V17.0667H3.20052C1.43161 17.068 -0.00130651 18.5006 8.93953e-07 20.266ZM8.53342 20.266V28.7993C8.53081 30.5647 9.96372 31.9974 11.7326 32C13.5016 31.9987 14.9345 30.566 14.9332 28.8007V20.2686C14.9358 18.5032 13.5029 17.0706 11.7339 17.068C9.96372 17.068 8.53211 18.5006 8.53342 20.266C8.53342 20.2673 8.53342 20.266 8.53342 20.266Z" fill="#E01E5A"></path>
+                  </svg>
+                </div>
+
+                <div>
+                  <!-- Checkbox Button -->
+                  <label for="hs-pro-daicn1" class="relative py-2 px-2.5 w-full sm:w-auto block text-center sm:text-start rounded-lg cursor-pointer text-xs font-medium focus:outline-hidden">
+                    <input type="checkbox" id="hs-pro-daicn1" class="peer absolute top-0 start-0 size-full bg-transparent border border-gray-200 text-transparent rounded-lg cursor-pointer focus:ring-white after:block after:size-full after:rounded-md checked:after:bg-gray-200 checked:text-transparent checked:border-gray-200 checked:hover:border-gray-200 checked:focus:border-gray-200 checked:bg-none focus:bg-gray-100 checked:focus:after:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:border-neutral-700 dark:checked:after:bg-neutral-600 dark:checked:border-neutral-700 dark:focus:ring-0 dark:focus:ring-offset-0 dark:focus:bg-neutral-700 dark:checked:focus:after:bg-neutral-700" checked="">
+                    <span class="relative z-10 peer-checked:hidden text-gray-800 dark:text-white">
+                      Connect
+                    </span>
+                    <span class="relative z-10 justify-center items-center gap-x-1.5 hidden peer-checked:flex peer-checked:text-gray-800 text-gray-200 dark:text-white dark:peer-checked:text-white">
+                      <svg class="shrink-0 size-3.5 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      Connected
+                    </span>
+                  </label>
+                  <!-- End Checkbox Button -->
+                </div>
+              </div>
+              <!-- End Header -->
+
+              <!-- Body -->
+              <div>
+                <h3 class="font-medium text-gray-800 dark:text-neutral-200">
+                  Slack
+                </h3>
+
+                <p class="mt-1 text-sm text-gray-500 dark:text-neutral-500">
+                  Connect a slack workspace in order to setup automated notifications.
+                </p>
+              </div>
+              <!-- End Body -->
+
+              <button type="button" class="py-2 px-3 w-full inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-50 dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
+                View integration
+              </button>
+            </div>
+            <!-- End Card -->
+          </div>
+
+          <div class="absolute bottom-[10%] lg:bottom-[20%] opacity-50 end-[2%] -z-1 scale-75 xl:scale-100 blur-xs">
+            <!-- Card -->
+            <div class="p-2.5 w-64 flex flex-col gap-y-2.5 bg-white ring-6 ring-white/50 rounded-2xl shadow-lg dark:bg-neutral-900 dark:ring-black/30">
+              <div class="h-full flex gap-x-3">
+                <div class="grow h-full flex flex-col">
+                  <div>
+                    <h4 class="font-medium text-sm text-gray-800 dark:text-neutral-200">
+                      Windrunner
+                    </h4>
+                    <p class="mt-1 text-sm text-gray-500 dark:text-neutral-400">
+                      Color: White, Size: M
+                    </p>
+                  </div>
+                  <div class="mt-2">
+                    <button type="button" class="py-2 px-2.5 flex items-center text-sm text-start bg-gray-100 text-gray-800 rounded-lg hover:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-200 dark:bg-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-600 dark:focus:bg-neutral-600">
+                      Rate product
+                    </button>
+                  </div>
+                </div>
+                <img class="shrink-0 w-20 h-24 object-cover bg-gray-100 rounded-xl dark:bg-neutral-800" src="https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&amp;w=560&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Product Image">
+              </div>
+            </div>
+            <!-- End Card -->
+          </div>
+
+          <div class="hidden lg:block absolute -bottom-[15%] end-[35%] xl:end-[40%] -z-1 scale-75 xl:scale-100 blur-xs">
+            <!-- Card -->
+            <div class="w-96 flex flex-col bg-white ring-6 ring-white/50 rounded-2xl shadow-lg dark:bg-neutral-900 dark:ring-black/30">
+              <figure class="shrink-0 relative h-24 overflow-hidden rounded-t-xl">
+                <svg class="w-full h-24 rounded-t-xl" preserveAspectRatio="xMidYMid slice" width="576" height="120" viewBox="0 0 576 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_666_273469a21332)">
+                    <rect width="576" height="120" fill="#B2E7FE"></rect>
+                    <rect x="289.678" y="-90.3" width="102.634" height="391.586" transform="rotate(59.5798 289.678 -90.3)" fill="#FF8F5D"></rect>
+                    <rect x="41.3926" y="-0.996094" width="102.634" height="209.864" transform="rotate(-31.6412 41.3926 -0.996094)" fill="#3ECEED"></rect>
+                    <rect x="66.9512" y="40.4817" width="102.634" height="104.844" transform="rotate(-31.6412 66.9512 40.4817)" fill="#4C48FF"></rect>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_666_273469a21332">
+                      <rect width="576" height="120" fill="white"></rect>
+                    </clipPath>
+                  </defs>
+                </svg>
+              </figure>
+
+              <!-- Avatar -->
+              <div class="-mt-8 px-4 mb-3">
+                <div class="relative flex items-center gap-x-3">
+                  <div class="relative w-20">
+                    <img class="shrink-0 size-20 ring-4 ring-white rounded-3xl dark:ring-neutral-800" src="https://images.unsplash.com/photo-1601935111741-ae98b2b230b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2.5&w=320&h=320&q=80" alt="Avatar">
+                    <div class="absolute -bottom-3 inset-x-0 text-center">
+                      <span class="py-1 px-2 inline-flex items-center gap-x-1 text-xs font-semibold uppercase rounded-md bg-linear-to-tr from-lime-500 to-teal-500 text-white">Pro</span>
+                    </div>
+                  </div>
+
+                  <div class="absolute bottom-2 end-0">
+                    <!-- Button Group -->
+                    <div class="h-full flex justify-end items-end gap-x-2">
+                      <!-- Button -->
+                      <button type="button" class="hs-tooltip flex justify-center items-center gap-x-3 size-7 text-sm border border-gray-200 text-gray-600 hover:bg-gray-100 rounded-full disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:border-neutral-700 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 dark:hover:text-neutral-200 dark:focus:text-neutral-200">
+                        <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                        <span class="sr-only">Add to favorites</span>
+                        <!-- TODO:: rename "Popper" to "FLoatingUI" -->
+                        <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 inline-block absolute invisible z-20 py-1.5 px-2.5 bg-gray-900 text-xs text-white rounded-lg whitespace-nowrap dark:bg-neutral-700" role="tooltip" data-popper-placement="top">
+                          Add to favorites
+                        </span>
+                      </button>
+                      <!-- End Button -->
+
+                      <button type="button" class="flex justify-center items-center gap-x-3 size-7 text-sm border border-gray-200 text-gray-600 hover:bg-gray-100 rounded-full disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:border-neutral-700 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 dark:hover:text-neutral-200 dark:focus:text-neutral-200">
+                        <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <circle cx="12" cy="12" r="1"></circle>
+                          <circle cx="19" cy="12" r="1"></circle>
+                          <circle cx="5" cy="12" r="1"></circle>
+                        </svg>
+                      </button>
+                    </div>
+                    <!-- End Button Group -->
+                  </div>
+                </div>
+              </div>
+              <!-- End Avatar -->
+
+              <!-- Body -->
+              <div class="p-4 h-full">
+                <h2 class="mb-2 font-medium text-gray-800 dark:text-neutral-300">
+                  Daniel Hobbs
+                </h2>
+
+                <!-- List -->
+                <dl class="grid grid-cols-2 gap-x-2">
+                  <dt class="py-1 text-sm text-gray-500 dark:text-neutral-500">
+                    Role:
+                  </dt>
+                  <dd class="py-1 inline-flex justify-end items-center gap-x-2 text-end font-medium text-sm text-gray-800 dark:text-neutral-200">
+                    Front-End Developer
+                  </dd>
+
+                  <dt class="py-1 text-sm text-gray-500 dark:text-neutral-500">
+                    Phone:
+                  </dt>
+                  <dd class="py-1 inline-flex justify-end items-center gap-x-2 text-end font-medium text-sm text-gray-800 dark:text-neutral-200">
+                    -
+                  </dd>
+
+                  <dt class="py-1 text-sm text-gray-500 dark:text-neutral-500">
+                    Email:
+                  </dt>
+                  <dd class="py-1 inline-flex justify-end items-center gap-x-2 text-end font-medium text-sm text-gray-800 dark:text-neutral-200">
+                    daniel@email.com
+                  </dd>
+
+                  <dt class="py-1 text-sm text-gray-500 dark:text-neutral-500">
+                    Hourly price:
+                  </dt>
+                  <dd class="py-1 inline-flex justify-end items-center gap-x-2 text-end font-medium text-sm text-gray-800 dark:text-neutral-200">
+                    $120-$160
+                  </dd>
+                </dl>
+                <!-- End List -->
+              </div>
+            </div>
+            <!-- End Card -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Hero -->
+
+    <!-- Icon Section -->
+    <div class="max-w-6xl py-10 py-20 px-4 sm:px-6 lg:px-8 mx-auto">
+      <!-- Heading -->
+      <div class="mb-8 md:mb-16 max-w-xl mx-auto text-center">
+        <p class="mb-2 font-mono text-sm text-gray-500 dark:text-neutral-400">
+          From beginners to experts
+        </p>
+        <h2 class="font-semibold text-2xl md:text-3xl text-gray-800 dark:text-neutral-200">
+          Learn to develop sites with components and design systems
+        </h2>
+      </div>
+      <!-- End Heading -->
+
+      <!-- Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-8 sm:gap-x-10 md:gap-y-12 lg:gap-x-16">
+        <!-- Icon Block -->
+        <div>
+          <svg class="shrink-0 size-8 mb-5 text-gray-800 dark:text-neutral-200" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 3v12" />
+            <path d="M18 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+            <path d="M6 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+            <path d="M15 6a9 9 0 0 0-9 9" />
+            <path d="M18 15v6" />
+            <path d="M21 18h-6" />
+          </svg>
+
+          <h4 class="font-medium text-gray-800 dark:text-neutral-200">
+            More creativity
+          </h4>
+
+          <div class="mt-2">
+            <p class="text-sm text-gray-500 dark:text-neutral-500">
+              This is where we really begin to visualize your napkin sketches and make them into beautiful pixels.
+            </p>
+          </div>
+          <div class="mt-3">
+            <a class="text-sm text-blue-600 hover:decoration-2 underline underline-offset-4 focus:outline-hidden focus:decoration-2 dark:text-blue-500" href="#">
+              Learn more about Creativity
+            </a>
+          </div>
+        </div>
+        <!-- End Icon Block -->
+
+        <!-- Icon Block -->
+        <div>
+          <svg class="shrink-0 size-8 mb-5 text-gray-800 dark:text-neutral-200" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17" />
+            <path d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9" />
+            <path d="m2 16 6 6" />
+            <circle cx="16" cy="9" r="2.9" />
+            <circle cx="6" cy="5" r="3" />
+          </svg>
+
+          <h4 class="font-medium text-gray-800 dark:text-neutral-200">
+            Scale budgets efficiently
+          </h4>
+
+          <div class="mt-2">
+            <p class="text-sm text-gray-500 dark:text-neutral-500">
+              Now that we've aligned the details, it's time to get things mapped out and organized.
+            </p>
+          </div>
+          <div class="mt-3">
+            <a class="text-sm text-blue-600 hover:decoration-2 underline underline-offset-4 focus:outline-hidden focus:decoration-2 dark:text-blue-500" href="#">
+              Learn more about Efficiency
+            </a>
+          </div>
+        </div>
+        <!-- End Icon Block -->
+
+        <!-- Icon Block -->
+        <div>
+          <svg class="shrink-0 size-8 mb-5 text-gray-800 dark:text-neutral-200" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.951c-.55-.055-.998.398-.998.95v8a1 1 0 0 0 1 1z" />
+            <path d="M21.21 15.89A10 10 0 1 1 8 2.83" />
+          </svg>
+
+          <h4 class="font-medium text-gray-800 dark:text-neutral-200">
+            Smart Dashboards
+          </h4>
+
+          <div class="mt-2">
+            <p class="text-sm text-gray-500 dark:text-neutral-500">
+              This is where we really begin to visualize your napkin sketches and make them into beautiful pixels.
+            </p>
+          </div>
+          <div class="mt-3">
+            <a class="text-sm text-blue-600 hover:decoration-2 underline underline-offset-4 focus:outline-hidden focus:decoration-2 dark:text-blue-500" href="#">
+              Learn more about Dashboards
+            </a>
+          </div>
+        </div>
+        <!-- End Icon Block -->
+
+        <!-- Icon Block -->
+        <div>
+          <svg class="shrink-0 size-8 mb-5 text-gray-800 dark:text-neutral-200" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 17v4" />
+            <path d="m15.2 4.9-.9-.4" />
+            <path d="m15.2 7.1-.9.4" />
+            <path d="m16.9 3.2-.4-.9" />
+            <path d="m16.9 8.8-.4.9" />
+            <path d="m19.5 2.3-.4.9" />
+            <path d="m19.5 9.7-.4-.9" />
+            <path d="m21.7 4.5-.9.4" />
+            <path d="m21.7 7.5-.9-.4" />
+            <path d="M22 13v2a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7" />
+            <path d="M8 21h8" />
+            <circle cx="18" cy="6" r="3" />
+          </svg>
+
+          <h4 class="font-medium text-gray-800 dark:text-neutral-200">
+            Control Center
+          </h4>
+
+          <div class="mt-2">
+            <p class="text-sm text-gray-500 dark:text-neutral-500">
+              Now that we've aligned the details, it's time to get things mapped out and organized.
+            </p>
+          </div>
+          <div class="mt-3">
+            <a class="text-sm text-blue-600 hover:decoration-2 underline underline-offset-4 focus:outline-hidden focus:decoration-2 dark:text-blue-500" href="#">
+              Learn more about Control
+            </a>
+          </div>
+        </div>
+        <!-- End Icon Block -->
+
+        <!-- Icon Block -->
+        <div>
+          <svg class="shrink-0 size-8 mb-5 text-gray-800 dark:text-neutral-200" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="16" height="13" x="6" y="4" rx="2" />
+            <path d="m22 7-7.1 3.78c-.57.3-1.23.3-1.8 0L6 7" />
+            <path d="M2 8v11c0 1.1.9 2 2 2h14" />
+          </svg>
+
+          <h4 class="font-medium text-gray-800 dark:text-neutral-200">
+            Email Reports
+          </h4>
+
+          <div class="mt-2">
+            <p class="text-sm text-gray-500 dark:text-neutral-500">
+              We strive to embrace and drive change in our industry which allows us to keep our clients relevant.
+            </p>
+          </div>
+          <div class="mt-3">
+            <a class="text-sm text-blue-600 hover:decoration-2 underline underline-offset-4 focus:outline-hidden focus:decoration-2 dark:text-blue-500" href="#">
+              Learn more about Reports
+            </a>
+          </div>
+        </div>
+        <!-- End Icon Block -->
+
+        <!-- Icon Block -->
+        <div>
+          <svg class="shrink-0 size-8 mb-5 text-gray-800 dark:text-neutral-200" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14.828 14.828 21 21" />
+            <path d="M21 16v5h-5" />
+            <path d="m21 3-9 9-4-4-6 6" />
+            <path d="M21 8V3h-5" />
+          </svg>
+
+          <h4 class="font-medium text-gray-800 dark:text-neutral-200">
+            Forecasting
+          </h4>
+
+          <div class="mt-2">
+            <p class="text-sm text-gray-500 dark:text-neutral-500">
+              Staying focused allows us to turn every project we complete into something we love.
+            </p>
+          </div>
+          <div class="mt-3">
+            <a class="text-sm text-blue-600 hover:decoration-2 underline underline-offset-4 focus:outline-hidden focus:decoration-2 dark:text-blue-500" href="#">
+              Learn more about Forecasting
+            </a>
+          </div>
+        </div>
+        <!-- End Icon Block -->
+      </div>
+      <!-- End Grid -->
+    </div>
+    <!-- End Icon Section -->
+
+    <!-- Features -->
+    <div class="pb-10 md:pt-10 pb-20">
+      <div class="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto">
+        <!-- Heading -->
+        <div class="mb-8 md:mb-16 max-w-xl mx-auto text-center">
+          <h2 class="font-semibold text-2xl md:text-3xl text-gray-800 dark:text-neutral-200">
+            Build workflows incredibly fast
+          </h2>
+          <p class="mt-2 text-gray-500 dark:text-neutral-400">Whether you're a solo professional or part of a large team, Preline empowers you to automate your workflows effortlessly—no coding needed.</p>
+        </div>
+        <!-- End Heading -->
+
+        <!-- Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          <!-- Card -->
+          <div class="overflow-hidden grid grid-cols-2 items-center gap-6 lg:gap-8">
+            <div class="bg-gray-100 dark:bg-neutral-700 rounded-lg">
+              <div class="pt-6 ps-6 sm:pt-10 sm:ps-10 relative z-10 overflow-hidden ms-auto">
+                <img class="dark:hidden rounded-tl-lg shadow-xl" src="../assets/img/pro/startup/img9.webp" alt="Card Image">
+                <img class="hidden dark:block rounded-tl-lg shadow-xl" src="../assets/img/pro/startup-dark/img9.webp" alt="Card Image">
+              </div>
+            </div>
+
+            <div>
+              <h4 class="font-medium text-gray-800 dark:text-neutral-200">
+                Calendars
+              </h4>
+
+              <div class="mt-2">
+                <p class="text-sm text-gray-500 dark:text-neutral-500">
+                  Discover user-friendly calendar UIs designed for both dashboard and admin interfaces.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- End Card -->
+
+          <!-- Card -->
+          <div class="overflow-hidden grid grid-cols-2 items-center gap-6 lg:gap-8">
+            <div class="bg-gray-100 dark:bg-neutral-700 rounded-lg">
+              <div class="pt-6 ps-6 sm:pt-10 sm:ps-10 relative z-10 overflow-hidden ms-auto">
+                <img class="dark:hidden rounded-tl-lg shadow-xl" src="../assets/img/pro/startup/img7.webp" alt="Card Image">
+                <img class="hidden dark:block rounded-tl-lg shadow-xl" src="../assets/img/pro/startup-dark/img7.webp" alt="Card Image">
+              </div>
+            </div>
+
+            <div>
+              <h4 class="font-medium text-gray-800 dark:text-neutral-200">
+                Modals
+              </h4>
+
+              <div class="mt-2">
+                <p class="text-sm text-gray-500 dark:text-neutral-500">
+                  Modals provide a clean way to present filter options inside modal windows.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- End Card -->
+
+          <!-- Card -->
+          <div class="overflow-hidden grid grid-cols-2 items-center gap-6 lg:gap-8">
+            <div class="bg-gray-100 dark:bg-neutral-700 rounded-lg">
+              <div class="pt-6 ps-6 sm:pt-10 sm:ps-10 relative z-10 overflow-hidden ms-auto">
+                <img class="dark:hidden rounded-tl-lg shadow-xl" src="../assets/img/pro/startup/img12.webp" alt="Card Image">
+                <img class="hidden dark:block rounded-tl-lg shadow-xl" src="../assets/img/pro/startup-dark/img12.webp" alt="Card Image">
+              </div>
+            </div>
+
+            <div>
+              <h4 class="font-medium text-gray-800 dark:text-neutral-200">
+                Checkout Forms
+              </h4>
+
+              <div class="mt-2">
+                <p class="text-sm text-gray-500 dark:text-neutral-500">
+                  Simplified checkout process with intuitive forms to ensure a smooth and quick transaction completion.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- End Card -->
+
+          <!-- Card -->
+          <div class="overflow-hidden grid grid-cols-2 items-center gap-6 lg:gap-8">
+            <div class="bg-gray-100 dark:bg-neutral-700 rounded-lg">
+              <div class="pt-6 ps-6 sm:pt-10 sm:ps-10 relative z-10 overflow-hidden ms-auto">
+                <img class="dark:hidden rounded-tl-lg shadow-xl" src="../assets/img/pro/startup/img8.webp" alt="Card Image">
+                <img class="hidden dark:block rounded-tl-lg shadow-xl" src="../assets/img/pro/startup-dark/img8.webp" alt="Card Image">
+              </div>
+            </div>
+
+            <div>
+              <h4 class="font-medium text-gray-800 dark:text-neutral-200">
+                Forms
+              </h4>
+
+              <div class="mt-2">
+                <p class="text-sm text-gray-500 dark:text-neutral-500">
+                  Create customizable review forms with pre-set questions to guide reviewers.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- End Card -->
+
+          <!-- Card -->
+          <div class="overflow-hidden grid grid-cols-2 items-center gap-6 lg:gap-8">
+            <div class="bg-gray-100 dark:bg-neutral-700 rounded-lg">
+              <div class="pt-6 ps-6 sm:pt-10 sm:ps-10 relative z-10 overflow-hidden ms-auto">
+                <img class="dark:hidden rounded-tl-lg shadow-xl" src="../assets/img/pro/startup/img13.webp" alt="Card Image">
+                <img class="hidden dark:block rounded-tl-lg shadow-xl" src="../assets/img/pro/startup-dark/img13.webp" alt="Card Image">
+              </div>
+            </div>
+
+            <div>
+              <h4 class="font-medium text-gray-800 dark:text-neutral-200">
+                Referrals
+              </h4>
+
+              <div class="mt-2">
+                <p class="text-sm text-gray-500 dark:text-neutral-500">
+                  Powerful e-commerce admin pages with product &amp; order lists, referrals and more.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- End Card -->
+
+          <!-- Card -->
+          <div class="overflow-hidden grid grid-cols-2 items-center gap-6 lg:gap-8">
+            <div class="bg-gray-100 dark:bg-neutral-700 rounded-lg">
+              <div class="pt-6 ps-6 sm:pt-10 sm:ps-10 relative z-10 overflow-hidden ms-auto">
+                <img class="dark:hidden rounded-tl-lg shadow-xl" src="../assets/img/pro/startup/img10.webp" alt="Card Image">
+                <img class="hidden dark:block rounded-tl-lg shadow-xl" src="../assets/img/pro/startup-dark/img10.webp" alt="Card Image">
+              </div>
+            </div>
+
+            <div>
+              <h4 class="font-medium text-gray-800 dark:text-neutral-200">
+                Data Maps
+              </h4>
+
+              <div class="mt-2">
+                <p class="text-sm text-gray-500 dark:text-neutral-500">
+                  Dive deeper with data maps, customizable tabs and insightful tables, all in one centralized dashboard.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- End Card -->
+        </div>
+        <!-- End Grid -->
+
+        <div class="mt-10 md:mt-20">
+          <!-- Blockquote -->
+          <blockquote class="max-w-xl mx-auto text-center">
+            <div class="mb-3 py-3 flex items-center text-sm text-gray-800 before:flex-1 before:border-t before:border-gray-200 before:me-6 after:flex-1 after:border-t after:border-gray-200 after:ms-6 dark:text-white dark:before:border-neutral-700 dark:after:border-neutral-700">
+              <svg class="shrink-0 w-auto h-6 mx-auto text-gray-800 dark:text-neutral-200" width="269" height="87" viewBox="0 0 269 87" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M266.3 59.3414C265.844 59.3414 265.428 59.6364 265.214 60.2532C262.465 68.097 258.751 72.763 255.694 72.763C253.937 72.763 253.227 70.8054 253.227 67.7349C253.227 60.0521 257.826 43.7611 260.145 36.333C260.413 35.4346 260.588 34.6302 260.588 33.9463C260.588 31.7876 259.408 30.7284 256.485 30.7284C253.334 30.7284 249.942 31.9619 246.643 37.7409C245.504 32.6458 242.058 30.42 237.244 30.42C231.68 30.42 226.303 34 221.878 39.8057C217.454 45.6114 212.251 47.5154 208.336 46.5768C211.152 39.685 212.198 34.5363 212.198 30.715C212.198 24.7215 209.234 21.1013 204.448 21.1013C197.167 21.1013 192.97 28.0467 192.97 35.3542C192.97 40.999 195.531 46.8048 201.163 49.6205C196.443 60.2934 189.551 69.9473 186.937 69.9473C183.558 69.9473 182.566 53.415 182.753 41.589C182.874 34.8045 183.437 34.4559 183.437 32.4044C183.437 31.2245 182.673 30.42 179.602 30.42C172.442 30.42 170.23 36.4805 169.895 43.4393C169.787 46.0838 169.373 48.707 168.661 51.2563C165.671 61.9292 159.504 70.0277 155.481 70.0277C153.617 70.0277 153.108 68.164 153.108 65.7237C153.108 58.0408 157.412 48.4406 157.412 40.2482C157.412 34.2279 154.771 30.42 149.796 30.42C143.937 30.42 136.187 37.3922 128.853 50.4518C131.266 40.4493 132.258 30.7686 125.112 30.7686C123.561 30.7917 122.039 31.1872 120.674 31.9217C120.215 32.1361 119.832 32.4835 119.573 32.9187C119.315 33.354 119.194 33.8569 119.225 34.362C119.909 45.0081 110.644 72.2803 101.862 72.2803C100.266 72.2803 99.4886 70.5506 99.4886 67.7617C99.4886 60.0655 104.074 43.8148 106.38 36.3732C106.675 35.4078 106.836 34.5765 106.836 33.8525C106.836 31.8144 105.576 30.7686 102.72 30.7686C99.5825 30.7686 96.1768 31.9619 92.8918 37.7409C91.7387 32.6458 88.2928 30.42 83.4793 30.42C75.5819 30.42 66.7593 38.7733 62.8843 49.6607C57.6954 64.1952 47.237 78.2335 33.1584 78.2335C20.3804 78.2335 13.6361 67.6008 13.6361 50.8004C13.6361 26.545 31.4422 6.72776 44.6492 6.72776C50.9645 6.72776 53.9813 10.7502 53.9813 16.918C53.9813 24.3863 49.8113 27.859 49.8113 30.7016C49.8113 31.5731 50.5354 32.4312 51.9701 32.4312C57.7088 32.4312 64.4665 25.6869 64.4665 16.4889C64.4665 7.2909 56.9981 0.56 43.7911 0.56C21.9626 0.56 0 22.5226 0 50.6663C0 73.058 11.0483 86.56 30.155 86.56C43.1877 86.56 54.5712 76.4234 60.7122 64.5974C61.4094 74.3988 65.8609 79.5207 72.6455 79.5207C78.6791 79.5207 83.5597 75.9273 87.2872 69.6121C88.7219 76.2223 92.5298 79.4537 97.4774 79.4537C103.149 79.4537 107.896 75.8603 112.414 69.183C112.347 74.4256 113.54 79.3598 118.086 79.3598C120.231 79.3598 122.792 78.8637 123.248 76.9866C128.035 57.1961 139.861 41.0393 143.481 41.0393C144.553 41.0393 144.848 42.0717 144.848 43.2918C144.848 48.6685 141.054 59.69 141.054 66.7293C141.054 74.3317 144.285 79.3598 150.963 79.3598C158.364 79.3598 165.886 70.2959 170.901 57.0486C172.469 69.4244 175.862 79.4134 181.171 79.4134C187.688 79.4134 199.259 65.6969 206.271 51.1758C209.02 51.5245 213.15 51.4306 217.119 48.6283C215.429 52.9055 214.437 57.5849 214.437 62.2644C214.437 75.7396 220.873 79.5207 226.41 79.5207C232.431 79.5207 237.311 75.9273 241.052 69.6121C242.286 75.3105 245.437 79.4403 251.229 79.4403C260.293 79.4403 268.163 70.1752 268.163 62.5728C268.163 60.5616 267.305 59.3414 266.3 59.3414ZM78.1696 72.0524C74.5092 72.0524 73.0745 68.3651 73.0745 62.8678C73.0745 53.3212 79.6043 37.3788 86.5095 37.3788C89.5264 37.3788 90.666 40.932 90.666 45.2762C90.666 54.9704 84.4581 72.0524 78.1696 72.0524ZM203.549 43.56C201.364 40.9588 200.573 37.4191 200.573 34.2681C200.573 30.3798 201.994 27.0948 203.697 27.0948C205.4 27.0948 205.923 28.7708 205.923 31.1038C205.923 35.0056 204.528 40.7041 203.549 43.56ZM231.935 72.0524C228.274 72.0524 226.839 67.8154 226.839 62.8678C226.839 53.6564 233.369 37.3788 240.328 37.3788C243.345 37.3788 244.418 40.9052 244.418 45.2762C244.418 54.9704 238.317 72.0524 231.935 72.0524Z" fill="currentColor" />
+              </svg>
+            </div>
+
+            <p class="text-gray-800 dark:text-neutral-200">
+              I'm absolutely floored by the level of care and attention to detail the team at Preline have put into this project and for one can guarantee that we will be a return customer.
+            </p>
+
+            <footer class="mt-4 text-sm text-gray-800 dark:text-neutral-200">
+              Luisa, <span class="opacity-70">Director of Canva</span>
+            </footer>
+          </blockquote>
+          <!-- End Blockquote -->
+        </div>
+      </div>
+    </div>
+    <!-- End Features -->
+
+    <!-- Download Apps -->
+    <div class="bg-gray-100 dark:bg-neutral-800">
+      <div class="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto">
+        <div class="py-14 lg:py-20">
+          <!-- Heading -->
+          <div class="mb-8 md:mb-16 max-w-xl mx-auto text-center">
+            <p class="mb-2 font-mono text-sm text-gray-500 dark:text-neutral-400">
+              Preline Apps
+            </p>
+            <h2 class="font-semibold text-2xl md:text-3xl text-gray-800 dark:text-neutral-200">
+              Get the Preline App. Your essential business tool.
+            </h2>
+          </div>
+          <!-- End Heading -->
+
+          <!-- Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <!-- Card -->
+            <div class="p-8 bg-white flex flex-col text-center rounded-xl dark:bg-neutral-900">
+              <div class="mb-5">
+                <svg class="shrink-0 size-16 mx-auto" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M25.536 0H6.464C2.892 0 0 2.892 0 6.464V25.54C0 29.108 2.892 32 6.464 32H25.54C29.108 32 32.004 29.108 32.004 25.536V6.464C32 2.892 29.108 0 25.536 0Z" fill="url(#paint0_linear_4403_2024)" />
+                  <path d="M15.864 7.352L16.512 6.232C16.912 5.532 17.804 5.296 18.504 5.696C19.204 6.096 19.44 6.988 19.04 7.688L12.796 18.496H17.312C18.776 18.496 19.596 20.216 18.96 21.408H5.72C4.912 21.408 4.264 20.76 4.264 19.952C4.264 19.144 4.912 18.496 5.72 18.496H9.432L14.184 10.26L12.7 7.684C12.3 6.984 12.536 6.1 13.236 5.692C13.936 5.292 14.82 5.528 15.228 6.228L15.864 7.352ZM10.248 22.908L8.848 25.336C8.448 26.036 7.556 26.272 6.856 25.872C6.156 25.472 5.92 24.58 6.32 23.88L7.36 22.08C8.536 21.716 9.492 21.996 10.248 22.908ZM22.304 18.504H26.092C26.9 18.504 27.548 19.152 27.548 19.96C27.548 20.768 26.9 21.416 26.092 21.416H23.988L25.408 23.88C25.808 24.58 25.572 25.464 24.872 25.872C24.172 26.272 23.288 26.036 22.88 25.336C20.488 21.188 18.692 18.084 17.5 16.016C16.28 13.912 17.152 11.8 18.012 11.084C18.968 12.724 20.396 15.2 22.304 18.504Z" fill="white" />
+                  <defs>
+                    <linearGradient id="paint0_linear_4403_2024" x1="16.002" y1="0" x2="16.002" y2="32" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#18BFFB" />
+                      <stop offset="1" stop-color="#2072F3" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+
+              <h3 class="font-medium text-lg text-gray-800 dark:text-neutral-200">
+                iOS App
+              </h3>
+
+              <p class="mt-3 text-gray-500 dark:text-neutral-500">
+                Preline App is an easier way to work on Android.
+              </p>
+
+              <div class="mt-3">
+                <a class="text-sm text-blue-600 hover:decoration-2 underline underline-offset-4 focus:outline-hidden focus:decoration-2 dark:text-blue-500" href="#">
+                  Previous versions
+                </a>
+              </div>
+
+              <div class="mt-5">
+                <a class="group py-2 px-3 md:py-2.5 md:px-4 inline-flex justify-center items-center gap-x-1.5 whitespace-nowrap text-[13px] md:text-sm rounded-lg border border-transparent text-gray-800 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden dark:text-neutral-200" href="#">
+                  Download on App Store
+                  <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path class="lg:opacity-0 lg:-translate-x-1 lg:group-hover:opacity-100 lg:group-hover:translate-x-0 lg:group-focus:opacity-100 lg:group-focus:translate-x-0 lg:transition" d="M5 12h14" />
+                    <path class="lg:-translate-x-1.5 lg:group-hover:translate-x-0 lg:group-focus:translate-x-0 lg:transition" d="m12 5 7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <!-- End Card -->
+
+            <!-- Card -->
+            <div class="p-8 bg-white flex flex-col text-center rounded-xl dark:bg-neutral-900">
+              <div class="mb-5">
+                <svg class="shrink-0 size-16 mx-auto" width="32" height="37" viewBox="0 0 32 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20.5159 11.1765L1.20745 0.140891C0.964824 1.05128e-05 0.659583 0.00783721 0.424782 0.148718C0.182154 0.289598 0.0334473 0.540052 0.0334473 0.821813C0.0334473 0.821813 0.041274 1.83928 0.0491007 3.5142L14.1137 17.5788L20.5159 11.1765Z" fill="url(#paint0_linear_4406_2034)" />
+                  <path d="M0.0491007 3.5142C0.0725807 9.5564 0.143021 24.2236 0.174328 31.5259L14.1215 17.5788L0.0491007 3.5142Z" fill="url(#paint1_linear_4406_2034)" />
+                  <path d="M31.5672 17.4927L20.5159 11.1765L14.1058 17.5788L21.3377 24.8106L31.575 18.8467C31.8177 18.7058 31.9664 18.4475 31.9664 18.1736C31.9664 17.8918 31.8098 17.6336 31.5672 17.4927Z" fill="url(#paint2_linear_4406_2034)" />
+                  <path d="M0.166501 31.5259C0.182154 34.1322 0.189981 35.7993 0.189981 35.7993C0.189981 36.0811 0.338688 36.3394 0.581316 36.4724C0.823943 36.6133 1.12136 36.6133 1.36399 36.4724L21.3455 24.8185L14.1137 17.5866L0.166501 31.5259Z" fill="url(#paint3_linear_4406_2034)" />
+                  <defs>
+                    <linearGradient id="paint0_linear_4406_2034" x1="0.0334473" y1="18.3158" x2="31.972" y2="18.3158" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#63BE6B" />
+                      <stop offset="0.506" stop-color="#5BBC6A" />
+                      <stop offset="1" stop-color="#4AB96A" />
+                    </linearGradient>
+                    <linearGradient id="paint1_linear_4406_2034" x1="0.0249224" y1="18.313" x2="31.9479" y2="18.313" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#3EC6F2" />
+                      <stop offset="1" stop-color="#45AFE3" />
+                    </linearGradient>
+                    <linearGradient id="paint2_linear_4406_2034" x1="0.0468809" y1="18.322" x2="31.963" y2="18.322" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#FAA51A" />
+                      <stop offset="0.387" stop-color="#FAB716" />
+                      <stop offset="0.741" stop-color="#FAC412" />
+                      <stop offset="1" stop-color="#FAC80F" />
+                    </linearGradient>
+                    <linearGradient id="paint3_linear_4406_2034" x1="0.169948" y1="27.082" x2="21.3452" y2="27.082" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#EC3B50" />
+                      <stop offset="1" stop-color="#E7515B" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+
+              <h3 class="font-medium text-lg text-gray-800 dark:text-neutral-200">
+                Android App
+              </h3>
+
+              <p class="mt-3 text-gray-500 dark:text-neutral-500">
+                Preline App is an easier way to work on iOS.
+              </p>
+
+              <div class="mt-3">
+                <a class="text-sm text-blue-600 hover:decoration-2 underline underline-offset-4 focus:outline-hidden focus:decoration-2 dark:text-blue-500" href="#">
+                  Previous versions
+                </a>
+              </div>
+
+              <div class="mt-5">
+                <a class="group py-2 px-3 md:py-2.5 md:px-4 inline-flex justify-center items-center gap-x-1.5 whitespace-nowrap text-[13px] md:text-sm rounded-lg border border-transparent text-gray-800 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden dark:text-neutral-200" href="#">
+                  Download on Google Play
+                  <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path class="lg:opacity-0 lg:-translate-x-1 lg:group-hover:opacity-100 lg:group-hover:translate-x-0 lg:group-focus:opacity-100 lg:group-focus:translate-x-0 lg:transition" d="M5 12h14" />
+                    <path class="lg:-translate-x-1.5 lg:group-hover:translate-x-0 lg:group-focus:translate-x-0 lg:transition" d="m12 5 7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <!-- End Card -->
+
+            <!-- Card -->
+            <div class="p-8 bg-white flex flex-col text-center rounded-xl dark:bg-neutral-900">
+              <div class="mb-5">
+                <svg class="shrink-0 size-16 mx-auto text-black dark:text-white" width="75" height="86" viewBox="0 0 75 86" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M36.6565 20.8071C41.4061 20.8071 45.5728 18.9524 49.1564 15.2429C52.7399 11.5334 54.5318 7.21993 54.5318 2.30245C54.5318 1.76237 54.4891 0.994884 54.4038 0C53.7781 0.0852758 53.3088 0.156339 52.9959 0.213189C48.616 0.838545 44.7622 2.98465 41.4345 6.65142C38.107 10.3183 36.4432 14.241 36.4432 18.4195C36.4432 18.9026 36.5143 19.6986 36.6565 20.8071ZM53.6785 86C57.063 86 60.803 83.6834 64.8986 79.0501C68.9942 74.4168 72.1226 68.9734 74.2842 62.7199C66.2353 58.5698 62.2109 52.6148 62.2109 44.8547C62.2109 38.3738 65.4674 32.831 71.9805 28.2261C67.4583 22.5695 61.4857 19.7412 54.0625 19.7412C50.9339 19.7412 48.0756 20.2102 45.4875 21.1482L43.8664 21.7451L41.6906 22.5979C40.2685 23.138 38.9744 23.4081 37.8083 23.4081C36.8982 23.4081 35.7036 23.0953 34.2248 22.47L32.5609 21.7878L30.9825 21.1482C28.6787 20.1818 26.2043 19.6985 23.5593 19.6985C16.4774 19.6985 10.7892 22.0862 6.49456 26.8617C2.1999 31.637 0.0526123 37.9332 0.0526123 45.7501C0.0526123 56.7506 3.49397 66.9126 10.3768 76.236C15.1549 82.7453 19.5207 86 23.4739 86C25.152 86 26.8158 85.6731 28.4654 85.0193L30.5558 84.1666L32.2197 83.5696C34.5518 82.7453 36.6991 82.3331 38.6615 82.3331C40.7378 82.3331 43.1268 82.8591 45.8288 83.9107L47.1513 84.4224C49.91 85.4741 52.0859 86 53.6785 86Z" fill="currentColor" />
+                </svg>
+              </div>
+
+              <h3 class="font-medium text-lg text-gray-800 dark:text-neutral-200">
+                MacOS
+              </h3>
+
+              <p class="mt-3 text-gray-500 dark:text-neutral-500">
+                Preline Web App is an easier way to work on MacOS.
+              </p>
+
+              <div class="mt-3">
+                <a class="text-sm text-blue-600 hover:decoration-2 underline underline-offset-4 focus:outline-hidden focus:decoration-2 dark:text-blue-500" href="#">
+                  Previous versions
+                </a>
+              </div>
+
+              <div class="mt-5">
+                <a class="group py-2 px-3 md:py-2.5 md:px-4 inline-flex justify-center items-center gap-x-1.5 whitespace-nowrap text-[13px] md:text-sm rounded-lg border border-transparent text-gray-800 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden dark:text-neutral-200" href="#">
+                  Download on App Store
+                  <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path class="lg:opacity-0 lg:-translate-x-1 lg:group-hover:opacity-100 lg:group-hover:translate-x-0 lg:group-focus:opacity-100 lg:group-focus:translate-x-0 lg:transition" d="M5 12h14" />
+                    <path class="lg:-translate-x-1.5 lg:group-hover:translate-x-0 lg:group-focus:translate-x-0 lg:transition" d="m12 5 7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <!-- End Card -->
+          </div>
+          <!-- End Grid -->
+        </div>
+      </div>
+    </div>
+    <!-- End Download Apps -->
+
+    <div class="py-14 lg:py-20">
+      <!-- Features -->
+      <div class="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto">
+        <!-- Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 md:items-center gap-y-8 gap-x-10 lg:gap-x-20">
+          <div class="md:order-2">
+            <div class="mb-10 text-center md:text-start">
+              <h2 class="font-semibold text-2xl md:text-3xl text-gray-800 dark:text-neutral-200">
+                Preline that converts
+              </h2>
+              <p class="mt-2 text-gray-500 dark:text-neutral-400">
+                Whether you're looking to grow your team, boost your marketing efforts, or manage inventory for unexpected bestsellers, Preline is ready to assist.
+              </p>
+            </div>
+
+            <!-- Stats -->
+            <div class="flex flex-col gap-y-5 md:gap-y-10">
+              <!-- Stats -->
+              <div class="flex items-stretch gap-x-5">
+                <div class="min-w-28">
+                  <div class="flex gap-x-1">
+                    <h3 class="font-semibold text-3xl md:text-4xl text-gray-800 dark:text-neutral-200">
+                      90%
+                    </h3>
+                    <div class="mt-1.5">
+                      <span class="flex shrink-0 justify-center items-center size-5 rounded-full bg-green-400 text-black dark:bg-green-600">
+                        <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="m5 12 7-7 7 7" />
+                          <path d="M12 19V5" />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                  <p class="text-sm text-gray-500 dark:text-neutral-500">
+                    time savings
+                  </p>
+                </div>
+
+                <div class="grow relative ps-5 sm:ps-7 flex items-center self-stretch border-s-3 border-gray-300 dark:border-neutral-600">
+                  <p class="text-gray-500 dark:text-neutral-500">
+                    Reduction of time spent creating content
+                  </p>
+                </div>
+              </div>
+              <!-- End Stats -->
+
+              <!-- Stats -->
+              <div class="flex items-stretch gap-x-5">
+                <div class="min-w-28">
+                  <div class="flex gap-x-1">
+                    <h3 class="font-semibold text-3xl md:text-4xl text-gray-800 dark:text-neutral-200">
+                      35%
+                    </h3>
+                    <div class="mt-1.5">
+                      <span class="flex shrink-0 justify-center items-center size-5 rounded-full bg-green-400 text-black dark:bg-green-600">
+                        <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="m5 12 7-7 7 7" />
+                          <path d="M12 19V5" />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                  <p class="text-sm text-gray-500 dark:text-neutral-500">
+                    savings
+                  </p>
+                </div>
+
+                <div class="grow relative ps-5 sm:ps-7 flex items-center self-stretch border-s-3 border-gray-300 dark:border-neutral-600">
+                  <p class="text-gray-500 dark:text-neutral-500">
+                    Hiring flexible talent compared to salaries
+                  </p>
+                </div>
+              </div>
+              <!-- End Stats -->
+
+              <!-- Stats -->
+              <div class="flex items-stretch gap-x-5">
+                <div class="min-w-28">
+                  <div class="flex gap-x-1">
+                    <h3 class="font-semibold text-3xl md:text-4xl text-gray-800 dark:text-neutral-200">
+                      70%
+                    </h3>
+                    <div class="mt-1.5">
+                      <span class="flex shrink-0 justify-center items-center size-5 rounded-full bg-green-400 text-black dark:bg-green-600">
+                        <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="m5 12 7-7 7 7" />
+                          <path d="M12 19V5" />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                  <p class="text-sm text-gray-500 dark:text-neutral-500">
+                    brand awareness
+                  </p>
+                </div>
+
+                <div class="grow relative ps-5 sm:ps-7 flex items-center self-stretch border-s-3 border-gray-300 dark:border-neutral-600">
+                  <p class="text-gray-500 dark:text-neutral-500">
+                    Customers say they have a better brand experience
+                  </p>
+                </div>
+              </div>
+              <!-- End Stats -->
+            </div>
+            <!-- End Stats -->
+          </div>
+          <!-- End Col -->
+
+          <!-- Testimonials -->
+          <div>
+            <img class="w-1/2 md:w-3/5 h-70 md:h-full object-cover rounded-xl" src="https://images.unsplash.com/photo-1698891667813-b445f80aace7?q=80&w=560&h=720&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Testimonials Image">
+
+            <div class="-mt-15 ms-10 relative z-1">
+              <!-- Blockquote -->
+              <blockquote class="p-4 bg-white rounded-xl dark:bg-neutral-900 dark:border-neutral-700">
+                <p class="text-lg text-gray-800 dark:text-neutral-200">
+                  The Preline team is a game changer. They provide strategic advice on optimizing our website and genuinely feel like part of our team. The solution enabling us to scale up flexibly.
+                </p>
+
+                <footer class="mt-4 text-gray-800 dark:text-neutral-200">
+                  Aroa Gil Bo
+                  <span class="block text-sm opacity-70">Head of Customer Success of Framer</span>
+                </footer>
+              </blockquote>
+              <!-- End Blockquote -->
+            </div>
+          </div>
+          <!-- End Testimonials -->
+        </div>
+        <!-- End Grid -->
+      </div>
+      <!-- End Features -->
+    </div>
+
+    <!-- CTA -->
+    <div class="max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto">
+      <div class="md:-mx-4 xl:-mx-20 px-4 py-6 md:py-12 xl:p-20 bg-linear-to-b from-gray-100 to-transparent rounded-2xl dark:from-neutral-800">
+        <div class="mb-4 sm:mb-8 text-center">
+          <p class="mb-2 font-mono text-sm text-gray-500 dark:text-neutral-400">
+            Get started
+          </p>
+          <h2 class="font-semibold text-2xl sm:text-4xl text-gray-800 dark:text-neutral-200">
+            The Web App powering<br>thousands of companies.
+          </h2>
+        </div>
+
+        <div class="flex flex-wrap justify-center items-center gap-2">
+          <a class="py-2 px-3 md:py-2.5 md:px-4 inline-flex justify-center items-center gap-x-1.5 whitespace-nowrap text-[13px] md:text-sm rounded-lg shadow-md bg-blue-600 text-white hover:bg-blue-700 hover:shadow-none focus:outline-hidden focus:bg-blue-700 focus:shadow-none disabled:opacity-50 disabled:pointer-events-none" href="#">
+            Try it free
+          </a>
+          <a class="group py-2 px-3 md:py-2.5 md:px-4 inline-flex justify-center items-center gap-x-1.5 whitespace-nowrap text-[13px] md:text-sm rounded-lg border border-transparent text-gray-800 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden dark:text-neutral-200" href="#">
+            Get a demo
+            <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path class="lg:opacity-0 lg:-translate-x-1 lg:group-hover:opacity-100 lg:group-hover:translate-x-0 lg:group-focus:opacity-100 lg:group-focus:translate-x-0 lg:transition" d="M5 12h14" />
+              <path class="lg:-translate-x-1.5 lg:group-hover:translate-x-0 lg:group-focus:translate-x-0 lg:transition" d="m12 5 7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- End CTA -->
+  </main>
+  <!-- ========== END MAIN CONTENT ========== -->
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="mt-auto bg-white dark:bg-neutral-900">
+    <div class="w-full max-w-6xl mx-auto pt-10 lg:pt-20 px-4 sm:px-6 lg:px-8">
+      <!-- Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-5 mb-6 md:mb-14">
+        <div class="col-span-2 md:col-span-1 h-full flex flex-row md:flex-col justify-between gap-5">
+          <div>
+            <!-- Logo -->
+            <a class="flex-none rounded-md text-xl inline-block font-semibold focus:outline-hidden focus:opacity-80" href="../../pro/startup/index.html" aria-label="Preline">
+              <svg class="w-24 h-auto" width="116" height="32" viewBox="0 0 116 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M33.5696 30.8182V11.3182H37.4474V13.7003H37.6229C37.7952 13.3187 38.0445 12.9309 38.3707 12.5369C38.7031 12.1368 39.134 11.8045 39.6634 11.5398C40.1989 11.2689 40.8636 11.1335 41.6577 11.1335C42.6918 11.1335 43.6458 11.4044 44.5199 11.946C45.3939 12.4815 46.0926 13.291 46.6158 14.3743C47.139 15.4515 47.4006 16.8026 47.4006 18.4276C47.4006 20.0095 47.1451 21.3452 46.6342 22.4347C46.1295 23.518 45.4401 24.3397 44.5661 24.8999C43.6982 25.4538 42.7256 25.7308 41.6484 25.7308C40.8852 25.7308 40.2358 25.6046 39.7003 25.3523C39.1709 25.0999 38.737 24.7829 38.3984 24.4013C38.0599 24.0135 37.8014 23.6226 37.6229 23.2287H37.5028V30.8182H33.5696ZM37.4197 18.4091C37.4197 19.2524 37.5367 19.9879 37.7706 20.6158C38.0045 21.2436 38.343 21.733 38.7862 22.0838C39.2294 22.4285 39.768 22.6009 40.402 22.6009C41.0421 22.6009 41.5838 22.4254 42.027 22.0746C42.4702 21.7176 42.8056 21.2251 43.0334 20.5973C43.2673 19.9633 43.3842 19.2339 43.3842 18.4091C43.3842 17.5904 43.2704 16.8703 43.0426 16.2486C42.8149 15.6269 42.4794 15.1406 42.0362 14.7898C41.593 14.4389 41.0483 14.2635 40.402 14.2635C39.7618 14.2635 39.2202 14.4328 38.777 14.7713C38.34 15.1098 38.0045 15.59 37.7706 16.2116C37.5367 16.8333 37.4197 17.5658 37.4197 18.4091ZM49.2427 25.5V11.3182H53.0559V13.7926H53.2037C53.4622 12.9124 53.8961 12.2476 54.5055 11.7983C55.1149 11.3428 55.8166 11.1151 56.6106 11.1151C56.8076 11.1151 57.02 11.1274 57.2477 11.152C57.4754 11.1766 57.6755 11.2105 57.8478 11.2536V14.7436C57.6632 14.6882 57.4077 14.639 57.0815 14.5959C56.7553 14.5528 56.4567 14.5312 56.1859 14.5312C55.6073 14.5312 55.0903 14.6574 54.6348 14.9098C54.1854 15.156 53.8284 15.5007 53.5638 15.9439C53.3052 16.3871 53.176 16.898 53.176 17.4766V25.5H49.2427ZM64.9043 25.777C63.4455 25.777 62.1898 25.4815 61.1373 24.8906C60.0909 24.2936 59.2845 23.4503 58.7182 22.3608C58.1519 21.2652 57.8688 19.9695 57.8688 18.4737C57.8688 17.0149 58.1519 15.7346 58.7182 14.6328C59.2845 13.531 60.0816 12.6723 61.1096 12.0568C62.1437 11.4413 63.3563 11.1335 64.7474 11.1335C65.683 11.1335 66.5539 11.2843 67.3603 11.5859C68.1728 11.8814 68.8806 12.3277 69.4839 12.9247C70.0932 13.5218 70.5672 14.2727 70.9057 15.1776C71.2443 16.0762 71.4135 17.1288 71.4135 18.3352V19.4155H59.4384V16.978H67.7111C67.7111 16.4117 67.588 15.91 67.3418 15.473C67.0956 15.036 66.754 14.6944 66.317 14.4482C65.8861 14.1958 65.3844 14.0696 64.812 14.0696C64.2149 14.0696 63.6856 14.2081 63.2239 14.4851C62.7684 14.7559 62.4114 15.1222 62.1529 15.5838C61.8944 16.0393 61.762 16.5471 61.7559 17.1072V19.4247C61.7559 20.1264 61.8851 20.7327 62.1437 21.2436C62.4083 21.7545 62.7807 22.1484 63.2608 22.4254C63.741 22.7024 64.3103 22.8409 64.9689 22.8409C65.406 22.8409 65.8061 22.7794 66.1692 22.6562C66.5324 22.5331 66.8432 22.3485 67.1018 22.1023C67.3603 21.8561 67.5572 21.5545 67.6927 21.1974L71.3304 21.4375C71.1458 22.3116 70.7672 23.0748 70.1948 23.7273C69.6285 24.3736 68.896 24.8783 67.9974 25.2415C67.1048 25.5985 66.0738 25.777 64.9043 25.777ZM77.1335 6.59091V25.5H73.2003V6.59091H77.1335ZM79.5043 25.5V11.3182H83.4375V25.5H79.5043ZM81.4801 9.49006C80.8954 9.49006 80.3937 9.29616 79.9752 8.90838C79.5628 8.51444 79.3566 8.04356 79.3566 7.49574C79.3566 6.95407 79.5628 6.48935 79.9752 6.10156C80.3937 5.70762 80.8954 5.51065 81.4801 5.51065C82.0649 5.51065 82.5635 5.70762 82.9759 6.10156C83.3944 6.48935 83.6037 6.95407 83.6037 7.49574C83.6037 8.04356 83.3944 8.51444 82.9759 8.90838C82.5635 9.29616 82.0649 9.49006 81.4801 9.49006ZM89.7415 17.3011V25.5H85.8083V11.3182H89.5569V13.8203H89.723C90.037 12.9955 90.5632 12.343 91.3019 11.8629C92.0405 11.3767 92.9361 11.1335 93.9887 11.1335C94.9735 11.1335 95.8322 11.349 96.5647 11.7798C97.2971 12.2107 97.8665 12.8262 98.2728 13.6264C98.679 14.4205 98.8821 15.3684 98.8821 16.4702V25.5H94.9489V17.1719C94.9551 16.304 94.7335 15.6269 94.2841 15.1406C93.8348 14.6482 93.2162 14.402 92.4283 14.402C91.8989 14.402 91.4311 14.5159 91.0249 14.7436C90.6248 14.9714 90.3109 15.3037 90.0831 15.7408C89.8615 16.1716 89.7477 16.6918 89.7415 17.3011ZM107.665 25.777C106.206 25.777 104.951 25.4815 103.898 24.8906C102.852 24.2936 102.045 23.4503 101.479 22.3608C100.913 21.2652 100.63 19.9695 100.63 18.4737C100.63 17.0149 100.913 15.7346 101.479 14.6328C102.045 13.531 102.842 12.6723 103.87 12.0568C104.905 11.4413 106.117 11.1335 107.508 11.1335C108.444 11.1335 109.315 11.2843 110.121 11.5859C110.934 11.8814 111.641 12.3277 112.245 12.9247C112.854 13.5218 113.328 14.2727 113.667 15.1776C114.005 16.0762 114.174 17.1288 114.174 18.3352V19.4155H102.199V16.978H110.472C110.472 16.4117 110.349 15.91 110.103 15.473C109.856 15.036 109.515 14.6944 109.078 14.4482C108.647 14.1958 108.145 14.0696 107.573 14.0696C106.976 14.0696 106.446 14.2081 105.985 14.4851C105.529 14.7559 105.172 15.1222 104.914 15.5838C104.655 16.0393 104.523 16.5471 104.517 17.1072V19.4247C104.517 20.1264 104.646 20.7327 104.905 21.2436C105.169 21.7545 105.542 22.1484 106.022 22.4254C106.502 22.7024 107.071 22.8409 107.73 22.8409C108.167 22.8409 108.567 22.7794 108.93 22.6562C109.293 22.5331 109.604 22.3485 109.863 22.1023C110.121 21.8561 110.318 21.5545 110.454 21.1974L114.091 21.4375C113.907 22.3116 113.528 23.0748 112.956 23.7273C112.389 24.3736 111.657 24.8783 110.758 25.2415C109.866 25.5985 108.835 25.777 107.665 25.777Z" class="fill-blue-700 dark:fill-white" fill="currentColor" />
+                <path d="M1 29.5V16.5C1 9.87258 6.37258 4.5 13 4.5C19.6274 4.5 25 9.87258 25 16.5C25 23.1274 19.6274 28.5 13 28.5H12" class="stroke-blue-700 dark:stroke-white" stroke="currentColor" stroke-width="2" />
+                <path d="M5 29.5V16.66C5 12.1534 8.58172 8.5 13 8.5C17.4183 8.5 21 12.1534 21 16.66C21 21.1666 17.4183 24.82 13 24.82H12" class="stroke-blue-700 dark:stroke-white" stroke="currentColor" stroke-width="2" />
+                <circle cx="13" cy="16.5214" r="5" class="fill-blue-700 dark:fill-white" fill="currentColor" />
+              </svg>
+            </a>
+            <!-- End Logo -->
+          </div>
+
+          <div>
+            <!-- Social Brands -->
+            <div class="-mx-2.5 flex flex-wrap items-center gap-1">
+              <a class="flex flex-col justify-center items-center size-7 md:size-9 rounded-full text-sm text-gray-500 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-500 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+                <svg class="shrink-0 size-3.5" width="48" height="50" viewBox="0 0 48 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M28.5665 20.7714L46.4356 0H42.2012L26.6855 18.0355L14.2931 0H0L18.7397 27.2728L0 49.0548H4.23464L20.6196 30.0087L33.7069 49.0548H48L28.5655 20.7714H28.5665ZM22.7666 27.5131L5.76044 3.18778H12.2646L42.2032 46.012H35.699L22.7666 27.5142V27.5131Z" fill="currentColor" />
+                </svg>
+                <span class="sr-only">X (Twitter)</span>
+              </a>
+              <a class="flex flex-col justify-center items-center size-7 md:size-9 rounded-full text-sm text-gray-500 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-500 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+                <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                </svg>
+                <span class="sr-only">Instagram</span>
+              </a>
+            </div>
+            <!-- End Social Brands -->
+          </div>
+        </div>
+        <!-- End Col -->
+
+        <div>
+          <h4 class="mb-1 md:mb-3 font-medium text-sm text-gray-800 dark:text-neutral-200">Company</h4>
+
+          <ul class="grid md:space-y-2">
+            <li><a class="text-[13px] md:text-sm text-gray-500 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="#">Newsroom</a></li>
+            <li><a class="text-[13px] md:text-sm text-gray-500 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="#">New features</a></li>
+            <li><a class="text-[13px] md:text-sm text-gray-500 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="#">Careers</a></li>
+            <li><a class="text-[13px] md:text-sm text-gray-500 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="#">Investors</a></li>
+            <li><a class="text-[13px] md:text-sm text-gray-500 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="#">Purpose</a></li>
+          </ul>
+        </div>
+        <!-- End Col -->
+
+        <div>
+          <h4 class="mb-1 md:mb-3 font-medium text-sm text-gray-800 dark:text-neutral-200">Resources</h4>
+
+          <ul class="grid md:space-y-2">
+            <li><a class="text-[13px] md:text-sm text-gray-500 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="#">Gift Cards</a></li>
+            <li><a class="text-[13px] md:text-sm text-gray-500 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="#">Find a Store</a></li>
+            <li><a class="text-[13px] md:text-sm text-gray-500 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="#">Membership</a></li>
+          </ul>
+        </div>
+        <!-- End Col -->
+
+        <div>
+          <h4 class="mb-1 md:mb-3 font-medium text-sm text-gray-800 dark:text-neutral-200">Help</h4>
+
+          <ul class="grid md:space-y-2">
+            <li><a class="text-[13px] md:text-sm text-gray-500 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="#">Help Center</a></li>
+            <li><a class="text-[13px] md:text-sm text-gray-500 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="#">FAQs</a></li>
+            <li><a class="text-[13px] md:text-sm text-gray-500 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="#">Subscription</a></li>
+            <li><a class="text-[13px] md:text-sm text-gray-500 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="#">Order Status</a></li>
+            <li><a class="text-[13px] md:text-sm text-gray-500 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="#">Returns &amp; Exchanges</a></li>
+            <li><a class="text-[13px] md:text-sm text-gray-500 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <!-- End Col -->
+
+        <div class="space-y-10">
+          <div>
+            <h4 class="font-medium text-sm text-gray-800 dark:text-neutral-200">Apps</h4>
+
+            <!-- Social Brands -->
+            <div class="mt-2 -mx-3 flex flex-col gap-1">
+              <div>
+                <a class="inline-flex items-center gap-x-2 py-1.5 px-2.5 rounded-full text-[13px] md:text-sm text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+                  <svg class="shrink-0 size-4 text-black dark:text-white" width="75" height="86" viewBox="0 0 75 86" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M36.6565 20.8071C41.4061 20.8071 45.5728 18.9524 49.1564 15.2429C52.7399 11.5334 54.5318 7.21993 54.5318 2.30245C54.5318 1.76237 54.4891 0.994884 54.4038 0C53.7781 0.0852758 53.3088 0.156339 52.9959 0.213189C48.616 0.838545 44.7622 2.98465 41.4345 6.65142C38.107 10.3183 36.4432 14.241 36.4432 18.4195C36.4432 18.9026 36.5143 19.6986 36.6565 20.8071ZM53.6785 86C57.063 86 60.803 83.6834 64.8986 79.0501C68.9942 74.4168 72.1226 68.9734 74.2842 62.7199C66.2353 58.5698 62.2109 52.6148 62.2109 44.8547C62.2109 38.3738 65.4674 32.831 71.9805 28.2261C67.4583 22.5695 61.4857 19.7412 54.0625 19.7412C50.9339 19.7412 48.0756 20.2102 45.4875 21.1482L43.8664 21.7451L41.6906 22.5979C40.2685 23.138 38.9744 23.4081 37.8083 23.4081C36.8982 23.4081 35.7036 23.0953 34.2248 22.47L32.5609 21.7878L30.9825 21.1482C28.6787 20.1818 26.2043 19.6985 23.5593 19.6985C16.4774 19.6985 10.7892 22.0862 6.49456 26.8617C2.1999 31.637 0.0526123 37.9332 0.0526123 45.7501C0.0526123 56.7506 3.49397 66.9126 10.3768 76.236C15.1549 82.7453 19.5207 86 23.4739 86C25.152 86 26.8158 85.6731 28.4654 85.0193L30.5558 84.1666L32.2197 83.5696C34.5518 82.7453 36.6991 82.3331 38.6615 82.3331C40.7378 82.3331 43.1268 82.8591 45.8288 83.9107L47.1513 84.4224C49.91 85.4741 52.0859 86 53.6785 86Z" fill="currentColor" />
+                  </svg>
+                  MacOS
+                </a>
+              </div>
+              <div>
+                <a class="inline-flex items-center gap-x-2 py-1.5 px-2.5 rounded-full text-[13px] md:text-sm text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+                  <svg class="shrink-0 size-4" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M25.536 0H6.464C2.892 0 0 2.892 0 6.464V25.54C0 29.108 2.892 32 6.464 32H25.54C29.108 32 32.004 29.108 32.004 25.536V6.464C32 2.892 29.108 0 25.536 0Z" fill="url(#paint0_linear_4403_2024footer)" />
+                    <path d="M15.864 7.352L16.512 6.232C16.912 5.532 17.804 5.296 18.504 5.696C19.204 6.096 19.44 6.988 19.04 7.688L12.796 18.496H17.312C18.776 18.496 19.596 20.216 18.96 21.408H5.72C4.912 21.408 4.264 20.76 4.264 19.952C4.264 19.144 4.912 18.496 5.72 18.496H9.432L14.184 10.26L12.7 7.684C12.3 6.984 12.536 6.1 13.236 5.692C13.936 5.292 14.82 5.528 15.228 6.228L15.864 7.352ZM10.248 22.908L8.848 25.336C8.448 26.036 7.556 26.272 6.856 25.872C6.156 25.472 5.92 24.58 6.32 23.88L7.36 22.08C8.536 21.716 9.492 21.996 10.248 22.908ZM22.304 18.504H26.092C26.9 18.504 27.548 19.152 27.548 19.96C27.548 20.768 26.9 21.416 26.092 21.416H23.988L25.408 23.88C25.808 24.58 25.572 25.464 24.872 25.872C24.172 26.272 23.288 26.036 22.88 25.336C20.488 21.188 18.692 18.084 17.5 16.016C16.28 13.912 17.152 11.8 18.012 11.084C18.968 12.724 20.396 15.2 22.304 18.504Z" fill="white" />
+                    <defs>
+                      <linearGradient id="paint0_linear_4403_2024footer" x1="16.002" y1="0" x2="16.002" y2="32" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#18BFFB" />
+                        <stop offset="1" stop-color="#2072F3" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                  App Store
+                </a>
+              </div>
+              <div>
+                <a class="inline-flex items-center gap-x-2 py-1.5 px-2.5 rounded-full text-[13px] md:text-sm text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" href="#">
+                  <svg class="shrink-0 size-4" width="32" height="37" viewBox="0 0 32 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20.5159 11.1765L1.20745 0.140891C0.964824 1.05128e-05 0.659583 0.00783721 0.424782 0.148718C0.182154 0.289598 0.0334473 0.540052 0.0334473 0.821813C0.0334473 0.821813 0.041274 1.83928 0.0491007 3.5142L14.1137 17.5788L20.5159 11.1765Z" fill="url(#paint0_linear_4406_2034footer)" />
+                    <path d="M0.0491007 3.5142C0.0725807 9.5564 0.143021 24.2236 0.174328 31.5259L14.1215 17.5788L0.0491007 3.5142Z" fill="url(#paint1_linear_4406_2034footer)" />
+                    <path d="M31.5672 17.4927L20.5159 11.1765L14.1058 17.5788L21.3377 24.8106L31.575 18.8467C31.8177 18.7058 31.9664 18.4475 31.9664 18.1736C31.9664 17.8918 31.8098 17.6336 31.5672 17.4927Z" fill="url(#paint2_linear_4406_2034footer)" />
+                    <path d="M0.166501 31.5259C0.182154 34.1322 0.189981 35.7993 0.189981 35.7993C0.189981 36.0811 0.338688 36.3394 0.581316 36.4724C0.823943 36.6133 1.12136 36.6133 1.36399 36.4724L21.3455 24.8185L14.1137 17.5866L0.166501 31.5259Z" fill="url(#paint3_linear_4406_2034footer)" />
+                    <defs>
+                      <linearGradient id="paint0_linear_4406_2034footer" x1="0.0334473" y1="18.3158" x2="31.972" y2="18.3158" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#63BE6B" />
+                        <stop offset="0.506" stop-color="#5BBC6A" />
+                        <stop offset="1" stop-color="#4AB96A" />
+                      </linearGradient>
+                      <linearGradient id="paint1_linear_4406_2034footer" x1="0.0249224" y1="18.313" x2="31.9479" y2="18.313" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#3EC6F2" />
+                        <stop offset="1" stop-color="#45AFE3" />
+                      </linearGradient>
+                      <linearGradient id="paint2_linear_4406_2034footer" x1="0.0468809" y1="18.322" x2="31.963" y2="18.322" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#FAA51A" />
+                        <stop offset="0.387" stop-color="#FAB716" />
+                        <stop offset="0.741" stop-color="#FAC412" />
+                        <stop offset="1" stop-color="#FAC80F" />
+                      </linearGradient>
+                      <linearGradient id="paint3_linear_4406_2034footer" x1="0.169948" y1="27.082" x2="21.3452" y2="27.082" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#EC3B50" />
+                        <stop offset="1" stop-color="#E7515B" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                  Google Play
+                </a>
+              </div>
+            </div>
+            <!-- End Social Brands -->
+          </div>
+        </div>
+        <!-- End Col -->
+      </div>
+      <!-- End Grid -->
+    </div>
+
+    <div class="w-full max-w-6xl pb-10 lg:pb-20 mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap justify-between items-center gap-3">
+        <!-- List -->
+        <ul class="flex flex-wrap items-center whitespace-nowrap gap-3">
+          <li class="inline-flex items-center relative text-xs text-gray-500 pe-3.5 last:pe-0 last:after:hidden after:absolute after:top-1/2 after:end-0 after:inline-block after:size-[3px] after:bg-gray-400 after:rounded-full after:-translate-y-1/2 dark:text-neutral-500 dark:after:bg-neutral-600">
+            <a class="text-xs text-gray-500 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-500 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="#">
+              Terms and Conditions
+            </a>
+          </li>
+          <li class="inline-flex items-center relative text-xs text-gray-500 pe-3.5 last:pe-0 last:after:hidden after:absolute after:top-1/2 after:end-0 after:inline-block after:size-[3px] after:bg-gray-400 after:rounded-full after:-translate-y-1/2 dark:text-neutral-500 dark:after:bg-neutral-600">
+            <a class="text-xs text-gray-500 hover:text-gray-800 focus:outline-hidden focus:text-gray-800 dark:text-neutral-500 dark:hover:text-neutral-200 dark:focus:text-neutral-200" href="#">
+              Privacy &amp; Policy
+            </a>
+          </li>
+        </ul>
+        <!-- End List -->
+
+        <p class="text-xs text-gray-500 dark:text-neutral-500">
+          © 2025 Preline Labs.
+        </p>
+      </div>
+    </div>
+  </footer>
+  <!-- ========== END FOOTER ========== -->
+
+  <!-- JS PLUGINS -->
+  <!-- Required plugins -->
+  <script src="../assets/vendor/lodash/lodash.min.js"></script>
+  <script src="../assets/vendor/preline/dist/index.js?v=3.0.0"></script>
+  <!-- Clipboard -->
+  <script src="../assets/vendor/clipboard/dist/clipboard.min.js"></script>
+  <script src="../assets/js/hs-copy-clipboard-helper.js"></script>
+
+  <script>
+    window.addEventListener('load', () => {
+      (function () {
+        const tabsId = 'hs-pro-hero-tabs';
+        const tabs = HSTabs.getInstance(`#${tabsId}`, true);
+        const scrollNav = HSScrollNav.getInstance('#hs-pro-hero-tabs-scroll', true);
+
+        tabs.element.on('change', ({ el }) => {
+          scrollNav.element.centerElement(el);
+        });
+
+        window.addEventListener('resize', _.debounce(() => {
+          scrollNav.element.centerElement(tabs.element.current);
+        }, 100));
+
+        window.addEventListener('change.hs.tab', ({ detail }) => {
+          if (detail.payload.tabsId !== tabsId) return false;
+
+          const tabs = document.querySelector('#hs-pro-hero-tabs-scroll');
+
+          window.scrollTo({
+            top: tabs.offsetTop,
+            behavior: 'smooth'
+          });
+        });
+      })();
+    });
+  </script>
+
+</body>
+</html>
