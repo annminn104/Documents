@@ -1,7 +1,7 @@
 # STYLING DOCUMENTS
 
-- https://shadcnthemer.com // shacdn themes
+- https://shadcnthemer.com shacdn themes
 
-- https://www.scrollxui.dev/docs/components // animation shacdn components
+- https://www.scrollxui.dev/docs/components animation shacdn components
 
-- https://aethercss.lovable.app // A real-time playground for Liquid Glass, Glassmorphism & Neumorphism.
+- https://aethercss.lovable.app A real-time playground for Liquid Glass, Glassmorphism & Neumorphism.
