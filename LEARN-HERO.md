@@ -1,5 +1,7 @@
 # Learn Hero
 
+![Learn Hero](./learn-hero-thumbnail.svg)
+
 ## Overview
 
 Tổng hợp giải thích các khái niệm quan trọng trong Web Development.
