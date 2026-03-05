@@ -194,6 +194,11 @@ function Component() {
 
 ---
 
+### Tài liệu tham khảo
+
+- [React Docs: hydrateRoot](https://react.dev/reference/react-dom/client/hydrateRoot)
+- [Next.js: Server-side Rendering](https://nextjs.org/docs/pages/building-your-application/rendering/server-side-rendering)
+
 ## 2. Virtual DOM Diffing Complexity
 
 **Virtual DOM (VDOM)** là bản sao nhẹ của DOM thật, lưu trong bộ nhớ dưới dạng JS object. Khi state thay đổi, React tạo VDOM mới và **diff** (so sánh) với VDOM cũ để tìm ra thay đổi nhỏ nhất cần cập nhật lên DOM thật.
@@ -219,6 +224,11 @@ function Component() {
 **React Fiber** (React 16+): chia nhỏ công việc diff thành các "unit of work", có thể pause/resume, ưu tiên render quan trọng hơn (Concurrent Mode).
 
 ---
+
+### Tài liệu tham khảo
+
+- [React Docs: Reconciliation](https://legacy.reactjs.org/docs/reconciliation.html)
+- [React Docs: Preserving & Resetting State](https://react.dev/learn/preserving-and-resetting-state)
 
 ## 3. Event Loop (Macro vs Microtasks)
 
@@ -253,6 +263,12 @@ console.log('4');
 - `requestAnimationFrame` chạy trước render, dùng cho animation
 
 ---
+
+### Tài liệu tham khảo
+
+- [MDN: Event Loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Event_loop)
+- [MDN: queueMicrotask](https://developer.mozilla.org/en-US/docs/Web/API/Window/queueMicrotask)
+- [HTML Spec: Event Loop](https://html.spec.whatwg.org/multipage/webappapis.html#event-loops)
 
 ## 4. Critical Rendering Path
 
@@ -294,6 +310,11 @@ CSS  → CSSOM Tree
 **Metrics liên quan:** FCP (First Contentful Paint), LCP (Largest Contentful Paint), CLS (Cumulative Layout Shift).
 
 ---
+
+### Tài liệu tham khảo
+
+- [web.dev: Critical Rendering Path](https://web.dev/articles/critical-rendering-path)
+- [MDN: Populating the page: how browsers work](https://developer.mozilla.org/en-US/docs/Web/Performance/How_browsers_work)
 
 ## 5. Code Splitting Strategies
 
@@ -349,6 +370,12 @@ button.addEventListener('click', async () => {
 
 ---
 
+### Tài liệu tham khảo
+
+- [React Docs: lazy](https://react.dev/reference/react/lazy)
+- [Webpack: Code Splitting](https://webpack.js.org/guides/code-splitting/)
+- [web.dev: Reduce JavaScript payloads with code splitting](https://web.dev/articles/reduce-javascript-payloads-with-code-splitting)
+
 ## 6. Dynamic Import Chunking
 
 Khi dùng `import()` dynamic, bundler (Webpack/Vite) tạo ra các **chunk files** riêng.
@@ -390,6 +417,12 @@ build: {
 **Cache strategy:** Vendor chunks ít thay đổi → cache lâu bằng content hash (`vendors.abc123.js`).
 
 ---
+
+### Tài liệu tham khảo
+
+- [MDN: import()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import)
+- [Vite: Chunking Strategy](https://vitejs.dev/guide/build#chunking-strategy)
+- [Webpack: Module Federation](https://webpack.js.org/concepts/module-federation/)
 
 ## 7. Preload vs Prefetch vs Preconnect
 
@@ -437,6 +470,12 @@ Ba kỹ thuật Resource Hints để tối ưu tải tài nguyên:
 
 ---
 
+### Tài liệu tham khảo
+
+- [web.dev: Preload critical assets](https://web.dev/articles/preload-critical-assets)
+- [MDN: rel=preload](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel/preload)
+- [MDN: rel=prefetch](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel/prefetch)
+
 ## 8. CORS Preflight
 
 **CORS (Cross-Origin Resource Sharing)** là cơ chế browser kiểm soát request từ origin này sang origin khác.
@@ -479,6 +518,12 @@ app.use(cors({
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [MDN: Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
+- [MDN: Preflight request](https://developer.mozilla.org/en-US/docs/Glossary/Preflight_request)
+- [Fetch Spec: CORS-preflight](https://fetch.spec.whatwg.org/#cors-preflight-fetch)
 
 ## 9. CSRF vs XSS Mitigation
 
@@ -543,6 +588,12 @@ element.innerHTML = DOMPurify.sanitize(userInput);
 
 ---
 
+### Tài liệu tham khảo
+
+- [OWASP: CSRF](https://owasp.org/www-community/attacks/csrf)
+- [MDN: Types of attacks](https://developer.mozilla.org/en-US/docs/Web/Security/Types_of_attacks)
+- [MDN: SameSite cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite)
+
 ## 10. Web Workers vs Service Workers
 
 Cả hai đều chạy trong background thread, không block main thread, nhưng mục đích khác nhau.
@@ -602,6 +653,11 @@ self.addEventListener('fetch', (event) => {
 | Cache API     | Không                   | Có                       |
 | Số lượng      | Nhiều                   | 1 per scope              |
 
+### Tài liệu tham khảo
+
+- [MDN: Web Workers API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API)
+- [MDN: Service Worker API](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)
+- [web.dev: Service workers overview](https://web.dev/articles/service-workers-cache-storage)
 
 ## LEVEL 2: React core & rendering mechanics
 
@@ -649,6 +705,11 @@ self.addEventListener('fetch', (event) => {
 2. **Commit phase** (synchronous, không interrupt): apply changes lên DOM thật, chạy effects
 
 ---
+
+### Tài liệu tham khảo
+
+- [React Docs: Reconciliation (legacy)](https://legacy.reactjs.org/docs/reconciliation.html)
+- [React Docs: Preserving and Resetting State](https://react.dev/learn/preserving-and-resetting-state)
 
 ## 12. Fiber Architecture
 
@@ -699,6 +760,11 @@ Fiber A → child → Fiber B → child → Fiber C
 React dùng vòng lặp `while` thay vì đệ quy → có thể `return` ra khỏi vòng lặp bất kỳ lúc nào (preemptible).
 
 ---
+
+### Tài liệu tham khảo
+
+- [acdlite: React Fiber Architecture](https://github.com/acdlite/react-fiber-architecture)
+- [React Blog: React v18](https://react.dev/blog/2022/03/29/react-v18)
 
 ## 13. Concurrent Rendering
 
@@ -754,6 +820,11 @@ const deferredQuery = useDeferredValue(query);
 
 ---
 
+### Tài liệu tham khảo
+
+- [React Docs: startTransition](https://react.dev/reference/react/startTransition)
+- [React WG: New in React 18](https://github.com/reactwg/react-18/discussions/4)
+
 ## 14. Time Slicing
 
 **Time Slicing** là kỹ thuật React chia nhỏ render work thành nhiều "slices" nhỏ, yield control về browser giữa các slice để browser có thể xử lý user input và paint frame.
@@ -800,6 +871,11 @@ function shouldYield() {
 
 ---
 
+### Tài liệu tham khảo
+
+- [React Docs: useTransition](https://react.dev/reference/react/useTransition)
+- [web.dev: Optimize Interaction to Next Paint](https://web.dev/articles/optimize-inp)
+
 ## 15. Scheduler Priorities
 
 React Scheduler phân loại mọi update thành các mức ưu tiên, quyết định thứ tự và deadline xử lý.
@@ -841,6 +917,11 @@ const IdleLane          = 0b0100000000000000000000000000000;
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [React Docs: startTransition](https://react.dev/reference/react/startTransition)
+- [React Source: Scheduler](https://github.com/facebook/react/tree/main/packages/scheduler)
 
 ## 16. Suspense Boundaries
 
@@ -910,6 +991,11 @@ function fetchWithSuspense(url) {
 
 ---
 
+### Tài liệu tham khảo
+
+- [React Docs: Suspense](https://react.dev/reference/react/Suspense)
+- [React Blog: React v18 Suspense](https://react.dev/blog/2022/03/29/react-v18#suspense-in-react-18)
+
 ## 17. Selective Hydration
 
 **Selective Hydration** (React 18) cho phép React hydrate từng phần của trang theo thứ tự ưu tiên, thay vì phải hydrate toàn bộ page trước khi interactive.
@@ -955,6 +1041,11 @@ React switch:  [MainContent ──] → [Sidebar ────]
 **Yêu cầu:** Phải dùng `renderToPipeableStream` (Node) hoặc `renderToReadableStream` (Edge) thay vì `renderToString`.
 
 ---
+
+### Tài liệu tham khảo
+
+- [React WG: Selective Hydration](https://github.com/reactwg/react-18/discussions/37)
+- [React Blog: React v18](https://react.dev/blog/2022/03/29/react-v18)
 
 ## 18. Server Components
 
@@ -1016,6 +1107,11 @@ function AddToCart({ id }) {
 
 ---
 
+### Tài liệu tham khảo
+
+- [React Docs: Server Components](https://react.dev/blog/2023/03/22/react-labs-what-we-have-been-working-on-march-2023)
+- [Next.js: Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components)
+
 ## 19. Tearing in Concurrent UI
 
 **Tearing** là hiện tượng UI hiển thị dữ liệu không nhất quán — các component khác nhau đọc cùng một external store nhưng thấy các version khác nhau trong một lần render.
@@ -1071,6 +1167,11 @@ function ComponentA() {
 React force synchronous re-render khi detect store thay đổi trong khi đang render, đảm bảo tất cả components thấy cùng snapshot.
 
 ---
+
+### Tài liệu tham khảo
+
+- [React Docs: useSyncExternalStore](https://react.dev/reference/react/useSyncExternalStore)
+- [React WG: Tearing discussion](https://github.com/reactwg/react-18/discussions/69)
 
 ## 20. Stale Closure Problem
 
@@ -1160,6 +1261,11 @@ function SearchBar() {
 
 ---
 
+### Tài liệu tham khảo
+
+- [React Docs: Removing Effect Dependencies](https://react.dev/learn/removing-effect-dependencies)
+- [MDN: Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
+
 ## LEVEL 3: Performance nền tảng trình duyệt
 
 ---
@@ -1214,6 +1320,11 @@ function updateLayout() {
 **Công cụ phát hiện:** Chrome DevTools Performance tab → tìm các "Recalculate Style" / "Layout" màu tím liên tiếp. Library `fastdom` giúp tự động batch read/write.
 
 ---
+
+### Tài liệu tham khảo
+
+- [web.dev: Avoid Large, Complex Layouts and Layout Thrashing](https://web.dev/articles/avoid-large-complex-layouts-and-layout-thrashing)
+- [Chrome DevTools: Performance](https://developer.chrome.com/docs/devtools/performance)
 
 ## 22. Paint vs Layout vs Composite
 
@@ -1279,6 +1390,11 @@ Ghép các layer đã paint lại với nhau, thực hiện trên GPU.
 
 ---
 
+### Tài liệu tham khảo
+
+- [web.dev: Rendering Performance](https://web.dev/articles/rendering-performance)
+- [web.dev: Stick to Compositor-Only Properties](https://web.dev/articles/stick-to-compositor-only-properties-and-manage-layer-count)
+
 ## 23. Browser Compositing Layers
 
 Browser chia DOM thành nhiều **compositing layers** (layer bitmap), render từng layer riêng rồi ghép lại trên GPU.
@@ -1338,6 +1454,11 @@ Tạo quá nhiều layers → tốn VRAM, overhead composite lớn hơn lợi í
 **Xem layers:** Chrome DevTools → Layers panel (More Tools → Layers).
 
 ---
+
+### Tài liệu tham khảo
+
+- [web.dev: Manage Layer Count](https://web.dev/articles/stick-to-compositor-only-properties-and-manage-layer-count)
+- [Chrome Blog: GPU Accelerated Compositing](https://developer.chrome.com/blog/gpu-accelerated-compositing-in-chrome)
 
 ## 24. GPU Acceleration in CSS
 
@@ -1402,6 +1523,11 @@ Compositor thread (GPU):                                         → Composite
 
 ---
 
+### Tài liệu tham khảo
+
+- [MDN: will-change](https://developer.mozilla.org/en-US/docs/Web/CSS/will-change)
+- [web.dev: Animations Guide](https://web.dev/articles/animations-guide)
+
 ## 25. CSS Containment
 
 **CSS Containment** là cơ chế khai báo cho browser biết một element độc lập với phần còn lại của trang, cho phép browser **bỏ qua** phần ngoài scope khi recalculate.
@@ -1459,6 +1585,12 @@ Các `.article` ngoài viewport sẽ không paint, giúp initial render nhanh h�
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [MDN: contain](https://developer.mozilla.org/en-US/docs/Web/CSS/contain)
+- [web.dev: CSS Containment](https://web.dev/articles/css-containment)
+- [MDN: content-visibility](https://developer.mozilla.org/en-US/docs/Web/CSS/content-visibility)
 
 ## 26. Render Blocking Resources
 
@@ -1535,6 +1667,11 @@ defer:         [fetch          ][execute after parse]↑ trước DOMContentLoad
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [web.dev: Render-Blocking Resources](https://web.dev/articles/render-blocking-resources)
+- [MDN: script — defer & async](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)
 
 ## 27. Render Waterfalls
 
@@ -1613,6 +1750,11 @@ function Page() {
 
 ---
 
+### Tài liệu tham khảo
+
+- [web.dev: Code-splitting with Suspense](https://web.dev/articles/code-splitting-suspense)
+- [Chrome DevTools: Network Waterfall](https://developer.chrome.com/docs/devtools/network/reference)
+
 ## 28. Subpixel Rendering
 
 **Subpixel rendering** là kỹ thuật browser dùng các màu con (subpixel) của màn hình LCD để làm cho text và edge trông sắc nét hơn so với độ phân giải thực.
@@ -1667,6 +1809,11 @@ Subpixel:       ↑   ↑   ↑      ↑   ↑   ↑      ↑   ↑   ↑
 **HiDPI / Retina:** Trên màn hình 2x DPR, 1 CSS pixel = 4 physical pixels → subpixel ít quan trọng hơn, nhưng vẫn cần `image-rendering` và SVG thay vì raster cho icon.
 
 ---
+
+### Tài liệu tham khảo
+
+- [MDN: font-smooth](https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth)
+- [web.dev: Ensure text remains visible during webfont load](https://web.dev/articles/font-display)
 
 ## 29. Detached DOM Nodes
 
@@ -1748,6 +1895,11 @@ controller.abort();  // tất cả listeners bị remove
 3. Tìm `Detached HTMLElement` → expand để thấy reference chain
 
 ---
+
+### Tài liệu tham khảo
+
+- [Chrome DevTools: Heap Snapshots](https://developer.chrome.com/docs/devtools/memory-problems/heap-snapshots)
+- [web.dev: Detached window memory leaks](https://web.dev/articles/detached-window-memory-leaks)
 
 ## 30. Garbage Collection Timing
 
@@ -1836,6 +1988,11 @@ const positions = new Float32Array(1000 * 2);  // không GC như regular array
 
 ---
 
+### Tài liệu tham khảo
+
+- [V8 Blog: Trash Talk (GC)](https://v8.dev/blog/trash-talk)
+- [Chrome DevTools: Memory Problems](https://developer.chrome.com/docs/devtools/memory-problems)
+
 ## LEVEL 4: Data & State Management nâng cao
 
 ---
@@ -1895,6 +2052,11 @@ next.user === prev.user;          // false — đã thay đổi
 - **Zustand / Jotai** — dùng structural sharing tự nhiên qua shallow comparison
 
 ---
+
+### Tài liệu tham khảo
+
+- [Immer.js Documentation](https://immerjs.github.io/immer/)
+- [React Docs: Updating Objects in State](https://react.dev/learn/updating-objects-in-state)
 
 ## 32. Immutable Data Patterns
 
@@ -1977,6 +2139,11 @@ updateState(draft => {
 
 ---
 
+### Tài liệu tham khảo
+
+- [React Docs: Updating Arrays in State](https://react.dev/learn/updating-arrays-in-state)
+- [Immer.js Documentation](https://immerjs.github.io/immer/)
+
 ## 33. Referential Equality
 
 **Referential equality** (`===`) so sánh xem hai variables có trỏ đến **cùng một object trong memory** không, không phải so sánh giá trị bên trong.
@@ -2039,6 +2206,12 @@ Object.is(+0, -0)    // false
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [React Docs: memo](https://react.dev/reference/react/memo)
+- [React Docs: useMemo](https://react.dev/reference/react/useMemo)
+- [React Docs: useCallback](https://react.dev/reference/react/useCallback)
 
 ## 34. Memoization Pitfalls
 
@@ -2117,6 +2290,12 @@ const Child = React.memo(({ onClick }) => <button onClick={onClick}>click</butto
 
 ---
 
+### Tài liệu tham khảo
+
+- [React Docs: useMemo](https://react.dev/reference/react/useMemo)
+- [React Docs: useCallback](https://react.dev/reference/react/useCallback)
+- [React Docs: When to add memo](https://react.dev/reference/react/memo#should-you-add-memo-everywhere)
+
 ## 35. Race Conditions in UI State
 
 **Race condition** xảy ra khi nhiều async operations chạy song song và kết quả về theo thứ tự không đoán trước, gây state không nhất quán.
@@ -2185,6 +2364,11 @@ const { data } = useQuery({
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [React Docs: Fetching Data in Effects](https://react.dev/learn/synchronizing-with-effects#fetching-data)
+- [MDN: AbortController](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
 
 ## 36. Finite State Modeling
 
@@ -2258,6 +2442,11 @@ const fetchMachine = createMachine({
 
 ---
 
+### Tài liệu tham khảo
+
+- [XState Documentation](https://xstate.js.org/docs/)
+- [Stately: State Machines in React](https://stately.ai/docs)
+
 ## 37. Event Sourcing in Frontend
 
 **Event sourcing** lưu trữ **chuỗi events** (những gì đã xảy ra) thay vì lưu trạng thái hiện tại. State được tái tạo bằng cách replay toàn bộ events.
@@ -2309,6 +2498,11 @@ Queries (read):     getCartItems() = replay(events) → current state
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [Redux Docs: Core Concepts](https://redux.js.org/tutorials/fundamentals/part-1-overview)
+- [Martin Fowler: Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html)
 
 ## 38. Optimistic UI Rollback Strategy
 
@@ -2373,6 +2567,11 @@ const mutation = useMutation({
 
 ---
 
+### Tài liệu tham khảo
+
+- [TanStack Query: Optimistic Updates](https://tanstack.com/query/latest/docs/framework/react/guides/optimistic-updates)
+- [React Docs: useOptimistic](https://react.dev/reference/react/useOptimistic)
+
 ## 39. Deterministic Rendering
 
 **Deterministic rendering** đảm bảo cùng props + state luôn tạo ra **cùng UI**, bất kể thời điểm hay số lần render.
@@ -2422,6 +2621,11 @@ const name = useSyncExternalStore(store.subscribe, () => store.currentUser.name)
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [React Docs: Keeping Components Pure](https://react.dev/learn/keeping-components-pure)
+- [React Docs: StrictMode](https://react.dev/reference/react/StrictMode)
 
 ## 40. Idempotent UI Actions
 
@@ -2499,6 +2703,11 @@ dispatch({ type: 'SET_SIDEBAR', payload: { open: true } });
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [MDN: Idempotent](https://developer.mozilla.org/en-US/docs/Glossary/Idempotent)
+- [Stripe: Idempotent Requests](https://stripe.com/docs/api/idempotent_requests)
 
 ## LEVEL 5: Caching & Networking chiến lược
 
@@ -2594,6 +2803,11 @@ async function getUser(id) {
 
 ---
 
+### Tài liệu tham khảo
+
+- [MDN: HTTP Caching](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching)
+- [TanStack Query: Invalidations from Mutations](https://tanstack.com/query/latest/docs/framework/react/guides/invalidations-from-mutations)
+
 ## 42. Stale-While-Revalidate
 
 **Stale-While-Revalidate (SWR)** là chiến lược cache: trả về data cũ (stale) ngay lập tức, đồng thời revalidate trong background. User thấy data ngay, data được update sau.
@@ -2670,6 +2884,11 @@ async function fetchWithSWR(key, fetcher) {
 
 ---
 
+### Tài liệu tham khảo
+
+- [web.dev: Stale-While-Revalidate](https://web.dev/articles/stale-while-revalidate)
+- [SWR Documentation](https://swr.vercel.app/docs/getting-started)
+
 ## 43. ETag vs Cache-Control
 
 Hai cơ chế HTTP caching khác nhau: **Cache-Control** kiểm soát *khi nào* fetch lại, **ETag** kiểm soát *liệu có cần* download lại không.
@@ -2738,6 +2957,11 @@ ETag: "abc123"               ← nếu quá 60s, check xem có đổi không tr�
 
 ---
 
+### Tài liệu tham khảo
+
+- [MDN: ETag](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag)
+- [MDN: Cache-Control](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control)
+
 ## 44. HTTP/3 và QUIC
 
 **HTTP/3** là phiên bản mới nhất của HTTP, chạy trên **QUIC** thay vì TCP — giải quyết "head-of-line blocking" của HTTP/2.
@@ -2794,6 +3018,12 @@ HTTP/1.1 200 OK
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [MDN: HTTP/3](https://developer.mozilla.org/en-US/docs/Glossary/HTTP_3)
+- [web.dev: HTTP/2 Performance](https://web.dev/articles/performance-http2)
+- [Cloudflare: What is QUIC?](https://www.cloudflare.com/learning/performance/what-is-quic/)
 
 ## 45. Backpressure in Streams API
 
@@ -2874,6 +3104,11 @@ async function streamResponse(url, onChunk) {
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [MDN: Streams API](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API)
+- [WHATWG Streams Spec](https://streams.spec.whatwg.org/)
 
 ## 46. AbortController
 
@@ -2974,6 +3209,11 @@ const signal = AbortSignal.any([
 
 ---
 
+### Tài liệu tham khảo
+
+- [MDN: AbortController](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+- [MDN: AbortSignal](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal)
+
 ## 47. Streaming Fetch Response Handling
 
 **Streaming fetch** cho phép xử lý response từng chunk khi data đến, không cần đợi toàn bộ response hoàn thành — quan trọng với LLM responses, large file downloads, real-time feeds.
@@ -3070,6 +3310,11 @@ export default function Page() {
 
 ---
 
+### Tài liệu tham khảo
+
+- [MDN: Using Fetch — Body streams](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+- [MDN: ReadableStream](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream)
+
 ## 48. Priority Hints
 
 **Priority Hints** (`fetchpriority` attribute) cho phép khai báo mức độ ưu tiên tải tài nguyên, giúp browser phân bổ bandwidth tốt hơn.
@@ -3136,6 +3381,11 @@ Kết quả: LCP cải thiện 10-30% trên slow connections
 
 ---
 
+### Tài liệu tham khảo
+
+- [web.dev: Priority Hints](https://web.dev/articles/priority-hints)
+- [MDN: fetchpriority attribute](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/fetchPriority)
+
 ## 49. SameSite Cookie Modes
 
 **SameSite** attribute kiểm soát khi nào browser gửi cookie trong cross-site requests — cơ chế bảo vệ chính chống CSRF.
@@ -3200,6 +3450,11 @@ fetch('/api/action', {
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [MDN: SameSite cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite)
+- [web.dev: SameSite cookies explained](https://web.dev/articles/samesite-cookies-explained)
 
 ## 50. Speculative Prerendering
 
@@ -3286,6 +3541,11 @@ if (document.prerendering) {
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [Chrome Developers: Prerender pages](https://developer.chrome.com/docs/web-platform/prerender-pages)
+- [MDN: Speculation Rules API](https://developer.mozilla.org/en-US/docs/Web/API/Speculation_Rules_API)
 
 ## LEVEL 6: Security
 
@@ -3392,6 +3652,11 @@ export function middleware(request) {
 
 ---
 
+### Tài liệu tham khảo
+
+- [MDN: Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
+- [web.dev: Content Security Policy](https://web.dev/articles/csp)
+
 ## 52. Trusted Types
 
 **Vấn đề DOM XSS:**
@@ -3462,6 +3727,11 @@ element.innerHTML = policy.createHTML('<b>hello</b>');
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [web.dev: Trusted Types](https://web.dev/articles/trusted-types)
+- [MDN: Trusted Types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/trusted-types)
 
 ## 53. DOM Clobbering
 
@@ -3537,6 +3807,11 @@ const clean = DOMPurify.sanitize(userHTML, {
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [PortSwigger: DOM Clobbering](https://portswigger.net/web-security/dom-based/dom-clobbering)
+- [OWASP: DOM Clobbering](https://owasp.org/www-community/attacks/DOM_Clobbering)
 
 ## 54. Prototype Pollution
 
@@ -3623,6 +3898,11 @@ console.log({}.polluted); // true → bị lỗ hổng
 
 ---
 
+### Tài liệu tham khảo
+
+- [PortSwigger: Prototype Pollution](https://portswigger.net/web-security/prototype-pollution)
+- [MDN: Prototype chain](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
+
 ## 55. Same-Origin Policy Nuances
 
 **Same-Origin Policy (SOP) cơ bản:**
@@ -3688,6 +3968,11 @@ Cross-Origin-Embedder-Policy: require-corp
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [MDN: Same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)
+- [web.dev: Same-origin policy](https://web.dev/articles/same-origin-policy)
 
 ## 56. Service Worker Lifecycle Traps
 
@@ -3779,6 +4064,11 @@ navigator.serviceWorker.register('/admin/sw.js');
 
 ---
 
+### Tài liệu tham khảo
+
+- [Chrome Developers: Service Worker Lifecycle](https://developer.chrome.com/docs/workbox/service-worker-lifecycle)
+- [MDN: Using Service Workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+
 ## 57. SharedArrayBuffer
 
 **SharedArrayBuffer là gì?**
@@ -3854,6 +4144,11 @@ if (crossOriginIsolated) {
 - Real-time audio/video processing
 
 ---
+
+### Tài liệu tham khảo
+
+- [MDN: SharedArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer)
+- [Chrome Blog: Enabling SharedArrayBuffers](https://developer.chrome.com/blog/enabling-shared-array-buffers)
 
 ## 58. Transferable Objects
 
@@ -3939,6 +4234,11 @@ worker2.postMessage({ port: port2 }, [port2]);
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [MDN: Transferable objects](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Transferable_objects)
+- [MDN: OffscreenCanvas](https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas)
 
 ## 59. CORS Preflight Internals
 
@@ -4030,6 +4330,11 @@ fetch('https://api.other.com/data', {
 | `Header not allowed` | Custom header không trong Allow-Headers | Thêm vào `Access-Control-Allow-Headers` |
 
 ---
+
+### Tài liệu tham khảo
+
+- [MDN: CORS in detail](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
+- [Fetch Spec: CORS-preflight fetch](https://fetch.spec.whatwg.org/#cors-preflight-fetch)
 
 ## 60. Offline Conflict Resolution
 
@@ -4204,6 +4509,11 @@ window.addEventListener('online', syncQueue);
 
 ---
 
+### Tài liệu tham khảo
+
+- [web.dev: Offline Cookbook](https://web.dev/articles/offline-cookbook)
+- [MDN: IndexedDB API](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API)
+
 ## LEVEL 7: Web Platform Internals
 
 ---
@@ -4293,6 +4603,11 @@ createIsland('[data-island="chart"]', () => import('./chart.js'));
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [Jason Miller: Islands Architecture](https://jasonformat.com/islands-architecture/)
+- [Astro: Islands](https://docs.astro.build/en/concepts/islands/)
 
 ## 62. Partial Hydration
 
@@ -4389,6 +4704,11 @@ function App() {
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [Astro: Partial Hydration](https://docs.astro.build/en/concepts/islands/)
+- [React WG: Selective Hydration](https://github.com/reactwg/react-18/discussions/37)
 
 ## 63. Streaming SSR
 
@@ -4503,6 +4823,11 @@ export default function Page() {
 
 ---
 
+### Tài liệu tham khảo
+
+- [React Docs: renderToPipeableStream](https://react.dev/reference/react-dom/server/renderToPipeableStream)
+- [Next.js: Loading UI & Streaming](https://nextjs.org/docs/app/building-your-application/routing/loading-ui-and-streaming)
+
 ## 64. Shadow DOM
 
 **Shadow DOM là gì?**
@@ -4611,6 +4936,11 @@ host.addEventListener('click', (e) => {
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [MDN: Using Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM)
+- [web.dev: Shadow DOM v1](https://web.dev/articles/shadowdom-v1)
 
 ## 65. Custom Elements Lifecycle
 
@@ -4727,6 +5057,11 @@ class MyInput extends HTMLElement {
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [MDN: Using custom elements](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements)
+- [HTML Spec: Custom Elements](https://html.spec.whatwg.org/multipage/custom-elements.html)
 
 ## 66. Web Components Interoperability
 
@@ -4846,6 +5181,11 @@ class MyInput extends HTMLElement {
 
 ---
 
+### Tài liệu tham khảo
+
+- [Custom Elements Everywhere](https://custom-elements-everywhere.com/)
+- [MDN: Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components)
+
 ## 67. IntersectionObserver Internals
 
 **IntersectionObserver là gì?**
@@ -4955,6 +5295,11 @@ loadMoreObserver.observe(sentinel);
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [MDN: Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)
+- [web.dev: IntersectionObserver's coming into view](https://web.dev/articles/intersectionobserver)
 
 ## 68. ResizeObserver Loop Limits
 
@@ -5070,6 +5415,11 @@ class ResponsiveCard extends HTMLElement {
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [MDN: ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver)
+- [W3C: Resize Observer Spec](https://www.w3.org/TR/resize-observer/)
 
 ## 69. MutationObserver Cost
 
@@ -5190,6 +5540,11 @@ const observer = new MutationObserver((mutations) => {
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [MDN: MutationObserver](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver)
+- [MDN: MutationObserver.observe()](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver/observe)
 
 ## 70. OffscreenCanvas
 
@@ -5326,6 +5681,11 @@ self.onmessage = ({ data }) => {
 
 ---
 
+### Tài liệu tham khảo
+
+- [MDN: OffscreenCanvas](https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas)
+- [Chrome Blog: OffscreenCanvas](https://developer.chrome.com/blog/offscreen-canvas)
+
 ## LEVEL 8: Concurrency & Streams
 
 ---
@@ -5435,6 +5795,11 @@ scheduler.postTask(() => {
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [web.dev: Optimize Long Tasks](https://web.dev/articles/optimize-long-tasks)
+- [MDN: Scheduler API](https://developer.mozilla.org/en-US/docs/Web/API/Scheduler)
 
 ## 72. Priority Inversion in Async Code
 
@@ -5562,6 +5927,11 @@ async function lowPriorityTask() {
 
 ---
 
+### Tài liệu tham khảo
+
+- [MDN: scheduler.postTask()](https://developer.mozilla.org/en-US/docs/Web/API/Scheduler/postTask)
+- [React Docs: startTransition](https://react.dev/reference/react/startTransition)
+
 ## 73. Scheduler Internals
 
 **JavaScript Scheduler hoạt động như thế nào?**
@@ -5682,6 +6052,11 @@ function shouldYieldToHost() {
 
 ---
 
+### Tài liệu tham khảo
+
+- [MDN: Scheduler API](https://developer.mozilla.org/en-US/docs/Web/API/Scheduler)
+- [React Source: Scheduler package](https://github.com/facebook/react/tree/main/packages/scheduler)
+
 ## 74. Concurrent Rendering Tearing
 
 **Tearing là gì?**
@@ -5768,6 +6143,11 @@ React quản lý state nội bộ → biết khi nào state đổi
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [React Docs: useSyncExternalStore](https://react.dev/reference/react/useSyncExternalStore)
+- [React WG: Tearing](https://github.com/reactwg/react-18/discussions/69)
 
 ## 75. Backpressure Handling
 
@@ -5891,6 +6271,11 @@ async function consumer() {
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [MDN: Streams API Concepts](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API/Concepts)
+- [WHATWG: Streams Living Standard](https://streams.spec.whatwg.org/)
 
 ## 76. Streaming SSR Pipelines
 
@@ -6035,6 +6420,11 @@ export async function GET() {
 
 ---
 
+### Tài liệu tham khảo
+
+- [React Docs: renderToPipeableStream](https://react.dev/reference/react-dom/server/renderToPipeableStream)
+- [Next.js: Streaming](https://nextjs.org/docs/app/building-your-application/routing/loading-ui-and-streaming)
+
 ## 77. WebRTC Basics
 
 **WebRTC là gì?**
@@ -6142,6 +6532,11 @@ pc.ondatachannel = (event) => {
 | Độ trễ | Thấp (P2P) | Cao hơn (qua server) |
 
 ---
+
+### Tài liệu tham khảo
+
+- [MDN: WebRTC API](https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API)
+- [WebRTC.org: Getting Started](https://webrtc.org/getting-started/overview)
 
 ## 78. CRDT Basics for Collaboration
 
@@ -6290,6 +6685,11 @@ Diamond Types → CRDT hiệu năng cao (Rust → WASM)
 
 ---
 
+### Tài liệu tham khảo
+
+- [crdt.tech](https://crdt.tech/)
+- [Yjs Documentation](https://docs.yjs.dev/)
+
 ## 79. Shared Memory Models
 
 **Shared Memory là gì?**
@@ -6392,6 +6792,11 @@ Atomics.add(flag, 0, 0); // No-op nhưng tạo memory fence
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [MDN: SharedArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer)
+- [MDN: Atomics](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics)
 
 ## 80. Deterministic UI Under Async
 
@@ -6537,6 +6942,11 @@ test('shows latest user when switching quickly', async () => {
 
 ---
 
+### Tài liệu tham khảo
+
+- [React Docs: Synchronizing with Effects](https://react.dev/learn/synchronizing-with-effects)
+- [TanStack Query: Query Cancellation](https://tanstack.com/query/latest/docs/framework/react/guides/query-cancellation)
+
 ## LEVEL 9: Performance Metrics Thực Chiến
 
 ---
@@ -6631,6 +7041,11 @@ async function heavyInit() {
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [web.dev: FID](https://web.dev/articles/fid)
+- [web.dev: Core Web Vitals](https://web.dev/articles/vitals)
 
 ## 82. Interaction to Next Paint (INP)
 
@@ -6756,6 +7171,11 @@ element.addEventListener('click', () => {
 
 ---
 
+### Tài liệu tham khảo
+
+- [web.dev: INP](https://web.dev/articles/inp)
+- [web.dev: Optimize INP](https://web.dev/articles/optimize-inp)
+
 ## 83. Cumulative Layout Shift (CLS)
 
 **CLS là gì?**
@@ -6873,6 +7293,11 @@ showBanner(); // push everything down
 
 ---
 
+### Tài liệu tham khảo
+
+- [web.dev: CLS](https://web.dev/articles/cls)
+- [web.dev: Optimize CLS](https://web.dev/articles/optimize-cls)
+
 ## 84. Largest Contentful Paint (LCP)
 
 **LCP là gì?**
@@ -6965,6 +7390,11 @@ Element Render Delay: Từ download xong đến paint
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [web.dev: LCP](https://web.dev/articles/lcp)
+- [web.dev: Optimize LCP](https://web.dev/articles/optimize-lcp)
 
 ## 85. PerformanceObserver API
 
@@ -7068,6 +7498,11 @@ observer.disconnect();
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [MDN: PerformanceObserver](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver)
+- [web.dev: Custom Metrics](https://web.dev/articles/custom-metrics)
 
 ## 86. Long Tasks API
 
@@ -7176,6 +7611,11 @@ for (const item of items) {
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [MDN: Long Tasks API](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceLongTaskTiming)
+- [web.dev: Optimize Long Tasks](https://web.dev/articles/optimize-long-tasks)
 
 ## 87. Browser Memory Leak Detection
 
@@ -7312,6 +7752,11 @@ function removeItem(id) {
 
 ---
 
+### Tài liệu tham khảo
+
+- [Chrome DevTools: Fix Memory Problems](https://developer.chrome.com/docs/devtools/memory-problems)
+- [MDN: Memory Management](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_management)
+
 ## 88. Accessibility Tree
 
 **Accessibility Tree là gì?**
@@ -7439,6 +7884,12 @@ function closeModal(modalEl, triggerEl) {
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [MDN: Accessibility Tree](https://developer.mozilla.org/en-US/docs/Glossary/Accessibility_tree)
+- [web.dev: Accessibility](https://web.dev/articles/accessibility)
+- [Chrome DevTools: Accessibility Panel](https://developer.chrome.com/docs/devtools/accessibility/reference)
 
 ## 89. ARIA Live Regions Internals
 
@@ -7570,6 +8021,11 @@ function ToastProvider({ children }) {
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [MDN: ARIA Live Regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions)
+- [WAI-ARIA: Live Region Roles](https://www.w3.org/TR/wai-aria-1.2/#live_region_roles)
 
 ## 90. Pointer Events Model
 
@@ -7704,6 +8160,11 @@ element.addEventListener('pointercancel', (e) => {
 
 ---
 
+### Tài liệu tham khảo
+
+- [MDN: Pointer Events](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_events)
+- [W3C: Pointer Events Spec](https://www.w3.org/TR/pointerevents/)
+
 ## LEVEL 10: Kiến Trúc Hệ Thống Frontend Hiện Đại
 
 ---
@@ -7822,6 +8283,11 @@ export async function GET(request) {
 | DB connections | Cần HTTP API | TCP OK |
 
 ---
+
+### Tài liệu tham khảo
+
+- [Vercel: Edge Functions](https://vercel.com/docs/functions/edge-functions)
+- [Next.js: Edge and Node.js Runtimes](https://nextjs.org/docs/app/building-your-application/rendering/edge-and-nodejs-runtimes)
 
 ## 92. Micro-Frontend Orchestration
 
@@ -7945,6 +8411,11 @@ const React = window.__MFE_SHARED__?.React ?? require('react');
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [micro-frontends.org](https://micro-frontends.org/)
+- [Martin Fowler: Micro Frontends](https://martinfowler.com/articles/micro-frontends.html)
 
 ## 93. Module Federation
 
@@ -8084,6 +8555,11 @@ export default {
 
 ---
 
+### Tài liệu tham khảo
+
+- [Webpack: Module Federation](https://webpack.js.org/concepts/module-federation/)
+- [Module Federation Docs](https://module-federation.io/)
+
 ## 94. WebAssembly Integration
 
 **WebAssembly là gì?**
@@ -8211,6 +8687,12 @@ memory.grow(1); // tăng thêm 1 page (64KB)
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [MDN: WebAssembly](https://developer.mozilla.org/en-US/docs/WebAssembly)
+- [WebAssembly.org](https://webassembly.org/getting-started/developers-guide/)
+- [Rust & WebAssembly Book](https://rustwasm.github.io/docs/book/)
 
 ## 95. IndexedDB Scaling Strategy
 
@@ -8355,6 +8837,11 @@ async function cleanupOldData(db, maxAge = 30 * 24 * 60 * 60 * 1000) {
 
 ---
 
+### Tài liệu tham khảo
+
+- [MDN: IndexedDB API](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API)
+- [web.dev: IndexedDB best practices](https://web.dev/articles/indexeddb-best-practices)
+
 ## 96. Server Components Architecture
 
 **React Server Components (RSC) là gì?**
@@ -8480,6 +8967,11 @@ function TaskForm() {
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [React Docs: Server Components](https://react.dev/blog/2023/03/22/react-labs-what-we-have-been-working-on-march-2023)
+- [Next.js: Server and Client Composition](https://nextjs.org/docs/app/building-your-application/rendering/composition-patterns)
 
 ## 97. Offline-First Design
 
@@ -8623,6 +9115,11 @@ async function networkFirstWithFallback(request) {
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [web.dev: Offline Cookbook](https://web.dev/articles/offline-cookbook)
+- [MDN: Progressive Web Apps — Offline](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Guides/Offline_and_background_operation)
 
 ## 98. Conflict Resolution Models
 
@@ -8788,6 +9285,11 @@ class VectorClock {
 
 ---
 
+### Tài liệu tham khảo
+
+- [crdt.tech: CRDT Resources](https://crdt.tech/)
+- [Martin Fowler: CQRS](https://martinfowler.com/bliki/CQRS.html)
+
 ## 99. Distributed UI Consistency
 
 **Bài toán:**
@@ -8916,6 +9418,11 @@ provider.awareness.on('change', () => {
 ```
 
 ---
+
+### Tài liệu tham khảo
+
+- [Yjs: Real-time collaboration](https://docs.yjs.dev/)
+- [MDN: WebSockets API](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
 
 ## 100. Frontend System Design Trade-offs
 
@@ -9056,3 +9563,8 @@ Micro-Frontends:
    □ Performance monitoring?
 ```
 
+### Tài liệu tham khảo
+
+- [web.dev: Core Web Vitals](https://web.dev/articles/vitals)
+- [Next.js: Rendering](https://nextjs.org/docs/app/building-your-application/rendering)
+- [Martin Fowler: Micro Frontends](https://martinfowler.com/articles/micro-frontends.html)
