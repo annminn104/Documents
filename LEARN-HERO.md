@@ -6,6 +6,160 @@ Tổng hợp giải thích các khái niệm quan trọng trong Web Development.
 
 ---
 
+## Mục lục
+
+### [LEVEL 1: Base](#level-1-base)
+
+| # | Topic |
+| --- | --- |
+| [1](#1-hydration) | Hydration |
+| [2](#2-virtual-dom-diffing-complexity) | Virtual DOM Diffing Complexity |
+| [3](#3-event-loop-macro-vs-microtasks) | Event Loop (Macro vs Microtasks) |
+| [4](#4-critical-rendering-path) | Critical Rendering Path |
+| [5](#5-code-splitting-strategies) | Code Splitting Strategies |
+| [6](#6-dynamic-import-chunking) | Dynamic Import Chunking |
+| [7](#7-preload-vs-prefetch-vs-preconnect) | Preload vs Prefetch vs Preconnect |
+| [8](#8-cors-preflight) | CORS Preflight |
+| [9](#9-csrf-vs-xss-mitigation) | CSRF vs XSS Mitigation |
+| [10](#10-web-workers-vs-service-workers) | Web Workers vs Service Workers |
+
+### [LEVEL 2: React Core & Rendering Mechanics](#level-2-react-core--rendering-mechanics)
+
+| # | Topic |
+| --- | --- |
+| [11](#11-reconciliation-algorithm) | Reconciliation Algorithm |
+| [12](#12-fiber-architecture) | Fiber Architecture |
+| [13](#13-concurrent-rendering) | Concurrent Rendering |
+| [14](#14-time-slicing) | Time Slicing |
+| [15](#15-scheduler-priorities) | Scheduler Priorities |
+| [16](#16-suspense-boundaries) | Suspense Boundaries |
+| [17](#17-selective-hydration) | Selective Hydration |
+| [18](#18-server-components) | Server Components |
+| [19](#19-tearing-in-concurrent-ui) | Tearing in Concurrent UI |
+| [20](#20-stale-closure-problem) | Stale Closure Problem |
+
+### [LEVEL 3: Performance Nền Tảng Trình Duyệt](#level-3-performance-nền-tảng-trình-duyệt)
+
+| # | Topic |
+| --- | --- |
+| [21](#21-layout-thrashing) | Layout Thrashing |
+| [22](#22-paint-vs-layout-vs-composite) | Paint vs Layout vs Composite |
+| [23](#23-browser-compositing-layers) | Browser Compositing Layers |
+| [24](#24-gpu-acceleration-in-css) | GPU Acceleration in CSS |
+| [25](#25-css-containment) | CSS Containment |
+| [26](#26-render-blocking-resources) | Render Blocking Resources |
+| [27](#27-render-waterfalls) | Render Waterfalls |
+| [28](#28-subpixel-rendering) | Subpixel Rendering |
+| [29](#29-detached-dom-nodes) | Detached DOM Nodes |
+| [30](#30-garbage-collection-timing) | Garbage Collection Timing |
+
+### [LEVEL 4: Data & State Management Nâng Cao](#level-4-data--state-management-nâng-cao)
+
+| # | Topic |
+| --- | --- |
+| [31](#31-structural-sharing) | Structural Sharing |
+| [32](#32-immutable-data-patterns) | Immutable Data Patterns |
+| [33](#33-referential-equality) | Referential Equality |
+| [34](#34-memoization-pitfalls) | Memoization Pitfalls |
+| [35](#35-race-conditions-in-ui-state) | Race Conditions in UI State |
+| [36](#36-finite-state-modeling) | Finite State Modeling |
+| [37](#37-event-sourcing-in-frontend) | Event Sourcing in Frontend |
+| [38](#38-optimistic-ui-rollback-strategy) | Optimistic UI Rollback Strategy |
+| [39](#39-deterministic-rendering) | Deterministic Rendering |
+| [40](#40-idempotent-ui-actions) | Idempotent UI Actions |
+
+### [LEVEL 5: Caching & Networking Chiến Lược](#level-5-caching--networking-chiến-lược)
+
+| # | Topic |
+| --- | --- |
+| [41](#41-cache-invalidation-strategies) | Cache Invalidation Strategies |
+| [42](#42-stale-while-revalidate) | Stale-While-Revalidate |
+| [43](#43-etag-vs-cache-control) | ETag vs Cache-Control |
+| [44](#44-http3-và-quic) | HTTP/3 và QUIC |
+| [45](#45-backpressure-in-streams-api) | Backpressure in Streams API |
+| [46](#46-abortcontroller) | AbortController |
+| [47](#47-streaming-fetch-response-handling) | Streaming Fetch Response Handling |
+| [48](#48-priority-hints) | Priority Hints |
+| [49](#49-samesite-cookie-modes) | SameSite Cookie Modes |
+| [50](#50-speculative-prerendering) | Speculative Prerendering |
+
+### [LEVEL 6: Security](#level-6-security)
+
+| # | Topic |
+| --- | --- |
+| [51](#51-content-security-policy-csp) | Content Security Policy (CSP) |
+| [52](#52-trusted-types) | Trusted Types |
+| [53](#53-dom-clobbering) | DOM Clobbering |
+| [54](#54-prototype-pollution) | Prototype Pollution |
+| [55](#55-same-origin-policy-nuances) | Same-Origin Policy Nuances |
+| [56](#56-service-worker-lifecycle-traps) | Service Worker Lifecycle Traps |
+| [57](#57-sharedarraybuffer) | SharedArrayBuffer |
+| [58](#58-transferable-objects) | Transferable Objects |
+| [59](#59-cors-preflight-internals) | CORS Preflight Internals |
+| [60](#60-offline-conflict-resolution) | Offline Conflict Resolution |
+
+### [LEVEL 7: Web Platform Internals](#level-7-web-platform-internals)
+
+| # | Topic |
+| --- | --- |
+| [61](#61-islands-architecture) | Islands Architecture |
+| [62](#62-partial-hydration) | Partial Hydration |
+| [63](#63-streaming-ssr) | Streaming SSR |
+| [64](#64-shadow-dom) | Shadow DOM |
+| [65](#65-custom-elements-lifecycle) | Custom Elements Lifecycle |
+| [66](#66-web-components-interoperability) | Web Components Interoperability |
+| [67](#67-intersectionobserver-internals) | IntersectionObserver Internals |
+| [68](#68-resizeobserver-loop-limits) | ResizeObserver Loop Limits |
+| [69](#69-mutationobserver-cost) | MutationObserver Cost |
+| [70](#70-offscreencanvas) | OffscreenCanvas |
+
+### [LEVEL 8: Concurrency & Streams](#level-8-concurrency--streams)
+
+| # | Topic |
+| --- | --- |
+| [71](#71-task-starvation) | Task Starvation |
+| [72](#72-priority-inversion-in-async-code) | Priority Inversion in Async Code |
+| [73](#73-scheduler-internals) | Scheduler Internals |
+| [74](#74-concurrent-rendering-tearing) | Concurrent Rendering Tearing |
+| [75](#75-backpressure-handling) | Backpressure Handling |
+| [76](#76-streaming-ssr-pipelines) | Streaming SSR Pipelines |
+| [77](#77-webrtc-basics) | WebRTC Basics |
+| [78](#78-crdt-basics-for-collaboration) | CRDT Basics for Collaboration |
+| [79](#79-shared-memory-models) | Shared Memory Models |
+| [80](#80-deterministic-ui-under-async) | Deterministic UI Under Async |
+
+### [LEVEL 9: Performance Metrics Thực Chiến](#level-9-performance-metrics-thực-chiến)
+
+| # | Topic |
+| --- | --- |
+| [81](#81-first-input-delay-fid) | First Input Delay (FID) |
+| [82](#82-interaction-to-next-paint-inp) | Interaction to Next Paint (INP) |
+| [83](#83-cumulative-layout-shift-cls) | Cumulative Layout Shift (CLS) |
+| [84](#84-largest-contentful-paint-lcp) | Largest Contentful Paint (LCP) |
+| [85](#85-performanceobserver-api) | PerformanceObserver API |
+| [86](#86-long-tasks-api) | Long Tasks API |
+| [87](#87-browser-memory-leak-detection) | Browser Memory Leak Detection |
+| [88](#88-accessibility-tree) | Accessibility Tree |
+| [89](#89-aria-live-regions-internals) | ARIA Live Regions Internals |
+| [90](#90-pointer-events-model) | Pointer Events Model |
+
+### [LEVEL 10: Kiến Trúc Hệ Thống Frontend Hiện Đại](#level-10-kiến-trúc-hệ-thống-frontend-hiện-đại)
+
+| # | Topic |
+| --- | --- |
+| [91](#91-edge-rendering) | Edge Rendering |
+| [92](#92-micro-frontend-orchestration) | Micro-Frontend Orchestration |
+| [93](#93-module-federation) | Module Federation |
+| [94](#94-webassembly-integration) | WebAssembly Integration |
+| [95](#95-indexeddb-scaling-strategy) | IndexedDB Scaling Strategy |
+| [96](#96-server-components-architecture) | Server Components Architecture |
+| [97](#97-offline-first-design) | Offline-First Design |
+| [98](#98-conflict-resolution-models) | Conflict Resolution Models |
+| [99](#99-distributed-ui-consistency) | Distributed UI Consistency |
+| [100](#100-frontend-system-design-trade-offs) | Frontend System Design Trade-offs |
+
+---
+
 ## LEVEL 1: Base
 
 ## 1. Hydration
